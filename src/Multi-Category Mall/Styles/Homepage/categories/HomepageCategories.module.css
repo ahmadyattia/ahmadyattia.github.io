@@ -40,7 +40,7 @@
 }
 
 .trackVibrate:hover {
-  animation: vibrate 0.5s linear;
+  animation: vibrate 1s linear;
 }
 
 @keyframes vibrate {
