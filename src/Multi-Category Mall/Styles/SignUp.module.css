@@ -1,0 +1,63 @@
+#signUpHead {
+  color: blue;
+  font-size: 2rem;
+}
+
+#registerForm {
+  height: 86vh;
+  color: white;
+  font-family: "urbanist", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#registerForm form div {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+}
+
+#registerForm label {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: rgb(174, 171, 171);
+}
+
+#registerForm input {
+  width: 15rem;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  background-color: rgb(54, 53, 53);
+  border: 0;
+  color: white;
+  font-size: 1rem;
+  font-family: "urbanist", sans-serif;
+}
+
+#registerForm input:focus {
+  outline: 0.2rem solid blue;
+}
+
+#submitBtn {
+  width: 15rem;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  color: white;
+  background-color: blue;
+  font-size: 1.2rem;
+  font-family: "urbanist", sans-serif;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+}
+
+#submitBtn:hover {
+  background-color: rgb(8, 8, 176);
+}
+
+#passwordSpan {
+  position: relative;
+  margin: 0;
+}

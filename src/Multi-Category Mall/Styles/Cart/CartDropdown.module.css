@@ -1,0 +1,52 @@
+.cartDropdown {
+  width: max-content;
+  min-width: 22rem;
+  height: 0;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.5s;
+  overflow: hidden; /* prevents the content from 
+  staying visible after animation */
+}
+
+.adjustHeight {
+  height: 49rem;
+  max-height: calc(100vh - 4.5rem);
+}
+
+#cartHead {
+  margin: 1rem 1rem 0 1rem;
+  background-color: black;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  text-align: center;
+  width: 5rem;
+  color: #ffffff;
+  transition: opacity 0.5s;
+  font-size: clamp(1rem, 0.5rem + 2vw, 2rem);
+  flex-shrink: 0;
+}
+
+#cartItems {
+  overflow: auto;
+  flex-grow: 1;
+  scrollbar-color: black white;
+  height: max-content;
+}
+
+#cartItems hr {
+  width: 90%;
+  border-top: 0;
+}
+
+#emptyCartHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  color: blue;
+  flex-grow: 1;
+}

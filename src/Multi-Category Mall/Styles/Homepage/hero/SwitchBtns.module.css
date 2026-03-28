@@ -1,0 +1,22 @@
+.switchBtns img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.switchBtns button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0.1rem solid black;
+  padding: 0.5rem;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+
+.switchBtns button:hover {
+  border: 0.1rem solid white;
+}
+
+.heroArrowIconCentering {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,21 @@
+#shop-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  justify-content: center;
+  grid-gap: 3rem;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 62.5rem;
+}
+
+/* @media (max-width: 940px) {
+  #shop-categories {
+    grid-template-columns: repeat(2, 20rem);
+  }
+}
+
+@media (max-width: 220px) {
+  #shop-categories {
+    grid-template-columns: repeat(1, 20rem);
+  }
+} */

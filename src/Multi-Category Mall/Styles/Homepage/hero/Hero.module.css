@@ -1,0 +1,26 @@
+#hero {
+  position: relative;
+  background-image: linear-gradient(black, blue);
+  height: calc(100vh - (4.5rem + 4rem)); /* 4.5rem navbar - 4rem breadcrumbs */
+  width: 100%;
+  font-family: var(--primary-font);
+  border-radius: 0.1rem;
+  animation: fadeIn 1s normal;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: calc(60vh - (4.5rem + 4rem));
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

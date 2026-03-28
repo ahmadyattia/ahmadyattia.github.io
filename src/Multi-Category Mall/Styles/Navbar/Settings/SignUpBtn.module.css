@@ -1,0 +1,11 @@
+.flexContainer {
+  display: flex;
+  align-items: center;
+}
+
+#signUpIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* the button's styling is in the 'Navbarsettings.module.css' file */

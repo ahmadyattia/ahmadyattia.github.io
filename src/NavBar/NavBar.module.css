@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+#nav-bar {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: brown;
+}
+
+#nav-bar button {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  border: 0;
+  cursor: pointer;
+  background-color: #0000003d;
+  color: white;
+  font-weight: bold;
+}
+
+#nav-bar button:hover {
+  background-color: rgba(211, 211, 211, 0.356);
+  color: white;
+}
+
+#projects-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 25px;
+  width: 200px;
+  margin: 3px;
+  background-color: brown;
+  border-radius: 3px;
+  transition: height 0.25s, border 0.25s;
+  transition-timing-function: linear;
+}
+
+.dropdown-is-open {
+  height: 500px;
+}
+
+.dropdown-is-closed {
+  height: 0;
+}
+
+#projects {
+  list-style-type: none;
+  padding: 0;
+  visibility: hidden;
+}
+
+#projects-title {
+  margin: 5px;
+  font-size: 30px;
+  visibility: visible;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid white;
+}
+
+#nav-proj-btn {
+  position: relative;
+}

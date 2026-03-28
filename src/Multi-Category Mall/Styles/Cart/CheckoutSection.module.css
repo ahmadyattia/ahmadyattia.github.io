@@ -1,0 +1,128 @@
+#checkoutSectionBox {
+  width: 100%;
+  max-width: 60rem;
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  #checkoutSectionBox {
+    max-width: 30rem;
+  }
+}
+
+#checkoutSection {
+  width: 100%;
+  border: 0.1rem solid rgb(67, 67, 67);
+  border-radius: 1rem;
+  padding: 1rem;
+  font-family: var(--primary-font);
+}
+
+#promoCodeBox h3 {
+  color: white;
+  margin: 0 0 1rem 0;
+}
+
+#promoCodeInputBox {
+  position: relative;
+}
+
+#promoCodeInput {
+  width: 100%;
+  border-radius: 10rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0.1rem solid rgb(67, 67, 67);
+  font-family: var(--primary-font);
+  color: white;
+  font-size: 1rem;
+}
+
+#promoCodeInput:focus {
+  outline: 0.1rem solid dodgerblue;
+}
+
+#applyBtn {
+  position: absolute;
+  right: 0.3rem;
+  padding: 0.8rem 2.5rem;
+  border-radius: 10rem;
+  border: 0;
+  top: 0;
+  bottom: 0;
+  margin-block: auto; /* Centers vertically */
+  height: max-content;
+  background-color: rgb(67, 67, 67);
+  color: white;
+  font-family: var(--primary-font);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#applyBtn:hover {
+  background-color: dodgerblue;
+}
+
+#checkoutSection hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 0.1rem solid rgb(67, 67, 67);
+}
+
+#subtotalBox {
+  color: grey;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+#subtotalBox p {
+  margin: 0;
+}
+
+#discountBox {
+  color: grey;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+#discountBox p {
+  margin: 0;
+}
+
+#totalBox {
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+#totalBox p {
+  margin: 0;
+}
+
+#checkoutBtnBox {
+  display: flex;
+  justify-content: center;
+}
+
+#checkoutBtn {
+  width: 100%;
+  padding: 1.2rem 0;
+  border-radius: 2rem;
+  font-family: var(--primary-font);
+  background-color: rgb(67, 67, 67);
+  border: 0;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#checkoutBtn:hover {
+  background-color: dodgerblue;
+}

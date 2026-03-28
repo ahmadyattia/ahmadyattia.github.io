@@ -1,0 +1,30 @@
+.pagination {
+  margin: 2rem;
+  font-family: "urbanist", sans-serif;
+}
+
+.link {
+  color: white;
+  margin: 0.5rem;
+  padding: 1rem 1.2rem;
+  background-color: rgb(53, 52, 52);
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+
+.link:hover {
+  background-color: rgb(90, 90, 90);
+}
+
+.currentLink {
+  color: white;
+  margin: 0.5rem;
+  padding: 1rem 1.2rem;
+  background-color: blue;
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+
+.currentLink:hover {
+  background-color: rgb(0, 0, 200);
+}

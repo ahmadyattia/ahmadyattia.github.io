@@ -1,0 +1,94 @@
+.settingsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.settingsIconContainer {
+  margin-right: 1rem;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.settingsIconContainer:hover {
+  background-color: rgb(81, 79, 79);
+  border-radius: 50%;
+}
+
+.settingsIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.hideDropdown {
+  display: none;
+}
+
+.settingsDropdown {
+  position: absolute;
+  right: 1rem;
+  top: 3rem;
+  background-color: white;
+  border-radius: 1rem;
+  width: 14rem;
+  z-index: 2;
+  border: 0.1rem solid black;
+}
+
+#settingsHead {
+  margin: 1.2rem;
+  font-size: 1.2rem;
+  background-color: black;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  text-align: left;
+  width: 5rem;
+  color: white;
+}
+
+.settingsDropdown ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.settingsDropdown ul hr {
+  width: 75%;
+  border-top: 0;
+  border-bottom-color: lightgray;
+}
+
+.settingsDropdown a {
+  text-decoration: none;
+}
+
+.settingsDropdown ul li button {
+  color: black;
+  /* font-size: 1.1rem; */
+  font-size: var(--fs-nav);
+
+  font-family: "urbanist", sans-serif;
+  margin: 0;
+  padding: 0.9rem;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.settingsDropdown ul li button:hover {
+  font-weight: bold;
+}
+
+.liContainer {
+  padding: 0;
+  border-radius: 1rem;
+  margin: 0.2rem;
+}
+
+.liContainer:hover {
+  background-color: rgb(224, 223, 223);
+}

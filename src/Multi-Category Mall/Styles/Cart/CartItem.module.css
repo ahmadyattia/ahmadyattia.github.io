@@ -1,0 +1,141 @@
+.cartItemBox {
+  padding: 0 0 0.5rem 0;
+}
+
+.cartItem {
+  display: flex;
+  border: 0.1rem solid rgb(67, 67, 67);
+  padding: 0.5rem;
+  color: white;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  width: 100%;
+  height: 6rem;
+  transition:
+    height 2s,
+    opacity 2s,
+    border 2s;
+}
+
+.removeItemTransition {
+  height: 0;
+  border: 0;
+  opacity: 0;
+}
+
+.cartItem:hover {
+  background-color: rgb(67, 67, 67);
+}
+
+.imageAndTitle {
+  display: flex;
+  align-items: center;
+  flex: 3;
+}
+
+.productImg {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  background-color: rgb(62, 62, 62);
+}
+
+.title {
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.discount {
+  margin: 0 0.5rem;
+  background-color: darkgreen;
+  color: lightgreen;
+  padding: 0.3rem;
+  width: fit-content;
+  border-radius: 0.2rem;
+  font-size: 0.7rem;
+}
+
+.price {
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.newPrice {
+  color: green;
+}
+
+.viewLinkBox {
+  display: flex;
+  justify-content: center;
+  flex: 0.5;
+}
+
+.viewLink {
+  /* width: 5rem; */
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  background-color: rgb(62, 62, 62);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.viewLink:hover {
+  /* background-color: rgb(49, 49, 49); */
+  background-color: dodgerblue;
+  /* color: black; */
+}
+
+.quantityDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.quantity {
+  /* margin: 0.5rem; */
+  padding: 0 0.5rem;
+  /* width: 10rem; */
+}
+
+.quantityDiv img {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  background-color: rgb(62, 62, 62);
+  border-radius: 50%;
+}
+
+.quantityDiv img:hover {
+  /* background-color: black; */
+  background-color: dodgerblue;
+}
+
+.deleteIconBox {
+  display: flex;
+  justify-content: center;
+  flex: 0.5;
+  /* margin-left: auto; */
+}
+
+.deleteIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: 0;
+  /* margin: auto; */
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  background-color: dodgerblue;
+  border-radius: 50%;
+}

@@ -1,0 +1,13 @@
+.searchItem {
+  display: block;
+  color: white;
+  font-family: var(--primary-font);
+  padding: 1.5rem 1rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.searchItem:hover {
+  background-color: blue;
+}

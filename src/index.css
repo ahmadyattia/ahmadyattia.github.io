@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scrollbar-color: blue black;
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+:root {
+  /* fonts */
+  --primary-font: "urbanist", sans-serif;
+
+  /* font sizes */
+  --fs-h1: clamp(2rem, 1rem + 2vw, 4rem);
+  --fs-nav: clamp(0.875rem, 0.75rem + 0.5vw, 1.125rem);
+  --fs-hero: clamp(1.125rem, 1rem + 1vw, 1.5rem); /* Hero Button size */
+}
+
+body {
+  margin: 0;
+}

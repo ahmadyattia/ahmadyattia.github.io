@@ -1,0 +1,32 @@
+#categoryPage {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#searchAndCategoryName {
+  display: flex;
+  align-items: center;
+}
+
+#categoryPage h2 {
+  /* position: absolute; */
+  flex: 1;
+  margin: 0;
+  color: white;
+  padding: 1rem;
+  font-family: "urbanist", sans-serif;
+  box-sizing: border-box;
+}
+
+/* just for layout */
+#spacer {
+  flex: 1;
+  padding: 1rem;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+}

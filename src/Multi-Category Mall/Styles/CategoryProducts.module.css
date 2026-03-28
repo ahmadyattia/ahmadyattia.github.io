@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  justify-items: center;
+  gap: 5rem;
+  margin: 2rem;
+}
+
+.emptyListNotice {
+  color: white;
+  font-family: "urbanist", sans-serif;
+}

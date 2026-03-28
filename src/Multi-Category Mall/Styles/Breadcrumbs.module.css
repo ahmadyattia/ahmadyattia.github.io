@@ -1,0 +1,22 @@
+#breadcrumbs {
+  font-family: "urbanist", sans-serif;
+  color: white;
+  margin: 0 1rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbLinks {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.flexContainer {
+  display: inline-flex;
+}
+
+.arrowIcon {
+  width: 1rem;
+}

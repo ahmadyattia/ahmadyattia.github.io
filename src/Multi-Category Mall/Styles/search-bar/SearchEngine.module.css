@@ -1,0 +1,30 @@
+#searchBar {
+  width: 23%;
+  position: relative;
+}
+
+#searchInput {
+  font-family: var(--primary-font);
+  background-color: rgb(49, 49, 49);
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  border: 0;
+  color: white;
+}
+
+#searchInput:focus {
+  border: 1px solid blue;
+  outline: 0;
+}
+
+#searchDropdown {
+  position: absolute;
+  margin-top: 0.1rem;
+  width: 100%;
+  height: auto;
+  background-color: rgb(49, 49, 49);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  z-index: 999;
+}

@@ -1,0 +1,43 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 4.5rem;
+  /* background-color: rgb(49, 49, 49); */
+  font-family: "urbanist", sans-serif;
+  /* border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem; */
+}
+
+#logo {
+  color: blue;
+  margin: 0 2rem;
+  font-size: var(--fs-h1);
+}
+
+.mainNavigation {
+  display: flex;
+  font-size: var(--fs-nav);
+}
+
+.mainNavigation a {
+  text-decoration: none;
+}
+
+.mainNavLnkBox {
+  display: flex;
+  align-items: center;
+  height: 4.5rem;
+  margin: 0 1rem;
+  color: white;
+  padding: 0 1rem;
+}
+
+.mainNavLnkBox:hover {
+  font-weight: bold;
+}
+
+.rightContainer {
+  display: flex;
+}

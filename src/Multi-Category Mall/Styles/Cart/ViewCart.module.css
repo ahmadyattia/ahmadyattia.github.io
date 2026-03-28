@@ -1,0 +1,15 @@
+/* mobile-first design */
+
+#cartView {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  /* max-width: 100rem;
+  justify-content: center; */
+}
+
+@media (min-width: 1024px) {
+  #cartView {
+    grid-template-columns: 2fr 1fr;
+  }
+}

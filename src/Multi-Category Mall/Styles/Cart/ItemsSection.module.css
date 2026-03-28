@@ -1,0 +1,72 @@
+/* mobile-first design */
+
+#itemsSectionBox {
+  width: 100%;
+  max-width: 60rem;
+  padding: 1rem;
+}
+
+#itemsSection {
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  width: 100%;
+  height: fit-content;
+  background-color: black;
+  border: 0.1rem solid rgb(67, 67, 67);
+  border-radius: 1rem;
+  font-family: "urbanist", sans-serif;
+}
+
+#headDiv {
+  display: flex;
+  align-items: center;
+}
+
+#cartHeader {
+  color: white;
+  margin: 0.5rem;
+  background-color: rgb(67, 67, 67);
+  /* width: 4rem; */
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#countNotice {
+  color: gray;
+  padding: 0.5rem;
+}
+
+#cartColumnTitles {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+#productsHead {
+  flex: 3;
+}
+
+#quantityHead {
+  flex: 1;
+  text-align: center;
+}
+
+#priceHead {
+  flex: 1;
+  text-align: center;
+}
+
+#emptyCartNotice {
+  color: white;
+  text-align: center;
+}
+
+#titlesPlaceholder {
+  flex: 1;
+}
+
+@media (min-width: 480px) {
+  #itemsSectionBox {
+  }
+}
