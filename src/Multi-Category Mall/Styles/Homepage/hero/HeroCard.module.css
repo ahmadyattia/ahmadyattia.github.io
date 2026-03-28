@@ -21,6 +21,12 @@
   animation: bodyFadeIn 1s normal;
 }
 
+@media (max-width: 768px) {
+  .heroCard img {
+    aspect-ratio: 1 / 2; /* since the height becomes larger than width */
+  }
+}
+
 .body {
   flex: 1;
   display: flex;
