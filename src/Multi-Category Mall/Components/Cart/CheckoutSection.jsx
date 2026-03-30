@@ -1,12 +1,18 @@
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../Context/CartContext";
 import styles from "../../Styles/Cart/CheckoutSection.module.css";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutSection = () => {
   const { cart } = useContext(CartContext);
   const [subTotal, setSubTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("checkout");
+  };
 
   useEffect(() => {
     setSubTotal(
@@ -62,7 +68,9 @@ const CheckoutSection = () => {
           <p>${total}</p>
         </div>
         <div id={styles.checkoutBtnBox}>
-          <button id={styles.checkoutBtn}>Continue to checkout</button>
+          <button id={styles.checkoutBtn} onClick={handleCheckout}>
+            Continue to checkout
+          </button>
         </div>
       </div>
     </div>
