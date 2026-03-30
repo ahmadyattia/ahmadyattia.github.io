@@ -2,7 +2,7 @@ import styles from "../Styles/Login.module.css";
 import { useContext, useEffect, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../server/firebase";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import ShowPassword from "./ShowPassword";
 
@@ -16,6 +16,7 @@ const Login = () => {
   const [passwordVisibility, setPasswordVisibility] = useState("password");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (showPassword) {
@@ -48,7 +49,9 @@ const Login = () => {
       setPassword("");
       console.log("Signed in user:", userCredential.user);
 
-      navigate("/profile", { replace: true });
+      // if coming from, for example, the order checkout, redirect there
+      const redirectPath = location.state.from?.pathname || "/profile";
+      navigate(redirectPath, { replace: true });
     } catch (error) {
       console.error("Sign-in error:", error.code, error.message);
       switch (error.code) {
