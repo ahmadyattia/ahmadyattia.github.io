@@ -11,7 +11,7 @@ const CheckoutSection = () => {
   const navigate = useNavigate();
 
   const handleCheckout = () => {
-    navigate("checkout");
+    navigate("checkout"); // protected route
   };
 
   useEffect(() => {
@@ -72,6 +72,9 @@ const CheckoutSection = () => {
             Continue to checkout
           </button>
         </div>
+        <p id={styles.mustLoginMessage}>
+          *You must be logged into an existing account to proceed.
+        </p>
       </div>
     </div>
   );
