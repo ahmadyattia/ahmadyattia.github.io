@@ -16,6 +16,7 @@ import Profile from "./Multi-Category Mall/Components/Profile";
 import ProtectedRoute from "./Multi-Category Mall/Components/ProtectedRoute";
 import UserDataProvider from "./Multi-Category Mall/Context/UserDataContext";
 import ViewCart from "./Multi-Category Mall/Components/Cart/ViewCart";
+import OrderCheckout from "./Multi-Category Mall/Components/Cart/OrderCheckout";
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
                     <Route path="/profile" element={<Profile />}></Route>
                   </Route>
                   <Route path="/cart" element={<ViewCart />}></Route>
+                  <Route
+                    path="cart/checkout"
+                    element={<OrderCheckout />}
+                  ></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Route>
               </Routes>
