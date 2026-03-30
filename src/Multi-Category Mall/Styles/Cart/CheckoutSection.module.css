@@ -126,3 +126,9 @@
 #checkoutBtn:hover {
   background-color: dodgerblue;
 }
+
+#mustLoginMessage {
+  color: grey;
+  font-size: 0.8rem;
+  text-align: center;
+}
