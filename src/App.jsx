@@ -41,13 +41,22 @@ function App() {
                   ></Route>
                   <Route path="login" element={<Login />}></Route>
                   <Route path="signup" element={<SignUp />}></Route>
-                  <Route element={<ProtectedRoute />}>
-                    <Route path="/profile" element={<Profile />}></Route>
-                  </Route>
+                  <Route
+                    path="/profile"
+                    element={
+                      <ProtectedRoute>
+                        <Profile />
+                      </ProtectedRoute>
+                    }
+                  ></Route>
                   <Route path="/cart" element={<ViewCart />}></Route>
                   <Route
                     path="cart/checkout"
-                    element={<OrderCheckout />}
+                    element={
+                      <ProtectedRoute>
+                        <OrderCheckout />
+                      </ProtectedRoute>
+                    }
                   ></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Route>
