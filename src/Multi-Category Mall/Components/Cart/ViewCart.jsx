@@ -11,7 +11,7 @@ const ViewCart = () => {
     <div>
       <div id={styles.cartView}>
         <ItemsSection />
-        <CheckoutSection />
+        <CheckoutSection page="cart" />
       </div>
     </div>
   );

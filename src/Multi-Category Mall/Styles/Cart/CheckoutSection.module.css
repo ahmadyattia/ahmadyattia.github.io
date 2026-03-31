@@ -12,7 +12,7 @@
 
 #checkoutSection {
   width: 100%;
-  border: 0.1rem solid rgb(67, 67, 67);
+  border: 0.1rem solid rgb(92, 92, 92);
   border-radius: 1rem;
   padding: 1rem;
   font-family: var(--primary-font);
@@ -32,7 +32,7 @@
   border-radius: 10rem;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0);
-  border: 0.1rem solid rgb(67, 67, 67);
+  border: 0.1rem solid rgb(92, 92, 92);
   font-family: var(--primary-font);
   color: white;
   font-size: 1rem;
@@ -52,7 +52,7 @@
   bottom: 0;
   margin-block: auto; /* Centers vertically */
   height: max-content;
-  background-color: rgb(67, 67, 67);
+  background-color: rgb(92, 92, 92);
   color: white;
   font-family: var(--primary-font);
   cursor: pointer;
@@ -66,7 +66,7 @@
 #checkoutSection hr {
   margin: 1.5rem 0;
   border: 0;
-  border-top: 0.1rem solid rgb(67, 67, 67);
+  border-top: 0.1rem solid rgb(92, 92, 92);
 }
 
 #subtotalBox {
@@ -116,7 +116,7 @@
   padding: 1.2rem 0;
   border-radius: 2rem;
   font-family: var(--primary-font);
-  background-color: rgb(67, 67, 67);
+  background-color: rgb(92, 92, 92);
   border: 0;
   color: white;
   font-size: 1rem;

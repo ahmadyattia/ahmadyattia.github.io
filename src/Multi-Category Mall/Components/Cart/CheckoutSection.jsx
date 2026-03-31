@@ -3,7 +3,7 @@ import { CartContext } from "../../Context/CartContext";
 import styles from "../../Styles/Cart/CheckoutSection.module.css";
 import { useNavigate } from "react-router-dom";
 
-const CheckoutSection = () => {
+const CheckoutSection = ({ page }) => {
   const { cart } = useContext(CartContext);
   const [subTotal, setSubTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
@@ -13,6 +13,8 @@ const CheckoutSection = () => {
   const handleCheckout = () => {
     navigate("checkout"); // protected route
   };
+
+  const handlePlaceOrder = () => {};
 
   useEffect(() => {
     setSubTotal(
@@ -68,13 +70,22 @@ const CheckoutSection = () => {
           <p>${total}</p>
         </div>
         <div id={styles.checkoutBtnBox}>
-          <button id={styles.checkoutBtn} onClick={handleCheckout}>
-            Continue to checkout
-          </button>
+          {page === "cart" && (
+            <button id={styles.checkoutBtn} onClick={handleCheckout}>
+              Continue to checkout
+            </button>
+          )}
+          {page === "checkout" && (
+            <button id={styles.checkoutBtn} onClick={handlePlaceOrder}>
+              Place Order
+            </button>
+          )}
         </div>
-        <p id={styles.mustLoginMessage}>
-          *You must be logged into an existing account to proceed.
-        </p>
+        {page === "cart" && (
+          <p id={styles.mustLoginMessage}>
+            *You must be logged into an existing account to proceed.
+          </p>
+        )}
       </div>
     </div>
   );
