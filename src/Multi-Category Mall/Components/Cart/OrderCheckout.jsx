@@ -66,7 +66,7 @@ const OrderCheckout = () => {
       // set order in db
       //   await set(orderRef, order);
 
-      navigate("success");
+      navigate("success", { state: order });
     } catch (error) {
       alert("Something went wrong. Failed to place your order.");
       console.error(error);
