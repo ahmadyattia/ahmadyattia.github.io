@@ -3,18 +3,30 @@ import { CartContext } from "../../Context/CartContext";
 import styles from "../../Styles/Cart/CheckoutSection.module.css";
 import { useNavigate } from "react-router-dom";
 
-const CheckoutSection = ({ page }) => {
+const CheckoutSection = ({ page, shippingMethod, placeOrder }) => {
   const { cart } = useContext(CartContext);
   const [subTotal, setSubTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
+  const [shippingPrice, setShippingPrice] = useState(0);
+  const deliveryCost = 10;
+
+  useEffect(() => {
+    if (shippingMethod === "pickup") {
+      setShippingPrice(0); // pickup is free
+    } else if (shippingMethod === "delivery") {
+      setShippingPrice(deliveryCost); // delivery costs $10
+    }
+  }, [shippingMethod]);
 
   const handleCheckout = () => {
     navigate("checkout"); // protected route
   };
 
-  const handlePlaceOrder = () => {};
+  const handlePlaceOrder = () => {
+    placeOrder();
+  };
 
   useEffect(() => {
     setSubTotal(
@@ -33,8 +45,8 @@ const CheckoutSection = ({ page }) => {
   }, [cart]);
 
   useEffect(() => {
-    setTotal(() => (subTotal - discount).toFixed(2));
-  }, [subTotal, discount]);
+    setTotal(() => (subTotal - discount + shippingPrice).toFixed(2));
+  }, [subTotal, discount, shippingPrice]);
 
   console.log(cart);
 
@@ -64,6 +76,14 @@ const CheckoutSection = ({ page }) => {
         <div id={styles.discountBox}>
           <p>Discount</p>
           <p>-${discount}</p>
+        </div>
+        <div id={styles.shippingBox}>
+          <p>Shipping</p>
+          {page === "cart" ? (
+            <p>*cost calculated at checkout</p>
+          ) : (
+            <p>${shippingPrice.toFixed(2)}</p>
+          )}
         </div>
         <div id={styles.totalBox}>
           <p>Total</p>
