@@ -1,0 +1,98 @@
+#main {
+  font-family: var(--primary-font);
+  margin: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#main form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-right: 0.1rem solid rgb(92, 92, 92);
+  padding-right: 2rem;
+  min-height: calc(
+    100vh - (4.5rem + 4rem)
+  ); /* 4.5rem navbar and 4rem breadcrumbs */
+}
+
+#orderDetails {
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  #main {
+    grid-template-columns: 1fr;
+  }
+  #main form {
+    width: 100%;
+    border: 0;
+    min-height: max-content;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+}
+
+#main form h2 {
+  color: white;
+}
+
+#main form input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgb(92, 92, 92);
+  background-color: rgba(128, 128, 128, 0.386);
+  /* background-color: rgba(0, 0, 0, 0); */
+  color: white;
+  margin-top: 0.5rem;
+}
+
+#main form input:focus {
+  outline: 0;
+  border: 0.1rem solid dodgerblue;
+}
+
+#main form label {
+  color: white;
+  margin-top: 2rem;
+  /* margin-bottom: 0.5rem; */
+}
+
+#deliveryOptionsBox {
+  display: flex;
+  gap: 1rem;
+}
+
+#deliveryOptionsBox div {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgb(92, 92, 92);
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+#deliveryOptionsBox div label {
+  color: white;
+  margin: 0 1rem;
+}
+
+#deliveryOptionsBox div input {
+  width: max-content;
+  margin-top: 0;
+}
+
+#cityStateZip {
+  display: flex;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+#cityStateZip div {
+  flex: 1;
+}
+
+#addressInfo {
+  margin-top: 2rem;
+}
