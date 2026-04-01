@@ -2,7 +2,7 @@
   font-family: var(--primary-font);
   margin: 0 2rem;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
 }
 
 #main form {
@@ -10,7 +10,7 @@
   flex-direction: column;
   width: 100%;
   border-right: 0.1rem solid rgb(92, 92, 92);
-  padding: 1rem;
+  padding-right: 2rem;
   min-height: calc(
     100vh - (4.5rem + 4rem)
   ); /* 4.5rem navbar and 4rem breadcrumbs */
@@ -22,13 +22,14 @@
 
 @media (max-width: 768px) {
   #main {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
   }
   #main form {
     width: 100%;
     border: 0;
     min-height: max-content;
     margin-bottom: 2rem;
+    padding: 0;
   }
 }
 
@@ -44,6 +45,7 @@
   background-color: rgba(128, 128, 128, 0.386);
   /* background-color: rgba(0, 0, 0, 0); */
   color: white;
+  margin-top: 0.5rem;
 }
 
 #main form input:focus {
@@ -54,7 +56,7 @@
 #main form label {
   color: white;
   margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 
 #deliveryOptionsBox {
@@ -67,15 +69,18 @@
   border-radius: 0.5rem;
   border: 0.1rem solid rgb(92, 92, 92);
   width: 50%;
+  display: flex;
+  align-items: center;
 }
 
-#deliveryOptionsBox label {
+#deliveryOptionsBox div label {
   color: white;
   margin: 0 1rem;
 }
 
-#deliveryOptionsBox input {
-  width: max-content !important;
+#deliveryOptionsBox div input {
+  width: max-content;
+  margin-top: 0;
 }
 
 #cityStateZip {
@@ -88,6 +93,6 @@
   flex: 1;
 }
 
-#cityStateZip div input {
-  margin-top: 0.5rem;
+#addressInfo {
+  margin-top: 2rem;
 }

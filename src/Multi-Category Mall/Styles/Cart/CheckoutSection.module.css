@@ -1,7 +1,7 @@
 #checkoutSectionBox {
   width: 100%;
   max-width: 60rem;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
 @media (min-width: 1024px) {
@@ -81,7 +81,8 @@
   margin: 0;
 }
 
-#discountBox {
+#discountBox,
+#shippingBox {
   color: grey;
   display: flex;
   justify-content: space-between;
@@ -89,7 +90,8 @@
   font-size: 1rem;
 }
 
-#discountBox p {
+#discountBox p,
+#shippingBox p {
   margin: 0;
 }
 
