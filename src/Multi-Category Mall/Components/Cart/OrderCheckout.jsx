@@ -6,6 +6,7 @@ import { ulid } from "ulid"; // id generator
 import { CartContext } from "../../Context/CartContext";
 import { ref, set } from "firebase/database";
 import { db } from "../../server/firebase";
+import { useNavigate } from "react-router-dom";
 
 const OrderCheckout = () => {
   const { user } = useContext(AuthContext);
@@ -19,7 +20,8 @@ const OrderCheckout = () => {
   const [city, setCity] = useState(null);
   const [state, setState] = useState(null);
   const [zipCode, setZipCode] = useState(null);
-  //   const orderId = null;
+  const navigate = useNavigate();
+
   const userId = user.uid;
   let shipping;
 
@@ -59,10 +61,12 @@ const OrderCheckout = () => {
 
     try {
       // reference to the db
-      const orderRef = ref(db, "orders/" + orderId);
+      //   const orderRef = ref(db, "orders/" + orderId);
 
       // set order in db
-      await set(orderRef, order);
+      //   await set(orderRef, order);
+
+      navigate("success");
     } catch (error) {
       alert("Something went wrong. Failed to place your order.");
       console.error(error);
