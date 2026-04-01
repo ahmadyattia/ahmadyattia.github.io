@@ -6,7 +6,11 @@ const Success = () => {
   const location = useLocation();
   const order = location.state;
 
-  return <div id={styles.mainBox}></div>;
+  return (
+    <div id={styles.mainBox}>
+      <img src="/src/assets/images/icons/check-success-page.svg" />
+    </div>
+  );
 };
 
 export default Success;
