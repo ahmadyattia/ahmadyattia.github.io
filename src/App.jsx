@@ -17,6 +17,7 @@ import ProtectedRoute from "./Multi-Category Mall/Components/ProtectedRoute";
 import UserDataProvider from "./Multi-Category Mall/Context/UserDataContext";
 import ViewCart from "./Multi-Category Mall/Components/Cart/ViewCart";
 import OrderCheckout from "./Multi-Category Mall/Components/Cart/OrderCheckout";
+import Success from "./Multi-Category Mall/Styles/Cart/Success";
 
 function App() {
   return (
@@ -57,6 +58,10 @@ function App() {
                         <OrderCheckout />
                       </ProtectedRoute>
                     }
+                  ></Route>
+                  <Route
+                    path="cart/checkout/success"
+                    element={<Success />}
                   ></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Route>
