@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import styles from "/Users/ahmadattia/portfolio/src/Multi-Category Mall/Styles/Navbar.module.css";
+import styles from "/Users/ahmadattia/portfolio/src/Multi-Category Mall/Styles/Navbar/Navbar.module.css";
 import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
 
