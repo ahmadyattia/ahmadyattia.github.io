@@ -1,0 +1,40 @@
+#mainBox {
+  width: 100%;
+  min-height: calc(
+    100vh - (4.5rem + 4rem)
+  ); /* 4.5rem navbar and 4rem breadcrumbs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#messageBox {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: max-content;
+  background-color: white;
+  padding: 5rem;
+  font-family: var(--primary-font);
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+#icon {
+  margin: 0 auto;
+  width: 10rem;
+  aspect-ratio: 1 / 1;
+}
+
+#successMessage {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#orderIdMessage,
+#orderReviewMessage {
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 500;
+}

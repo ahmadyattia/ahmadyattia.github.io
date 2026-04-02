@@ -8,7 +8,19 @@ const Success = () => {
 
   return (
     <div id={styles.mainBox}>
-      <img src="/src/assets/images/icons/check-success-page.svg" />
+      <div id={styles.messageBox}>
+        <img
+          id={styles.icon}
+          src="/src/assets/images/icons/check-success-page.svg"
+        />
+        <p id={styles.successMessage}>
+          Your order has been placed successfully!
+        </p>
+        <p id={styles.orderIdMessage}>Order id: {order.orderId}</p>
+        <p id={styles.orderReviewMessage}>
+          Check your orders in your profile for a full review.
+        </p>
+      </div>
     </div>
   );
 };
