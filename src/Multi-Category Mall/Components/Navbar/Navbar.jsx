@@ -30,6 +30,7 @@ const Navbar = () => {
         </div>
 
         <div className={styles.rightContainer}>
+          <button id={styles.yourOrdersBtn}>Your Orders</button>
           <NavbarCart openMenu={openMenu} setOpenMenu={setOpenMenu} />
           <NavbarSettings openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>
