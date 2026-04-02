@@ -10,6 +10,7 @@ import styles from "../Styles/Orders.module.css";
 import { db } from "../server/firebase";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import Order from "./Order";
 
 const Orders = () => {
   const { user } = useContext(AuthContext);
@@ -54,13 +55,25 @@ const Orders = () => {
     }
   }, [user]);
 
+  //   useEffect(() => {
+  //     setError("Error here");
+  //     setLoading(true);
+  //   }, []);
+
   console.log("orders:", orders);
 
   return (
     <div id={styles.mainBox}>
       <div id={styles.ordersBox}>
-        {loading && <p>Loading orders...</p>}
-        {error && <p>Error finding your orders. Error: ${error}</p>}
+        {loading && <p id={styles.loadingMessage}>Loading orders...</p>}
+        {error && (
+          <p id={styles.errorMessage}>
+            Error finding your orders. Error: {error}
+          </p>
+        )}
+        {orders.map((order) => {
+          <Order order={order} />;
+        })}
       </div>
     </div>
   );
