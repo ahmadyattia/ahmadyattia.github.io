@@ -18,6 +18,7 @@ import UserDataProvider from "./Multi-Category Mall/Context/UserDataContext";
 import ViewCart from "./Multi-Category Mall/Components/Cart/ViewCart";
 import OrderCheckout from "./Multi-Category Mall/Components/Cart/OrderCheckout";
 import Success from "./Multi-Category Mall/Components/Cart/Success";
+import Orders from "./Multi-Category Mall/Components/Orders";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
                     }
                   ></Route>
                   <Route path="cart/success" element={<Success />}></Route>
+                  <Route path="orders" element={<Orders />}></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Route>
               </Routes>
