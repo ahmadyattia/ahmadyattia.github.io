@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const OrderCheckout = () => {
   const { user } = useContext(AuthContext);
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
   const form = useRef(null);
   const [shippingMethod, setShippingMethod] = useState(null);
   const [email, setEmail] = useState(null);
@@ -66,7 +66,11 @@ const OrderCheckout = () => {
       // set order in db
       //   await set(orderRef, order);
 
+      // navigate to the success page
       navigate("success", { state: order });
+
+      // empty the cart
+      setCart([]);
     } catch (error) {
       alert("Something went wrong. Failed to place your order.");
       console.error(error);
