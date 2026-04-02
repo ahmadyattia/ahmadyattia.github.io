@@ -21,7 +21,10 @@ const CheckoutSection = ({ page, shippingMethod, placeOrder }) => {
   }, [shippingMethod]);
 
   const handleCheckout = () => {
-    navigate("checkout"); // protected route
+    // if the cart is not empty, proceed to checkout
+    if (cart.length > 0) {
+      navigate("checkout"); // protected route
+    }
   };
 
   const handlePlaceOrder = () => {
@@ -49,8 +52,6 @@ const CheckoutSection = ({ page, shippingMethod, placeOrder }) => {
   }, [subTotal, discount, shippingPrice]);
 
   console.log(cart);
-
-  // cart.forEach((item) => console.log("1", item.discountPercentage));
 
   console.log(discount);
 
