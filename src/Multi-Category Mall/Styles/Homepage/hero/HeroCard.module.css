@@ -8,23 +8,18 @@
 
 .heroImgContainer {
   flex: 1;
-  height: 100%;
   display: flex;
   justify-content: center;
 }
 
 .heroCard img {
-  /* width: 100%; */
-  height: 100%;
+  width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   animation: bodyFadeIn 1s normal;
 }
 
 @media (max-width: 768px) {
-  .heroCard img {
-    aspect-ratio: 1 / 2; /* since the height becomes larger than width */
-  }
 }
 
 .body {
