@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "/Users/ahmadattia/portfolio/src/Multi-Category Mall/Styles/Navbar/Navbar.module.css";
 import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(null);
+  const { user } = useContext(AuthContext);
 
   return (
     <nav>
@@ -30,7 +32,7 @@ const Navbar = () => {
         </div>
 
         <div className={styles.rightContainer}>
-          <button id={styles.yourOrdersBtn}>Your Orders</button>
+          {user && <button id={styles.yourOrdersBtn}>Your Orders</button>}
           <NavbarCart openMenu={openMenu} setOpenMenu={setOpenMenu} />
           <NavbarSettings openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>
