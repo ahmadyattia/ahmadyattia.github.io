@@ -41,3 +41,7 @@
 .rightContainer {
   display: flex;
 }
+
+#yourOrdersBtn {
+  margin-right: 2rem;
+}
