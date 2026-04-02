@@ -13,7 +13,7 @@
 }
 
 .adjustHeight {
-  height: 49rem;
+  height: 40rem;
   max-height: calc(100vh - 4.5rem);
 }
 
