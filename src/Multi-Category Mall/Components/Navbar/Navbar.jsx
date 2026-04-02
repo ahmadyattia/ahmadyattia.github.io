@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "/Users/ahmadattia/portfolio/src/Multi-Category Mall/Styles/Navbar/Navbar.module.css";
 import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
@@ -8,6 +8,11 @@ import { AuthContext } from "../../Context/AuthContext";
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(null);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function handleYourOrdersBtn() {
+    navigate("/orders");
+  }
 
   return (
     <nav>
