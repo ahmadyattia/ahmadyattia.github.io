@@ -59,10 +59,7 @@ function App() {
                       </ProtectedRoute>
                     }
                   ></Route>
-                  <Route
-                    path="cart/checkout/success"
-                    element={<Success />}
-                  ></Route>
+                  <Route path="cart/success" element={<Success />}></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Route>
               </Routes>

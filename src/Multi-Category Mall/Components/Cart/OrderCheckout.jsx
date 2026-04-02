@@ -67,7 +67,10 @@ const OrderCheckout = () => {
       //   await set(orderRef, order);
 
       // navigate to the success page
-      navigate("success", { state: order, replace: true });
+      navigate("/cart/success", {
+        state: order,
+        replace: true,
+      });
 
       // empty the cart
       setCart([]);
