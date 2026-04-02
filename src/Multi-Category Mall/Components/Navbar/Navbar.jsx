@@ -37,7 +37,11 @@ const Navbar = () => {
         </div>
 
         <div className={styles.rightContainer}>
-          {user && <button id={styles.yourOrdersBtn}>Your Orders</button>}
+          {user && (
+            <button id={styles.yourOrdersBtn} onClick={handleYourOrdersBtn}>
+              Your Orders
+            </button>
+          )}
           <NavbarCart openMenu={openMenu} setOpenMenu={setOpenMenu} />
           <NavbarSettings openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>
