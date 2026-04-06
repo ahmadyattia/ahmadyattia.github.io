@@ -44,7 +44,7 @@
 
 #yourOrdersBtn {
   font-family: var(--primary-font);
-  margin-right: 2rem;
+  margin-right: 1rem;
   color: white;
   background-color: rgba(255, 255, 255, 0.3);
   border: 0;
@@ -52,6 +52,7 @@
   padding: 0.5rem;
   font-size: var(--fs-nav);
   cursor: pointer;
+  /* width: max-content; */
 }
 
 #yourOrdersBtn:hover {
