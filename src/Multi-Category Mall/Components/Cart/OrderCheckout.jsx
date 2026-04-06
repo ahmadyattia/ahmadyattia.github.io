@@ -21,13 +21,11 @@ const OrderCheckout = () => {
   const [state, setState] = useState(null);
   const [zipCode, setZipCode] = useState(null);
   const navigate = useNavigate();
-
+  const totalRef = useRef(0);
   const userId = user.uid;
   let shipping;
 
-  const handlePlaceOrder = async (e) => {
-    // form validation passed, place order
-    e.preventDefault();
+  function createOrder() {
     const orderId = `ORD-${ulid()}`;
     const date = new Date();
 
@@ -56,17 +54,26 @@ const OrderCheckout = () => {
       userId,
       shipping,
       items: cart,
+      total: totalRef.current,
       date: date.toString(),
     };
 
+    return order;
+  }
+
+  const handlePlaceOrder = async (e) => {
+    // form validation passed, place order
+    e.preventDefault();
+    const order = createOrder();
+
     try {
       // reference to the db
-      //   const orderRef = ref(db, "orders/" + orderId);
+      const orderRef = ref(db, "orders/" + order.orderId);
 
       // set order in db
-      //   await set(orderRef, order);
+      await set(orderRef, order);
 
-      // navigate to the success page
+      // redirect to the success page
       navigate("/cart/success", {
         state: order,
         replace: true,
@@ -78,8 +85,13 @@ const OrderCheckout = () => {
       alert("Something went wrong. Failed to place your order.");
       console.error(error);
     }
-    console.log(order);
   };
+
+  // recieve total from CheckoutSection.jsx
+  function recieveTotal(total) {
+    totalRef.current = total;
+    console.log("recieveTotal:", total);
+  }
 
   // triggered on "Place Order" button click
   const triggerSubmit = () => {
@@ -88,6 +100,7 @@ const OrderCheckout = () => {
     }
   };
 
+  // default email and full name
   useEffect(() => {
     if (user) {
       setEmail(user.email);
@@ -201,7 +214,8 @@ const OrderCheckout = () => {
         <CheckoutSection
           page="checkout"
           shippingMethod={shippingMethod}
-          placeOrder={triggerSubmit}
+          triggerSubmit={triggerSubmit}
+          sendTotal={recieveTotal}
         />
       </div>
     </div>

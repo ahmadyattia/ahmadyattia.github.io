@@ -3,7 +3,12 @@ import { CartContext } from "../../Context/CartContext";
 import styles from "../../Styles/Cart/CheckoutSection.module.css";
 import { useNavigate } from "react-router-dom";
 
-const CheckoutSection = ({ page, shippingMethod, placeOrder }) => {
+const CheckoutSection = ({
+  page,
+  shippingMethod,
+  triggerSubmit,
+  sendTotal,
+}) => {
   const { cart } = useContext(CartContext);
   const [subTotal, setSubTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
@@ -25,10 +30,6 @@ const CheckoutSection = ({ page, shippingMethod, placeOrder }) => {
     if (cart.length > 0) {
       navigate("checkout"); // protected route
     }
-  };
-
-  const handlePlaceOrder = () => {
-    placeOrder();
   };
 
   useEffect(() => {
@@ -97,7 +98,13 @@ const CheckoutSection = ({ page, shippingMethod, placeOrder }) => {
             </button>
           )}
           {page === "checkout" && (
-            <button id={styles.checkoutBtn} onClick={handlePlaceOrder}>
+            <button
+              id={styles.checkoutBtn}
+              onClick={() => {
+                sendTotal(total);
+                triggerSubmit();
+              }}
+            >
               Place Order
             </button>
           )}

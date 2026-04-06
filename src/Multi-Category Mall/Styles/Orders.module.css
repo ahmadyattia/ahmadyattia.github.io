@@ -1,0 +1,20 @@
+#mainBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ordersBox {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#loadingMessage,
+#errorMessage {
+  color: white;
+  margin: 1rem;
+}

@@ -1,0 +1,44 @@
+.mainBox {
+  width: 100%;
+  border-radius: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--primary-font);
+  padding: 1rem;
+}
+
+.idSection {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.orderId {
+  /* padding-bottom: 1rem; */
+  /* margin-bottom: 1rem; */
+  /* border-bottom: 0.1rem solid lightgray; */
+}
+
+.shippingInfo,
+.date {
+  border-radius: 2rem;
+  border: 0.1rem solid lightgray;
+  width: max-content;
+  padding: 0.5rem 1rem;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.orderLogistics {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.total {
+  border-top: 0.1rem solid lightgray;
+  padding-top: 1rem;
+}

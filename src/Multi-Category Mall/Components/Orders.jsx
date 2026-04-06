@@ -36,6 +36,10 @@ const Orders = () => {
             const orderList = Object.keys(data).map((key) => {
               return { id: key, ...data[key] };
             });
+
+            // latest order first
+            orderList.reverse();
+
             setOrders(orderList);
           } else {
             setOrders([]); // no orders found for this user
@@ -55,11 +59,6 @@ const Orders = () => {
     }
   }, [user]);
 
-  //   useEffect(() => {
-  //     setError("Error here");
-  //     setLoading(true);
-  //   }, []);
-
   console.log("orders:", orders);
 
   return (
@@ -72,7 +71,7 @@ const Orders = () => {
           </p>
         )}
         {orders.map((order) => {
-          <Order order={order} />;
+          return <Order key={order.orderId} order={order} />;
         })}
       </div>
     </div>

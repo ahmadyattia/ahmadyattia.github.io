@@ -1,8 +1,39 @@
 import React from "react";
 import styles from "../Styles/Order.module.css";
+import OrderItem from "./OrderItem";
 
-const Order = () => {
-  return <div>Order</div>;
+const Order = ({ order }) => {
+  const orderShippingMethod = order.shipping.shippingMethod;
+
+  return (
+    <div className={styles.mainBox}>
+      <div className={styles.idSection}>
+        <img src="/src/assets/images/icons/order-icon.svg" alt="" />
+        <div className={styles.orderId}>{order.orderId}</div>
+      </div>
+
+      <div className={styles.orderLogistics}>
+        {orderShippingMethod === "delivery" && (
+          <div className={styles.shippingInfo}>
+            Delivery to: {order.shipping.city}, {order.shipping.state},{" "}
+            {order.shipping.country} {order.shipping.zipCode}
+          </div>
+        )}
+        {orderShippingMethod === "pickup" && (
+          <div className={styles.shippingInfo}>Pickup</div>
+        )}
+        <div className={styles.date}>Placed on: {order.date}</div>
+      </div>
+      <div>
+        {order.items.map((item) => {
+          return <OrderItem item={item} />;
+        })}
+      </div>
+      <div className={styles.total}>
+        Total: ${order.total} (after discounts)
+      </div>
+    </div>
+  );
 };
 
 export default Order;
