@@ -5,6 +5,12 @@
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  #main {
+    height: 60vh;
+  }
+}
+
 #carousel {
   display: flex;
   justify-content: center;
