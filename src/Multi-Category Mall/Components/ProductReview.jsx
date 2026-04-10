@@ -73,9 +73,23 @@ const ProductReview = () => {
               alt={product.description}
             />
             <div className={styles.details}>
-              <h2>{product.title}</h2>
+              <div className={styles.backBtnFlex}>
+                <button
+                  className={styles.backLink}
+                  onClick={() => navigate(-1)}
+                >
+                  <div className={styles.backBtnContentFlex}>
+                    <img
+                      className={styles.arrowIcon}
+                      src="/src/assets/images/icons/backward_arrow_white_16px.svg"
+                    />
+                    <p>Back</p>
+                  </div>
+                </button>
+              </div>
+              <h2 className={styles.title}>{product.title}</h2>
               <p className={styles.category}>{product.category}</p>{" "}
-              <p>{product.description}</p>
+              <p className={styles.description}>{product.description}</p>
               <div className={`${styles.checkout}`}>
                 <div className={`${styles.price}`}>
                   <p className={styles.priceLabel}>Price</p>
@@ -92,15 +106,6 @@ const ProductReview = () => {
                 </div>
                 <AddToCartBtn product={product} />
               </div>
-              <button className={styles.backLink} onClick={() => navigate(-1)}>
-                <div className={styles.backBtnFlex}>
-                  <img
-                    className={styles.arrowIcon}
-                    src="/src/assets/images/icons/backward_arrow_white_16px.svg"
-                  />
-                  <p>Back</p>
-                </div>
-              </button>
             </div>
           </div>
         </div>
