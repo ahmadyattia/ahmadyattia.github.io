@@ -3,6 +3,12 @@
   position: relative;
 }
 
+@media (max-height: 768px) {
+  #searchBar {
+    width: 50%;
+  }
+}
+
 #searchInput {
   font-family: var(--primary-font);
   background-color: rgb(49, 49, 49);
