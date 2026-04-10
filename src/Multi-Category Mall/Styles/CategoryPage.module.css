@@ -11,11 +11,9 @@
 }
 
 #categoryPage h2 {
-  /* position: absolute; */
   flex: 1;
-  margin: 0;
+  margin: 2rem;
   color: white;
-  padding: 1rem;
   font-family: "urbanist", sans-serif;
   box-sizing: border-box;
 }
