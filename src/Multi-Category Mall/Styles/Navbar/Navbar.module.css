@@ -77,6 +77,7 @@
   position: absolute;
   transform: translateX(-100%);
   padding: 0.5rem;
+  height: 100vh;
 }
 
 .mainNavLstOpened {
@@ -89,6 +90,7 @@
   transform: translateX(0);
   transition: transform 0.3s ease;
   padding: 0.5rem;
+  height: 100vh;
 }
 
 .mainNavLnkBoxMobile {
