@@ -26,12 +26,17 @@ const Navbar = () => {
     }
   }
 
+  // function handleMenuClick() {
+  //   // menu closes when clicked
+
+  // }
+
   return (
     <nav>
       {/* <div className={styles.allOfNavbar}> */}
       <div id={styles.navbar}>
         {isMobile && (
-          <div className={styles.mainNavMenuMobile}>
+          <div className={styles.mainNavMenuMobile} onClick={handleMenuClick}>
             <div
               className={
                 isActive ? styles.mainNavLstOpened : styles.mainNavLstClosed
