@@ -38,11 +38,11 @@
   color: white;
   text-decoration: none;
   font-size: 1rem;
-  background-color: dodgerblue;
+  background-color: blue;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
 
 .viewLink:hover {
-  background-color: rgb(19, 87, 155);
+  background-color: dodgerblue;
 }
