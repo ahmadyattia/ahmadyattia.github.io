@@ -29,9 +29,7 @@ const Order = ({ order }) => {
           return <OrderItem item={item} />;
         })}
       </div>
-      <div className={styles.total}>
-        Total: ${order.total} (after discounts)
-      </div>
+      <div className={styles.total}>Total: ${order.total}</div>
     </div>
   );
 };
