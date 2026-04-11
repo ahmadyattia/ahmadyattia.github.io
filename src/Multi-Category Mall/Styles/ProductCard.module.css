@@ -63,6 +63,14 @@
   font-weight: 600;
 }
 
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.newPrice {
+  color: green;
+}
+
 .details {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;

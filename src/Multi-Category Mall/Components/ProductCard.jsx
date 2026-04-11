@@ -3,6 +3,15 @@ import { Link, useSearchParams } from "react-router-dom";
 import AddToCartBtn from "./Cart/AddToCartBtn";
 
 const ProductCard = ({ product }) => {
+  let discountedPrice = null;
+
+  if (product.discountPercentage > 0) {
+    discountedPrice = (
+      product.price -
+      product.price * (product.discountPercentage / 100)
+    ).toFixed(2);
+  }
+
   return (
     <div className={`${styles.card} ${styles.font}`}>
       <Link to={`${product.id}/${product.slug}`}>
@@ -23,7 +32,14 @@ const ProductCard = ({ product }) => {
         <div className={styles.checkout}>
           <div>
             <p className={styles.priceLabel}>Price</p>
-            <p className={styles.amount}>$ {product.price}</p>
+            {discountedPrice ? (
+              <p className={styles.amount}>
+                <span className={styles.oldPrice}>$ {product.price}</span>{" "}
+                <span className={styles.newPrice}>$ {discountedPrice}</span>
+              </p>
+            ) : (
+              <p className={styles.amount}>$ {product.price}</p>
+            )}
           </div>
           <AddToCartBtn product={product} />
         </div>
