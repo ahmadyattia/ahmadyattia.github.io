@@ -9,6 +9,9 @@
   #main {
     height: 60vh;
   }
+  #categoriesSection {
+    height: 60vh;
+  }
 }
 
 #carousel {
@@ -20,12 +23,6 @@
 #trackWrapper {
   width: 50%;
   overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  #categoriesSection {
-    height: 60vh;
-  }
 }
 
 #title {
@@ -42,6 +39,7 @@
 #track {
   display: flex;
   transition: transform 2s ease;
+  /* gap: 0.5rem; */
   /* transform inline style applied */
 }
 
