@@ -1,19 +1,17 @@
 .card {
-  min-width: calc(96% / 2); /* 2% subtracted for a single margin */
+  min-width: calc(50% - 1rem); /* 1rem subtracted for the margin */
   background-color: dodgerblue;
   border-radius: 3rem;
   display: flex;
   flex-direction: column;
-  /* cursor: pointer; */
-  margin: 0 1%;
+  margin: 0 0.5rem;
   padding: 0.1rem;
 }
 
 @media (max-width: 768px) {
   /* one card per slide on mobile */
   .card {
-    min-width: 100%;
-    margin: 0;
+    min-width: calc(100% - 1rem); /* 1rem subtracted for the margin */
   }
 }
 
