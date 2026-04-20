@@ -23,12 +23,12 @@ const CategoryProducts = ({ category, countSetter }) => {
   const pageNumber = searchParams.get("page");
 
   if (data) {
-    productsByCategory = data.products.filter((product) => {
+    productsByCategory = data.filter((product) => {
       return product.category === category;
     });
 
     if (category === "all") {
-      productsByCategory = data.products;
+      productsByCategory = data;
     }
 
     if (productsByCategory.length === 0) {

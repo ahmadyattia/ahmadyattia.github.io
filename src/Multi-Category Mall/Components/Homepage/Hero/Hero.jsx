@@ -10,7 +10,7 @@ const Hero = () => {
   let products = null;
 
   if (data) {
-    products = data.products;
+    products = data;
   } else {
     console.log("Failed to fetch data.");
   }

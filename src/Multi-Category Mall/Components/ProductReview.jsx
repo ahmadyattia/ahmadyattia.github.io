@@ -17,9 +17,7 @@ const ProductReview = () => {
 
   useEffect(() => {
     if (data) {
-      let products = null;
-      products = data.products;
-      setProduct(products.filter((item) => item.id == productId)[0]);
+      setProduct(data.filter((item) => item.id == productId)[0]);
     }
   }, [data]);
 
