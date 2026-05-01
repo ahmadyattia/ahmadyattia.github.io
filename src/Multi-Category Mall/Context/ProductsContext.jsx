@@ -1,9 +1,14 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useProducts } from "../hooks/useProducts";
+import { saveProductsData } from "../Data/SaveProductsData";
+import productsMapper from "../Data/mappers/productsMapper";
+
 export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const data = useProducts();
+  let data = useProducts();
+
+  data = productsMapper(data);
 
   return (
     <ProductsContext.Provider value={{ data }}>
