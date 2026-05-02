@@ -9,10 +9,8 @@ const SearchResults = ({ searchTerm }) => {
 
   useEffect(() => {
     if (data) {
-      const products = data.products;
-
       setResults([
-        ...products.filter((item) => {
+        ...data.filter((item) => {
           const title = item.title.toLowerCase();
 
           if (searchTerm === "") {
