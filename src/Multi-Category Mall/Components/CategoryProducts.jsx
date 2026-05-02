@@ -3,6 +3,7 @@ import { useProductsData } from "../Context/ProductsContext";
 import ProductCard from "./ProductCard";
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import slugify from "../../utils/slugify";
 
 const CategoryProducts = ({ category, countSetter }) => {
   const { data } = useProductsData();
@@ -24,7 +25,7 @@ const CategoryProducts = ({ category, countSetter }) => {
 
   if (data) {
     productsByCategory = data.filter((product) => {
-      return product.category === category;
+      return slugify(product.category) === slugify(category);
     });
 
     if (category === "all") {

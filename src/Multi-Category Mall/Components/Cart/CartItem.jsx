@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "../../Styles/Cart/CartItem.module.css";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
+import slugify from "../../../utils/slugify";
 
 const CartItem = ({ item }) => {
   const [removeTransition, setRemoveTransition] = useState("");
@@ -31,7 +32,7 @@ const CartItem = ({ item }) => {
     }, 1000);
   }
 
-  const itemLocation = `/shop/${item.category}/${item.id}/${item.slug}`;
+  const itemLocation = `/shop/${slugify(item.category)}/${item.id}/${item.slug}`;
 
   let discountedPrice;
   const discount = item.discountPercentage;

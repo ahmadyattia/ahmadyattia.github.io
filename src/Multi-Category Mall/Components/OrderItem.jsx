@@ -1,9 +1,9 @@
-import React from "react";
 import styles from "../Styles/OrderItem.module.css";
 import { Link } from "react-router-dom";
+import slugify from "../../utils/slugify";
 
 const OrderItem = ({ item }) => {
-  const itemLocation = `/shop/${item.category}/${item.id}/${item.slug}`;
+  const itemLocation = `/shop/${slugify(item.category)}/${item.id}/${item.slug}`;
   let discount = null;
 
   if (item.discountPercentage > 0) {

@@ -1,31 +1,15 @@
 .card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  text-decoration: none;
 }
 
-.card a {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-}
-
-.categoryImg {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 1rem;
-  background-color: black;
-}
-
-.categoryName {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+.name {
+  max-width: 20rem;
+  background-color: blue;
   font-size: 1.5rem;
   font-family: "urbanist", sans-serif;
   color: white;
-  background-color: black;
-  padding: 0.25rem;
+  padding: 1rem;
+  padding-right: 3rem;
   border-radius: 0.25rem;
-  margin: 0;
+  margin: 1.5rem 0;
 }

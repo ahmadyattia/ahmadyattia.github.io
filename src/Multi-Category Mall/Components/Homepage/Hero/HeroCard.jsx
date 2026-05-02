@@ -1,12 +1,13 @@
 import styles from "../../../Styles/Homepage/Hero/HeroCard.module.css";
 import { useNavigate } from "react-router-dom";
 import SwitchBtns from "./SwitchBtns";
+import slugify from "../../../../utils/slugify";
 
 const HeroCard = ({ item }) => {
   const navigate = useNavigate();
 
   function handleShopNow() {
-    navigate(`/shop/${item.category}/${item.id}/${item.slug}`);
+    navigate(`/shop/${slugify(item.category)}/${item.id}/${item.slug}`);
   }
 
   return (
