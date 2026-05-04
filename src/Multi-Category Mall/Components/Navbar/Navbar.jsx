@@ -78,14 +78,14 @@ const Navbar = () => {
 
         {isDesktop && (
           <div className={styles.mainNav}>
-            <Link to="/home">
-              <div className={styles.mainNavLnkBox}>
-                <p>Home</p>
-              </div>
-            </Link>
             <Link to="/shop">
               <div className={styles.mainNavLnkBox}>
                 <p>Shop</p>
+              </div>
+            </Link>
+            <Link to="/home">
+              <div className={styles.mainNavLnkBox}>
+                <p>Home</p>
               </div>
             </Link>
             <Link to="/about">
