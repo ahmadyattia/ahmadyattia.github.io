@@ -1,6 +1,5 @@
 #shop-categories {
-  /* display: grid;
-  grid-template-rows: repeat(auto-fit, 1fr); */
+  max-width: 20rem;
   align-items: center;
   margin: 2rem;
 }
