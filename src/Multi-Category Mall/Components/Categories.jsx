@@ -7,8 +7,6 @@ import slugify from "../../utils/slugify";
 const Categories = () => {
   const { data } = useContext(ProductsContext);
 
-  console.log(data);
-
   const [categories, setCategories] = useState(null);
 
   useEffect(() => {
