@@ -24,6 +24,7 @@ const CategoryProducts = ({ category, countSetter }) => {
   const pageNumber = searchParams.get("page");
 
   if (data) {
+    // filter products according to the category
     productsByCategory = data.filter((product) => {
       return slugify(product.category) === slugify(category);
     });

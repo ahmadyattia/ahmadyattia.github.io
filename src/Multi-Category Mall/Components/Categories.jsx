@@ -12,10 +12,11 @@ const Categories = () => {
   useEffect(() => {
     if (data) {
       // retrieve category names from products
-      // Set used to remove duplicate categories
+      // a Set used to remove duplicate categories
       // then map each product to an object with name and slug props
+      // added "All" category
       setCategories(
-        [...new Set(data.map((product) => product.category))].map(
+        ["All", ...new Set(data.map((product) => product.category))].map(
           (category) => {
             return { name: category, slug: slugify(category) };
           },
@@ -23,6 +24,8 @@ const Categories = () => {
       );
     }
   }, [data]);
+
+  console.log(categories);
 
   return (
     <div>
