@@ -1,12 +1,8 @@
 #hero {
   position: relative;
-  background-image: linear-gradient(black, blue);
   height: calc(100vh - (4.5rem + 4rem)); /* 4.5rem navbar - 4rem breadcrumbs */
   width: 100%;
   font-family: var(--primary-font);
-  border-radius: 0.1rem;
-  animation: fadeIn 1s normal;
-  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -15,12 +11,43 @@
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
+.heroCard {
+  font-family: inherit;
+  height: 100%;
+  background-image: url("src/assets/images/hero-img-2.jpg");
+  background-size: cover;
+}
 
-  100% {
-    opacity: 1;
-  }
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-right: 2rem;
+  max-width: 25%;
+  margin-left: auto;
+}
+
+.title {
+  color: white;
+  font-weight: 600;
+  font-size: var(--fs-h1);
+}
+
+.shopNowBtn {
+  width: max-content;
+  max-width: 100%;
+  border: 0;
+  padding: 1rem 2.5rem;
+  color: white;
+  background-color: black;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.shopNowBtn:hover {
+  color: lightgray;
 }
