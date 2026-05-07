@@ -1,0 +1,63 @@
+import styles from "../../../Styles/Homepage/categories/HomepageCategories.module.css";
+import categories from "../../../data/Categories";
+import HomeCategoryCard from "./HomeCategoryCard";
+import { useState } from "react";
+import useMediaQuery from "../../../hooks/useMediaQuery";
+
+const HomepageCategories = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // if on mobile, make the slide contain one card
+  // otherwise make it contain 2 cards
+  const slidesCount = useMediaQuery("(max-width: 768px)")
+    ? categories.length
+    : Math.ceil(categories.length / 2);
+  let trackVibrate = "";
+
+  const nextSlide = () => {
+    // Loop back to start if at the end
+    setCurrentIndex((prev) => (prev + 1) % slidesCount);
+  };
+
+  const prevSlide = () => {
+    // Loop to end if at the start
+    setCurrentIndex((prev) => (prev === 0 ? slidesCount - 1 : prev - 1));
+  };
+
+  // track vibrates only on first slide
+  if (currentIndex === 0) {
+    trackVibrate = `${styles.trackVibrate}`;
+  }
+
+  return (
+    <div id={styles.main}>
+      <h1 id={styles.title}>Shop by Category</h1>
+      <div id={styles.carousel}>
+        <button id={styles.backBtn} onClick={prevSlide}>
+          <img src="src/assets/images/icons/arrow_left_32px_black.svg" alt="" />
+        </button>
+        <div id={styles.trackWrapper}>
+          <div
+            id={styles.track}
+            className={trackVibrate}
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {categories.map((category) => {
+              return (
+                <HomeCategoryCard key={category.name} category={category} />
+              );
+            })}
+          </div>
+        </div>
+        <button id={styles.forwardBtn} onClick={nextSlide}>
+          <img
+            src="src/assets/images/icons/arrow_right_32px_black.svg"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default HomepageCategories;

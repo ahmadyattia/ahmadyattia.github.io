@@ -1,24 +1,24 @@
-import "./App.css";
-import "./Multi-Category Mall/Styles/breakpoints.css";
-import CartProvider from "./Multi-Category Mall/Context/CartContext";
 import { Routes, Route } from "react-router-dom";
-import MainLayout from "./Multi-Category Mall/Components/MainLayout";
-import CategoryPage from "./Multi-Category Mall/Components/CategoryPage";
-import Home from "./Multi-Category Mall/Components/Homepage/Home";
-import ProductReview from "./Multi-Category Mall/Components/ProductReview";
-import { ProductsProvider } from "./Multi-Category Mall/Context/ProductsContext";
-import ShopByCategory from "./Multi-Category Mall/Components/ShopByCategory";
-import NotFound from "./Multi-Category Mall/Components/NotFound";
-import Login from "./Multi-Category Mall/Components/Login";
-import SignUp from "./Multi-Category Mall/Components/SignUp";
-import AuthProvider from "./Multi-Category Mall/Context/AuthContext";
-import Profile from "./Multi-Category Mall/Components/Profile";
-import ProtectedRoute from "./Multi-Category Mall/Components/ProtectedRoute";
-import UserDataProvider from "./Multi-Category Mall/Context/UserDataContext";
-import ViewCart from "./Multi-Category Mall/Components/Cart/ViewCart";
-import OrderCheckout from "./Multi-Category Mall/Components/Cart/OrderCheckout";
-import Success from "./Multi-Category Mall/Components/Cart/Success";
-import Orders from "./Multi-Category Mall/Components/Orders";
+import "./App.css";
+import "./styles/breakpoints.css";
+import CartProvider from "./context/CartContext";
+import AuthProvider from "./context/AuthContext";
+import { ProductsProvider } from "./context/ProductsContext";
+import UserDataProvider from "./context/UserDataContext";
+import MainLayout from "./pages/MainLayout";
+import CategoryPage from "./pages/CategoryPage";
+import Home from "./pages/Home";
+import ProductReview from "./pages/ProductReview";
+import ShopByCategory from "./pages/ShopByCategory";
+import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import Profile from "./pages/Profile";
+import ViewCart from "./pages/ViewCart";
+import OrderCheckout from "./pages/OrderCheckout";
+import Success from "./pages/Success";
+import Orders from "./pages/Orders";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
