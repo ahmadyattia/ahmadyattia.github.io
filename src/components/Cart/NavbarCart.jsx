@@ -1,33 +1,28 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "../../Styles/Cart/NavbarCart.module.css";
 import CartDropdown from "@/components/Cart/CartDropdown.jsx";
 import { CartContext } from "../../context/CartContext";
 import CartCount from "./CartCount";
+import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
 
-const NavbarCart = ({ openMenu, setOpenMenu }) => {
-  const [toggled, setToggled] = useState(false);
-  const { cart } = useContext(CartContext);
+const NavbarCart = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  // close dropdown menu when another is opened
-  useEffect(() => {
-    if (openMenu != "cart") {
-      setToggled(false);
-    }
-  }, [openMenu]);
+  // close dropdown when clicking outside the element
+  closeMenuOnClickOutside(setIsOpen, dropdownRef);
 
   // control the toggling of the dropdown
   function handleIconClick() {
-    if (toggled === false) {
-      setToggled(true);
-      setOpenMenu("cart");
+    if (!isOpen) {
+      setIsOpen(true);
     } else {
-      setToggled(false);
-      setOpenMenu(null);
+      setIsOpen(false);
     }
   }
 
   return (
-    <div className={styles.navbarCart}>
+    <div className={styles.navbarCart} ref={dropdownRef}>
       <div
         className={styles.cartIconContainer}
         onClick={handleIconClick}
@@ -43,7 +38,7 @@ const NavbarCart = ({ openMenu, setOpenMenu }) => {
       <CartCount />
 
       <div id={styles.dropdown}>
-        <CartDropdown setOpenMenu={setOpenMenu} toggled={toggled} />
+        <CartDropdown isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>
   );

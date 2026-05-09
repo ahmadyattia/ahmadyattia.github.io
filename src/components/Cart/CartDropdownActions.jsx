@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "../../Styles/Cart/CartDropdownActions.module.css";
 import { Link } from "react-router-dom";
 
-const CartDropdownActions = ({ setOpenMenu }) => {
+const CartDropdownActions = ({ setIsOpen }) => {
   function handleBtnClick() {
     // close the menu when actions buttons are clicked
-    setOpenMenu(null);
+    setIsOpen(false);
   }
 
   return (

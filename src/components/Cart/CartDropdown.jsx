@@ -1,21 +1,22 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useRef } from "react";
 import { useState } from "react";
 import styles from "../../Styles/Cart/CartDropdown.module.css";
 import NavbarCartItem from "./NavbarCartItem.jsx";
 import { CartContext } from "../../context/CartContext.jsx";
 import CartDropdownActions from "./CartDropdownActions";
+import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
 
-const CartDropdown = ({ setOpenMenu, toggled }) => {
+const CartDropdown = ({ isOpen, setIsOpen }) => {
   const { cart } = useContext(CartContext);
   const [height, setHeight] = useState(``);
 
   useEffect(() => {
-    if (toggled === false) {
+    if (!isOpen) {
       setHeight(``);
     } else {
       setHeight(`${styles.adjustHeight}`);
     }
-  }, [toggled]);
+  }, [isOpen]);
 
   return (
     <div className={`${styles.cartDropdown} ${height}`}>
@@ -37,7 +38,7 @@ const CartDropdown = ({ setOpenMenu, toggled }) => {
         </div>
       )}
 
-      {cart.length > 0 && <CartDropdownActions setOpenMenu={setOpenMenu} />}
+      {cart.length > 0 && <CartDropdownActions setIsOpen={setIsOpen} />}
     </div>
   );
 };

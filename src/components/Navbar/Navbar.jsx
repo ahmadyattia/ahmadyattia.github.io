@@ -6,7 +6,6 @@ import NavbarSettings from "./Settings/NavbarSettings";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar = () => {
-  const [openMenu, setOpenMenu] = useState(null);
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isDesktop = !useMediaQuery("(max-width: 768px)");
@@ -93,8 +92,8 @@ const Navbar = () => {
             Your Orders
           </button>
 
-          <NavbarCart openMenu={openMenu} setOpenMenu={setOpenMenu} />
-          <NavbarSettings openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <NavbarCart />
+          <NavbarSettings />
         </div>
       </div>
       {/* </div> */}

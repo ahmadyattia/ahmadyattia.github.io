@@ -22,10 +22,6 @@
   cursor: pointer;
 }
 
-.hideDropdown {
-  display: none;
-}
-
 .settingsDropdown {
   position: absolute;
   right: 1rem;
