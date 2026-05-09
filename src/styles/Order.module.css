@@ -16,26 +16,22 @@
   margin-bottom: 1rem;
 }
 
-.orderId {
-  /* padding-bottom: 1rem; */
-  /* margin-bottom: 1rem; */
-  /* border-bottom: 0.1rem solid lightgray; */
-}
-
 .shippingInfo,
 .date {
   border-radius: 2rem;
   border: 0.1rem solid lightgray;
   width: max-content;
   padding: 0.5rem 1rem;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .orderLogistics {
   display: flex;
   gap: 0.5rem;
+}
+
+.orderItems {
+  max-height: 35vh;
+  overflow: auto;
 }
 
 .total {

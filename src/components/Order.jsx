@@ -8,7 +8,7 @@ const Order = ({ order }) => {
   return (
     <div className={styles.mainBox}>
       <div className={styles.idSection}>
-        <img src="/src/assets/images/icons/order-icon.svg" alt="" />
+        <img src="/src/assets/images/icons/order-icon.svg" alt="Order" />
         <div className={styles.orderId}>{order.orderId}</div>
       </div>
 
@@ -24,7 +24,7 @@ const Order = ({ order }) => {
         )}
         <div className={styles.date}>Placed on: {order.date}</div>
       </div>
-      <div>
+      <div className={styles.orderItems}>
         {order.items.map((item) => {
           return <OrderItem item={item} />;
         })}
