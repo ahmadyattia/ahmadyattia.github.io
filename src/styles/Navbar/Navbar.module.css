@@ -54,7 +54,7 @@
   color: white;
   background-color: blue;
   border: 0;
-  border-radius: 0.5rem;
+  border-radius: 5rem;
   padding: 0.5rem;
   font-size: var(--fs-nav);
   cursor: pointer;
