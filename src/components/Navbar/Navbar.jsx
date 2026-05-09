@@ -1,21 +1,19 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "@/Styles/Navbar/Navbar.module.css";
 import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
-import { AuthContext } from "../../context/AuthContext";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(null);
-  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isDesktop = !useMediaQuery("(max-width: 768px)");
   const [isActive, setIsActive] = useState(false);
 
   function handleYourOrdersBtn() {
-    navigate("/orders");
+    navigate("/orders"); // protected route
   }
 
   function handleMenuClick() {
@@ -26,14 +24,8 @@ const Navbar = () => {
     }
   }
 
-  // function handleMenuClick() {
-  //   // menu closes when clicked
-
-  // }
-
   return (
     <nav>
-      {/* <div className={styles.allOfNavbar}> */}
       <div id={styles.navbar}>
         {isMobile && (
           <div className={styles.mainNavMenuMobile} onClick={handleMenuClick}>
@@ -97,11 +89,10 @@ const Navbar = () => {
         )}
 
         <div className={styles.rightContainer}>
-          {user && (
-            <button id={styles.yourOrdersBtn} onClick={handleYourOrdersBtn}>
-              Your Orders
-            </button>
-          )}
+          <button id={styles.yourOrdersBtn} onClick={handleYourOrdersBtn}>
+            Your Orders
+          </button>
+
           <NavbarCart openMenu={openMenu} setOpenMenu={setOpenMenu} />
           <NavbarSettings openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>

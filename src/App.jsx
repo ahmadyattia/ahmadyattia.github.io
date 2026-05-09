@@ -61,7 +61,14 @@ function App() {
                     }
                   ></Route>
                   <Route path="cart/success" element={<Success />}></Route>
-                  <Route path="orders" element={<Orders />}></Route>
+                  <Route
+                    path="orders"
+                    element={
+                      <ProtectedRoute>
+                        <Orders />
+                      </ProtectedRoute>
+                    }
+                  ></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Route>
               </Routes>
