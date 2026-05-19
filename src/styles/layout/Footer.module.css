@@ -1,0 +1,35 @@
+.main {
+  border-top: 1px solid gray;
+  background-color: black;
+  font-family: var(--primary-font);
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid ul {
+  list-style-type: none;
+  color: white;
+  padding: 0;
+}
+
+/* lists' headers */
+.grid ul > :first-child {
+  color: blue;
+  margin-bottom: 1rem;
+}
+
+.grid ul li {
+  margin: 0.5rem 0;
+}
+
+/* on desktop */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+  }
+}
