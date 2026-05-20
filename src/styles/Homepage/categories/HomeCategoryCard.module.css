@@ -8,7 +8,7 @@
   padding: 0.1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 570px) {
   /* one card per slide on mobile */
   .card {
     min-width: calc(100% - 1rem); /* 1rem subtracted for the margin */

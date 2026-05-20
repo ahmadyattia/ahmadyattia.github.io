@@ -5,8 +5,8 @@ import HomepageCategories from "@/components/Homepage/categories/HomepageCategor
 const Home = () => {
   return (
     <div>
-      <Hero />
       <HomepageCategories />
+      <Hero />
     </div>
   );
 };

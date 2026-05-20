@@ -1,23 +1,16 @@
 #main {
-  height: 100vh;
+  height: calc(100vh - (4rem + 4.5rem));
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-@media (max-width: 768px) {
-  #main {
-    height: 60vh;
-  }
-  #categoriesSection {
-    height: 60vh;
-  }
+  align-items: center;
 }
 
 #carousel {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1200px;
 }
 
 #trackWrapper {
@@ -27,7 +20,7 @@
 
 #title {
   font-family: var(--primary-font);
-  font-size: var(--fs-h1);
+  font-size: 2.5rem;
   color: dodgerblue;
   margin: 0 auto 4rem auto;
   text-align: center;
@@ -84,4 +77,19 @@
 #backBtn img,
 #forwardBtn img {
   width: 2.5rem;
+}
+
+@media (max-width: 1000px) {
+  #carousel {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 570px) {
+  #main {
+    height: 60vh;
+  }
+  #categoriesSection {
+    height: 60vh;
+  }
 }
