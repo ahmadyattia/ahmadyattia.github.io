@@ -4,7 +4,7 @@ import CartDropdown from "@/components/Cart/CartDropdown.jsx";
 import { CartContext } from "../../context/CartContext";
 import CartCount from "./CartCount";
 import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
-import shoppingCartLogo from "../../assets/images/icons/shopping_cart.svg";
+import shoppingCartLogo from "@/assets/images/icons/shopping_cart.svg";
 
 const NavbarCart = () => {
   const [isOpen, setIsOpen] = useState(false);
