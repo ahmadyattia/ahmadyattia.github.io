@@ -30,10 +30,7 @@ const Breadcrumbs = () => {
           ) : (
             // The breadcrumb link uses absolute path starting with "/"
             <span className={styles.flexContainer} key={to}>
-              <img
-                className={styles.arrowIcon}
-                src="/src/assets/images/icons/right_angle_bracket_white_16px.svg"
-              />
+              <img className={styles.arrowIcon} src={rightBracketIcon} />
 
               <Link to={to} className={styles.breadcrumbLinks}>
                 <p>{value}</p>
