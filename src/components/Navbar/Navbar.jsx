@@ -4,7 +4,7 @@ import styles from "@/Styles/Navbar/Navbar.module.css";
 import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
 import useMediaQuery from "../../hooks/useMediaQuery";
-
+import hamburgerMenuIcon from "@/assets/images/icons/menu_16px-white.svg";
 const Navbar = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -36,8 +36,9 @@ const Navbar = () => {
               <div className={styles.closeMenuIconBox}>
                 <img
                   className={styles.closeMenuIcon}
-                  src="src/assets/images/icons/menu_16px-white.svg"
+                  src={hamburgerMenuIcon}
                   onClick={handleMenuClick}
+                  alt="menu_icon"
                 ></img>
               </div>
               <Link to="/home">
@@ -59,8 +60,8 @@ const Navbar = () => {
             <div className={styles.OpenMenuIconBox} onClick={handleMenuClick}>
               <img
                 className={styles.openMenuIcon}
-                src="src/assets/images/icons/menu_16px-white.svg"
-                alt=""
+                src={hamburgerMenuIcon}
+                alt="menu_icon"
               />
             </div>
           </div>
