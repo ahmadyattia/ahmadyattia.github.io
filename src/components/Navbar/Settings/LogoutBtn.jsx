@@ -5,6 +5,7 @@ import { auth } from "../../../server/firebase";
 import styles from "../../../Styles/Navbar/Settings/LogoutBtn.module.css";
 import { replace, useNavigate } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
+import logoutIcon from "@/assets/images/icons/logout_black.svg";
 
 const LogoutBtn = () => {
   const { loading, user } = useContext(AuthContext);
@@ -31,11 +32,7 @@ const LogoutBtn = () => {
   return (
     <div>
       <div id={styles.flexContainer}>
-        <img
-          id={styles.logoutIcon}
-          src="/src/assets/images/icons/logout_black.svg"
-          alt=""
-        />
+        <img id={styles.logoutIcon} src={logoutIcon} alt="" />
         <button id={styles.logoutBtn} onClick={() => handleLogout()}>
           Logout
         </button>

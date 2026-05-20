@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import styles from "../Styles/Breadcrumbs.module.css";
+import rightBracketIcon from "@/assets/images/icons/right_angle_bracket_white_16px.svg";
 
 const Breadcrumbs = () => {
   // const location = useLocation();
@@ -23,10 +24,7 @@ const Breadcrumbs = () => {
 
           return last ? (
             <span className={styles.flexContainer} key={to}>
-              <img
-                className={styles.arrowIcon}
-                src="/src/assets/images/icons/right_angle_bracket_white_16px.svg"
-              />
+              <img className={styles.arrowIcon} src={rightBracketIcon} />
               <p>{value}</p>
             </span>
           ) : (

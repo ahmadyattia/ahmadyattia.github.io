@@ -3,6 +3,9 @@ import styles from "../../Styles/Cart/CartItem.module.css";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import slugify from "@/utils/slugify";
+import minusIcon from "@/assets/images/icons/minus_icon_16px_white.svg";
+import plusIcon from "@/assets/images/icons/plus_icon_16px_white.svg";
+import deleteIcon from "@/assets/images/icons/delete_icon_16px_red.svg";
 
 const CartItem = ({ item }) => {
   const [removeTransition, setRemoveTransition] = useState("");
@@ -52,17 +55,9 @@ const CartItem = ({ item }) => {
           </div>
         </div>
         <div className={styles.quantityDiv}>
-          <img
-            src="src/assets/images/icons/minus_icon_16px_white.svg"
-            alt=""
-            onClick={handleReduceQuantity}
-          />
+          <img src={minusIcon} alt="" onClick={handleReduceQuantity} />
           <p className={styles.quantity}>{item.quantity}</p>
-          <img
-            src="src/assets/images/icons/plus_icon_16px_white.svg"
-            alt=""
-            onClick={handleIncreaseQuantity}
-          />
+          <img src={plusIcon} alt="" onClick={handleIncreaseQuantity} />
         </div>
         {discount ? (
           <p className={styles.price}>
@@ -80,7 +75,7 @@ const CartItem = ({ item }) => {
         <div className={styles.deleteIconBox}>
           <img
             className={styles.deleteIcon}
-            src="src/assets/images/icons/delete_icon_16px_red.svg"
+            src={deleteIcon}
             onClick={handleDeleteItem}
           />
         </div>

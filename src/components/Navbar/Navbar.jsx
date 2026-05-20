@@ -96,7 +96,6 @@ const Navbar = () => {
           <NavbarSettings />
         </div>
       </div>
-      {/* </div> */}
     </nav>
   );
 };

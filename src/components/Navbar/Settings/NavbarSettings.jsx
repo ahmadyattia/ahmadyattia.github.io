@@ -7,6 +7,7 @@ import LoginBtn from "./LoginBtn";
 import SignUpBtn from "./SignUpBtn";
 import styles from "../../../Styles/Navbar/Settings/NavbarSettings.module.css";
 import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
+import settingsIcon from "@/assets/images/icons/settings.svg";
 
 const NavbarSettings = () => {
   const { user } = useContext(AuthContext);
@@ -36,11 +37,7 @@ const NavbarSettings = () => {
         title="Settings"
         onClick={handleToggle}
       >
-        <img
-          className={styles.settingsIcon}
-          src="/src/assets/images/icons/settings.svg"
-          alt=""
-        />
+        <img className={styles.settingsIcon} src={settingsIcon} alt="" />
       </div>
       {isOpen && (
         <div className={styles.settingsDropdown}>

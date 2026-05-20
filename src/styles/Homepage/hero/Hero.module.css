@@ -14,7 +14,8 @@
 .heroCard {
   font-family: inherit;
   height: 100%;
-  background-image: url("src/assets/images/hero-img-2.jpg");
+  /* background-image: url("src/assets/images/hero-img-2.jpg"); */
+  background-image: url("@/assets/images/hero-img-2.jpg");
   background-size: cover;
 }
 

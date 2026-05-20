@@ -3,6 +3,7 @@ import styles from "../styles/ProductReview.module.css";
 import { useContext, useEffect, useState } from "react";
 import AddToCartBtn from "@/components/Cart/AddToCartBtn";
 import { ProductsContext } from "../context/ProductsContext";
+import backArrowIcon from "@/assets/images/icons/backward_arrow_white_16px.svg";
 
 const ProductReview = () => {
   const { productId } = useParams();
@@ -76,10 +77,7 @@ const ProductReview = () => {
                   onClick={() => navigate(-1)}
                 >
                   <div className={styles.backBtnContentFlex}>
-                    <img
-                      className={styles.arrowIcon}
-                      src="/src/assets/images/icons/backward_arrow_white_16px.svg"
-                    />
+                    <img className={styles.arrowIcon} src={backArrowIcon} />
                     <p>Back</p>
                   </div>
                 </button>

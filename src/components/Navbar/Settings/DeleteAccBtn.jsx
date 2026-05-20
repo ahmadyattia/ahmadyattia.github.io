@@ -8,6 +8,7 @@ import {
 import styles from "../../../Styles/Navbar/Settings/DeleteAccBtn.module.css";
 import { ref, remove } from "firebase/database";
 import { db } from "../../../server/firebase";
+import deleteAccIcon from "@/assets/images/icons/delete_black.svg";
 
 const DeleteAccBtn = () => {
   const { user } = useContext(AuthContext);
@@ -123,11 +124,7 @@ const DeleteAccBtn = () => {
   return (
     <div>
       <div id={styles.flexContainer}>
-        <img
-          id={styles.deleteAccIcon}
-          src="/src/assets/images/icons/delete_black.svg"
-          alt=""
-        />
+        <img id={styles.deleteAccIcon} src={deleteAccIcon} alt="" />
         <button
           className={styles.deleteAccBtn}
           onClick={() => handleDeleteAccount()}

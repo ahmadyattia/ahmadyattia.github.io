@@ -1,5 +1,5 @@
 import styles from "../../../Styles/Homepage/categories/HomeCategoryCard.module.css";
-import categoriesImages from "../../../data/CategoriesImages";
+import categoriesImages from "@/data/CategoriesImages";
 import { useNavigate } from "react-router-dom";
 
 const HomeCategoryCard = ({ category }) => {

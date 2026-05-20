@@ -3,6 +3,8 @@ import categories from "../../../data/Categories";
 import HomeCategoryCard from "./HomeCategoryCard";
 import { useState } from "react";
 import useMediaQuery from "../../../hooks/useMediaQuery";
+import backArrow from "@/assets/images/icons/arrow_left_32px_black.svg";
+import forwardArrow from "@/assets/images/icons/arrow_right_32px_black.svg";
 
 const HomepageCategories = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,7 +36,7 @@ const HomepageCategories = () => {
       <h1 id={styles.title}>Shop by Category</h1>
       <div id={styles.carousel}>
         <button id={styles.backBtn} onClick={prevSlide}>
-          <img src="src/assets/images/icons/arrow_left_32px_black.svg" alt="" />
+          <img src={backArrow} alt="back_arrow" />
         </button>
         <div id={styles.trackWrapper}>
           <div
@@ -50,10 +52,7 @@ const HomepageCategories = () => {
           </div>
         </div>
         <button id={styles.forwardBtn} onClick={nextSlide}>
-          <img
-            src="src/assets/images/icons/arrow_right_32px_black.svg"
-            alt=""
-          />
+          <img src={forwardArrow} alt="forward_arrow" />
         </button>
       </div>
     </div>

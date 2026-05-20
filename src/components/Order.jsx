@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../Styles/Order.module.css";
 import OrderItem from "./OrderItem";
+import orderIcon from "@/assets/images/icons/order-icon.svg";
 
 const Order = ({ order }) => {
   const orderShippingMethod = order.shipping.shippingMethod;
@@ -8,7 +9,7 @@ const Order = ({ order }) => {
   return (
     <div className={styles.mainBox}>
       <div className={styles.idSection}>
-        <img src="/src/assets/images/icons/order-icon.svg" alt="Order" />
+        <img src={orderIcon} alt="Order" />
         <div className={styles.orderId}>{order.orderId}</div>
       </div>
 
