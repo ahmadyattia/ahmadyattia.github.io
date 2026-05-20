@@ -1,7 +1,7 @@
 import allImage from "@/assets/images/all-bg.jpg";
 
 const categoriesImages = [
-  { category: "all", imgURL: { allImage } },
+  { category: "all", imgURL: allImage },
   { category: "electronics", imgURL: "@/assets/images/electronics-bg.jpg" },
   { category: "furniture", imgURL: "@/assets/images/furniture-bg.jpg" },
   { category: "clothes", imgURL: "@/assets/images/clothes-bg.jpg" },
