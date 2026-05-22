@@ -1,8 +1,10 @@
 #hero {
   position: relative;
   height: calc(100vh - (4.5rem + 4rem)); /* 4.5rem navbar - 4rem breadcrumbs */
-  width: 100%;
+  min-height: fit-content;
+  width: calc(100% - 4rem);
   font-family: var(--primary-font);
+  margin: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -14,8 +16,10 @@
 .heroCard {
   font-family: inherit;
   height: 100%;
-  /* background-image: url("src/assets/images/hero-img-2.jpg"); */
-  background-image: url("@/assets/images/hero-img-2.jpg");
+  background: 
+  /* The lighting overlay: dark edges, dim center */
+    radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.85) 80%),
+    url("@/assets/images/hero-img-2.jpg");
   background-size: cover;
 }
 
@@ -33,6 +37,7 @@
   color: white;
   font-weight: 600;
   font-size: var(--fs-h1);
+  filter: brightness(1);
 }
 
 .shopNowBtn {
