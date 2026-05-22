@@ -1,6 +1,5 @@
 #flexbox {
   display: flex;
-  height: calc(100vh - (4.5rem + 4rem));
   align-items: center;
   justify-content: center;
   font-family: "urbanist", sans-serif;
@@ -8,17 +7,31 @@
 
 .product {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  margin: auto;
+  gap: 1rem;
   width: 75%;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .allSmallImages {
   display: flex;
   flex-direction: column;
   width: 15%;
+  gap: 0.5rem;
+}
+
+.smallImgDiv {
+  position: relative;
+  width: fit-content;
+  aspect-ratio: 1 / 1;
 }
 
 .smallImages {
@@ -30,7 +43,7 @@
 }
 
 .mainImageStyle {
-  width: 35%;
+  width: 50%;
   aspect-ratio: 1 / 1;
   background-color: rgba(118, 116, 116, 0.249);
   border-radius: 1rem;
@@ -47,20 +60,22 @@
 }
 
 .details {
-  width: 50%;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.15);
   position: relative;
-  height: max-content;
-  font-family: "urbanist", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: var(--primary-font);
   color: white;
   border-radius: 1rem;
+  margin-bottom: 2rem;
 }
 
 .title,
 .category,
-.description,
-.checkout {
-  padding: 0.5rem 1rem;
+.description {
+  margin: 0 0.5rem;
 }
 
 .checkout {
@@ -68,12 +83,14 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  padding: 0.5rem;
 }
 
 .category {
   font-size: 1rem;
   font-weight: 600;
-  margin: 1rem 0;
+  margin: 0;
+  margin-left: 1rem;
 }
 
 .priceLabel {
@@ -99,7 +116,7 @@
 
 .backLink {
   color: lightgrey;
-  margin: 0.6rem;
+  /* margin: 0.6rem; */
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
   border: 0;
@@ -119,4 +136,8 @@
 
 .arrowIcon {
   width: 1.2rem;
+}
+
+.backP {
+  margin: 1rem 1rem 1rem 0.5rem;
 }

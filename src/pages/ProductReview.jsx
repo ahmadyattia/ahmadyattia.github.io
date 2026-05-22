@@ -45,31 +45,33 @@ const ProductReview = () => {
       {product ? (
         <div id={styles.flexbox}>
           <div className={styles.product}>
-            <div className={styles.allSmallImages}>
-              {product.images.map((image, index) => {
-                if (image === mainImage) {
-                  selectedImgOverlay = styles.selectedImgOverlay;
-                } else {
-                  selectedImgOverlay = "";
-                }
-                return (
-                  <div style={{ position: "relative" }} key={index}>
-                    <img
-                      className={styles.smallImages}
-                      src={image}
-                      key={index}
-                      onClick={() => switchImage(index)}
-                    />
-                    <div id={selectedImgOverlay}></div>
-                  </div>
-                );
-              })}
+            <div className={styles.images}>
+              <div className={styles.allSmallImages}>
+                {product.images.map((image, index) => {
+                  if (image === mainImage) {
+                    selectedImgOverlay = styles.selectedImgOverlay;
+                  } else {
+                    selectedImgOverlay = "";
+                  }
+                  return (
+                    <div className={styles.smallImgDiv} key={index}>
+                      <img
+                        className={styles.smallImages}
+                        src={image}
+                        key={index}
+                        onClick={() => switchImage(index)}
+                      />
+                      <div id={selectedImgOverlay}></div>
+                    </div>
+                  );
+                })}
+              </div>
+              <img
+                className={styles.mainImageStyle}
+                src={mainImage}
+                alt={product.description}
+              />
             </div>
-            <img
-              className={styles.mainImageStyle}
-              src={mainImage}
-              alt={product.description}
-            />
             <div className={styles.details}>
               <div className={styles.backBtnFlex}>
                 <button
@@ -78,7 +80,7 @@ const ProductReview = () => {
                 >
                   <div className={styles.backBtnContentFlex}>
                     <img className={styles.arrowIcon} src={backArrowIcon} />
-                    <p>Back</p>
+                    <p className={styles.backP}>Back</p>
                   </div>
                 </button>
               </div>
