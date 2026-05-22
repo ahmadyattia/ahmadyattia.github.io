@@ -4,13 +4,16 @@ import styles from "../Styles/Breadcrumbs.module.css";
 import rightBracketIcon from "@/assets/images/icons/right_angle_bracket_white_16px.svg";
 
 const Breadcrumbs = () => {
-  // const location = useLocation();
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
+  // define a regex pattern that matches the product id
+  // for the purpose of omitting the product id from breadcrumbs
+  const isProductId = (segment) => /^-[A-Za-z0-9_-]{19}$/.test(segment);
+
   // omitting product id from breadcrumbs
   const breadcrumbs = pathnames.filter((path) => {
-    return isNaN(path);
+    return !isProductId(path);
   });
 
   console.log(location.pathname);
