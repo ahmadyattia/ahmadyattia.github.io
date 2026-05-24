@@ -18,20 +18,11 @@
 }
 
 #viewCartBtn {
-  /* background-color: rgb(185, 185, 185); */
-  /* border: 0.1rem solid black; */
-  color: white;
-  background-color: rgb(67, 67, 67);
-}
-
-#viewCartBtn:hover {
-  background-color: dodgerblue;
+  color: blue;
+  background-color: white;
+  border: 1px solid blue;
 }
 
 #checkoutBtn {
-  background-color: black;
-}
-
-#checkoutBtn:hover {
-  background-color: dodgerblue;
+  background-color: blue;
 }
