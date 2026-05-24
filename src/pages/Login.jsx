@@ -126,7 +126,10 @@ const Login = () => {
         </p>
       )}
       <p className={styles.signupP}>
-        Don't have an account? <Link to={"/signup"}>Sign up</Link>
+        Don't have an account?{" "}
+        <Link to={"/signup"} state={{ from: location.state?.from }}>
+          Sign up
+        </Link>
       </p>
     </div>
   );

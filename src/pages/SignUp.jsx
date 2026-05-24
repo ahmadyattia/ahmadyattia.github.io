@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../server/firebase";
 import { ref, set } from "firebase/database";
 import styles from "../Styles/SignUp.module.css";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, replace, useLocation } from "react-router-dom";
 import ShowPassword from "../components/ShowPassword";
 
 const SignUp = () => {
@@ -14,6 +14,7 @@ const SignUp = () => {
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [passwordVisibility, setPasswordVisibility] = useState("password");
+  const location = useLocation();
 
   useEffect(() => {
     if (showPassword) {
@@ -64,7 +65,9 @@ const SignUp = () => {
       setPassword("");
       setEmail("");
 
-      navigate("/home");
+      const redirectPath = location.state?.from?.pathname || "/home";
+
+      navigate(redirectPath, { replace: true });
     } catch (error) {
       // Handle errors during sign-up
       console.error("Sign-up error:", error.code, error.message);
