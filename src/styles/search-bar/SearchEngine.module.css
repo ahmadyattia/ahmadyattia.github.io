@@ -1,12 +1,7 @@
 #searchBar {
-  width: 23%;
+  width: 50%;
+  max-width: 500px;
   position: relative;
-}
-
-@media (max-height: 768px) {
-  #searchBar {
-    width: 50%;
-  }
 }
 
 #searchInput {
