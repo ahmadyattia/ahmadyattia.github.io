@@ -18,6 +18,7 @@ import ViewCart from "./pages/ViewCart";
 import OrderCheckout from "./pages/OrderCheckout";
 import Success from "./pages/Success";
 import Orders from "./pages/Orders";
+import About from "./pages/About";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
                       </ProtectedRoute>
                     }
                   ></Route>
+                  <Route path="about" element={<About />}></Route>
                   <Route path="*" element={<NotFound />}></Route>
                 </Route>
               </Routes>
