@@ -2,18 +2,15 @@ import styles from "../../../Styles/Homepage/categories/HomepageCategories.modul
 import categories from "../../../data/Categories";
 import HomeCategoryCard from "./HomeCategoryCard";
 import { useState } from "react";
-import useMediaQuery from "../../../hooks/useMediaQuery";
 import backArrow from "@/assets/images/icons/arrow_left_32px_black.svg";
 import forwardArrow from "@/assets/images/icons/arrow_right_32px_black.svg";
 
 const HomepageCategories = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // if on mobile, make the slide contain one card
-  // otherwise make it contain 2 cards
-  const slidesCount = useMediaQuery("(max-width: 768px)")
-    ? categories.length
-    : Math.ceil(categories.length / 2);
+  // number of slides according to categories
+  const slidesCount = Math.ceil(categories.length / 2);
+
   let trackVibrate = "";
 
   const nextSlide = () => {
