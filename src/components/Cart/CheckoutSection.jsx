@@ -39,10 +39,13 @@ const CheckoutSection = ({
         .reduce((acc, item) => acc + item.price * item.quantity, 0)
         .toFixed(2),
     );
+
     setDiscount(
       cart
         .reduce(
-          (acc, item) => acc + item.price * (item.discountPercentage / 100),
+          (acc, item) =>
+            (acc + item.price * (item.discountPercentage / 100)) *
+            item.quantity,
           0,
         )
         .toFixed(2),
@@ -52,10 +55,6 @@ const CheckoutSection = ({
   useEffect(() => {
     setTotal(() => (subTotal - discount + shippingPrice).toFixed(2));
   }, [subTotal, discount, shippingPrice]);
-
-  console.log(cart);
-
-  console.log(discount);
 
   return (
     <div id={styles.checkoutSectionBox}>
