@@ -61,3 +61,11 @@
   position: relative;
   margin: 0;
 }
+
+.loginP {
+  color: rgb(171, 171, 171);
+}
+
+.loginP a {
+  text-decoration: none;
+}

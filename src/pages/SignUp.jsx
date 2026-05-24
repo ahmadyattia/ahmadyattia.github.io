@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../server/firebase";
 import { ref, set } from "firebase/database";
 import styles from "../Styles/SignUp.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import ShowPassword from "../components/ShowPassword";
 
 const SignUp = () => {
@@ -160,6 +160,9 @@ const SignUp = () => {
           {message}
         </p>
       )}
+      <p className={styles.loginP}>
+        Already have an account? <Link to={"/login"}>Log in</Link>
+      </p>
     </div>
   );
 };
