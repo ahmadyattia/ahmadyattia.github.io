@@ -4,13 +4,13 @@
 }
 
 #loginForm {
-  height: 86vh;
   color: white;
   font-family: "urbanist", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 2rem;
 }
 
 #loginForm form div {
