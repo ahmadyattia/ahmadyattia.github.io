@@ -2,7 +2,7 @@ import styles from "../styles/Login.module.css";
 import { useContext, useEffect, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../server/firebase";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import ShowPassword from "../components/ShowPassword";
 
@@ -125,6 +125,9 @@ const Login = () => {
           {message}
         </p>
       )}
+      <p className={styles.signupP}>
+        Don't have an account? <Link to={"/signup"}>Sign up</Link>
+      </p>
     </div>
   );
 };

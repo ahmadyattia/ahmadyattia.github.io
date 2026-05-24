@@ -61,3 +61,11 @@
   position: relative;
   margin: 0;
 }
+
+.signupP {
+  color: rgb(171, 171, 171);
+}
+
+a {
+  text-decoration: none;
+}
