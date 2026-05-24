@@ -15,9 +15,11 @@ const CartDropdownActions = ({ setIsOpen }) => {
           View Cart
         </button>
       </Link>
-      <button id={styles.checkoutBtn} onClick={handleBtnClick}>
-        Checkout
-      </button>
+      <Link to={"/cart/checkout"}>
+        <button id={styles.checkoutBtn} onClick={handleBtnClick}>
+          Checkout
+        </button>
+      </Link>
     </div>
   );
 };
