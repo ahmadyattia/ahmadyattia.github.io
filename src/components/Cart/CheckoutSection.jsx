@@ -110,9 +110,11 @@ const CheckoutSection = ({
           )}
         </div>
         {page === "cart" && (
-          <p id={styles.mustLoginMessage}>
-            *You must be logged into an existing account to proceed.
-          </p>
+          <div className={styles.mustLoginMsgBox}>
+            <p id={styles.mustLoginMessage}>
+              *You must be logged into an existing account to proceed.
+            </p>
+          </div>
         )}
       </div>
     </div>

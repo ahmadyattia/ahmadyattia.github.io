@@ -117,7 +117,6 @@
   padding: 1.2rem 0;
   border-radius: 2rem;
   font-family: var(--primary-font);
-  /* background-color: rgb(92, 92, 92); */
   background-color: blue;
   border: 0;
   color: white;
@@ -125,9 +124,10 @@
   cursor: pointer;
 }
 
-/* #checkoutBtn:hover {
-  background-color: dodgerblue;
-} */
+.mustLoginMsgBox {
+  display: flex;
+  justify-content: center;
+}
 
 #mustLoginMessage {
   color: grey;
