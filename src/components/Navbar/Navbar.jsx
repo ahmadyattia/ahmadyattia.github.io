@@ -5,6 +5,8 @@ import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import hamburgerMenuIcon from "@/assets/images/icons/menu_16px-white.svg";
+import rightArrow from "@/assets/images/icons/right_angle_bracket_white_16px.svg";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -44,16 +46,19 @@ const Navbar = () => {
               <Link to="/home">
                 <div className={styles.mainNavLnkBoxMobile}>
                   <p>Home</p>
+                  <img src={rightArrow} />
                 </div>
               </Link>
               <Link to="/shop">
                 <div className={styles.mainNavLnkBoxMobile}>
                   <p>Shop</p>
+                  <img src={rightArrow} />
                 </div>
               </Link>
               <Link to="/about">
                 <div className={styles.mainNavLnkBoxMobile}>
                   <p>About</p>
+                  <img src={rightArrow} />
                 </div>
               </Link>
             </div>

@@ -79,21 +79,20 @@
   background-color: black;
   z-index: 1;
   border-radius: 0.4rem;
-  /* background-color: rgb(75, 75, 75); */
   background-color: blue;
   transform: translateX(0);
   transition: transform 0.3s ease;
   padding: 0.5rem;
   height: 100vh;
+  min-width: 50%;
 }
 
 .mainNavLnkBoxMobile {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin: 0 1rem;
   color: white;
-  padding: 0 1rem;
-  min-width: 25vw;
 }
 
 .OpenMenuIconBox {
