@@ -26,7 +26,7 @@
 
 .name {
   font-family: var(--primary-font);
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   color: white;
   margin: 0.5rem 0 0 0;
@@ -40,7 +40,7 @@
   width: max-content;
   border: 0;
   border-radius: 3rem;
-  padding: 0.5rem 0.7rem;
+  padding: 0.2rem 1rem;
   background: rgba(0, 0, 139, 0.4);
   color: white;
   font-family: var(--primary-font);
