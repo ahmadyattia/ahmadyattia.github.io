@@ -1,42 +1,48 @@
 .card {
+  position: relative;
   min-width: calc(50% - 1rem); /* 1rem subtracted for the margin */
-  background-color: dodgerblue;
   border-radius: 3rem;
   display: flex;
-  flex-direction: column;
   margin: 0 0.5rem;
-  padding: 0.1rem;
-}
-
-.card:hover {
-  background-color: dodgerblue;
 }
 
 .img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  /* aspect-ratio: 4 / 3; */
+  aspect-ratio: 1 / 1;
   border-radius: 3rem;
   object-fit: cover;
 }
 
+.nameAndBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .name {
-  text-align: center;
   font-family: var(--primary-font);
   font-size: 1.5rem;
   font-weight: bold;
-  align-self: center;
   color: white;
-  margin: 1rem 0 0 0;
+  margin: 0.5rem 0 0 0;
+  background-color: rgba(0, 0, 139, 0.4);
+  border-radius: 3rem;
+  padding: 0.2rem 1rem;
 }
 
 .shopNowBtn {
-  margin: 1rem auto;
+  margin: 0.5rem;
   width: max-content;
   border: 0;
-  border-radius: 0.4rem;
+  border-radius: 3rem;
   padding: 0.5rem 0.7rem;
   background: rgba(0, 0, 139, 0.4);
-  color: lightblue;
+  color: white;
   font-family: var(--primary-font);
   cursor: pointer;
   font-size: 1rem;
@@ -44,6 +50,5 @@
 }
 
 .shopNowBtn:hover {
-  color: white;
-  background: rgba(0, 0, 139, 1);
+  background: blue;
 }
