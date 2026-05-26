@@ -10,13 +10,14 @@
 .heroCard {
   font-family: inherit;
   height: 100%;
-  background: 
+  background-image: 
   /* The lighting overlay: dark edges, dim center */
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.85) 80%),
     url("@/assets/images/shopping-hero-img.jpg");
   background-size: cover;
   /* display right side of image (good for mobile) */
   background-position: right;
+  border-radius: 3rem;
 }
 
 @media (max-width: 768px) {
