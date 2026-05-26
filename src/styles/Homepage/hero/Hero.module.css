@@ -55,6 +55,7 @@
   font-size: var(--fs-hero);
   font-weight: 700;
   text-transform: uppercase;
+  border-radius: 3rem;
 }
 
 .shopNowBtn:hover {
