@@ -7,20 +7,22 @@
   margin: 2rem;
 }
 
-@media (max-width: 768px) {
-  #hero {
-    height: calc(60vh - (4.5rem + 4rem));
-  }
-}
-
 .heroCard {
   font-family: inherit;
   height: 100%;
   background: 
   /* The lighting overlay: dark edges, dim center */
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.85) 80%),
-    url("@/assets/images/hero-img-2.jpg");
+    url("@/assets/images/shopping-hero-img.jpg");
   background-size: cover;
+  /* display right side of image (good for mobile) */
+  background-position: right;
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: calc(60vh - (4.5rem + 4rem));
+  }
 }
 
 .body {
@@ -28,9 +30,9 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  margin-right: 2rem;
-  max-width: 25%;
-  margin-left: auto;
+  margin: 2rem;
+  max-width: 50%;
+  margin-right: auto;
 }
 
 .title {
