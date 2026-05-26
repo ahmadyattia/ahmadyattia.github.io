@@ -2,6 +2,7 @@
 
 import React from "react";
 import styles from "@/styles/layout/Footer.module.css";
+import githubLogo from "@/assets/images/icons/GitHub_Lockup_White.svg";
 
 const Footer = () => {
   return (
@@ -34,6 +35,11 @@ const Footer = () => {
             <li>Events</li>
             <li>Blog</li>
           </ul>
+        </div>
+        <div className={styles.githubIconBox}>
+          <a href="https://github.com/ahmadyattia" target="_blank">
+            <img src={githubLogo} alt="" />
+          </a>
         </div>
       </div>
     </div>

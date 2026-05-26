@@ -2,7 +2,7 @@
   border-top: 1px solid gray;
   background-color: black;
   font-family: var(--primary-font);
-  padding: 2rem;
+  padding: 4rem 2rem;
 }
 
 .grid {
@@ -32,4 +32,18 @@
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
   }
+}
+
+.githubIconBox {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.githubIconBox a img {
+  width: 8rem;
+}
+
+.githubIconBox a img:hover {
+  width: 9rem;
 }
