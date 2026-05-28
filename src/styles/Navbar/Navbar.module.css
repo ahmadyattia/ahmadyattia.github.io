@@ -8,6 +8,10 @@
   font-family: "urbanist", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 #logo {
   margin: 0 2rem;
 }

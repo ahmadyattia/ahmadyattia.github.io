@@ -71,8 +71,9 @@ const Navbar = () => {
             </div>
           </div>
         )}
-        <h1 id={isMobile ? styles.logoMobile : styles.logo}>Shop Site</h1>
-
+        <Link to={"/home"}>
+          <h1 id={isMobile ? styles.logoMobile : styles.logo}>Shop Site</h1>
+        </Link>
         {isDesktop && (
           <div className={styles.mainNav}>
             <Link to="/shop">
