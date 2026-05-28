@@ -6,6 +6,7 @@
 .card {
   height: auto;
   width: 100%;
+  border-radius: 0.5rem;
 }
 
 .card:hover {
