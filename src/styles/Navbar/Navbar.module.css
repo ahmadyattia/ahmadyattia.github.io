@@ -20,10 +20,15 @@ a {
   margin: 0 auto 0 1rem;
 }
 
-#logo,
-#logoMobile {
+#logo h1,
+#logoMobile h1 {
   color: blue;
   font-size: var(--fs-h1);
+}
+
+#logo:visited,
+#logoMobile:visited {
+  color: blue;
 }
 
 .mainNav {
