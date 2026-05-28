@@ -55,6 +55,13 @@ const Navbar = () => {
                   <img src={rightArrow} />
                 </div>
               </Link>
+              <div
+                className={styles.mainNavLnkBoxMobile}
+                onClick={handleYourOrdersBtn}
+              >
+                <p>Your Orders</p>
+                <img src={rightArrow} />
+              </div>
               <Link to="/about">
                 <div className={styles.mainNavLnkBoxMobile}>
                   <p>About</p>
@@ -95,9 +102,11 @@ const Navbar = () => {
         )}
 
         <div className={styles.rightContainer}>
-          <button id={styles.yourOrdersBtn} onClick={handleYourOrdersBtn}>
-            Your Orders
-          </button>
+          {isDesktop && (
+            <button id={styles.yourOrdersBtn} onClick={handleYourOrdersBtn}>
+              Your Orders
+            </button>
+          )}
 
           <NavbarCart />
           <NavbarSettings />
