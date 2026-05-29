@@ -1,3 +1,5 @@
+// deprecated component
+
 import styles from "../../../Styles/Navbar/Settings/SignUpBtn.module.css";
 import { Link } from "react-router-dom";
 import signupIcon from "@/assets/images/icons/sign_up_black.svg";

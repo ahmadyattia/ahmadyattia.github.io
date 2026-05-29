@@ -1,3 +1,5 @@
+// this component is deprecated
+
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../Styles/Navbar/Settings/LoginBtn.module.css";

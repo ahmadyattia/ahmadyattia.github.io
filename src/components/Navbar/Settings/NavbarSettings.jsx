@@ -1,10 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-// import LogoutButton from "./LogoutButton";
 import LogoutBtn from "./LogoutBtn";
 import DeleteAccount from "./DeleteAccBtn";
 import { AuthContext } from "../../../context/AuthContext";
-import LoginBtn from "./LoginBtn";
-import SignUpBtn from "./SignUpBtn";
 import styles from "../../../Styles/Navbar/Settings/NavbarSettings.module.css";
 import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
 import settingsIcon from "@/assets/images/icons/settings.svg";
@@ -39,39 +36,23 @@ const NavbarSettings = () => {
       >
         <img className={styles.settingsIcon} src={settingsIcon} alt="" />
       </div>
-      {isOpen && (
+      {isOpen && user && (
         <div className={styles.settingsDropdown}>
           <h2 id={styles.settingsHead}>Settings</h2>
-          {user ? (
-            <ul>
-              <div className={styles.liContainer}>
-                <li>
-                  <LogoutBtn />
-                </li>
-              </div>
-              <hr />
+          <ul>
+            <div className={styles.liContainer}>
+              <li>
+                <LogoutBtn />
+              </li>
+            </div>
+            <hr />
 
-              <div className={styles.liContainer}>
-                <li>
-                  <DeleteAccount />
-                </li>
-              </div>
-            </ul>
-          ) : (
-            <ul>
-              <div className={styles.liContainer}>
-                <li>
-                  <LoginBtn />
-                </li>
-              </div>
-              <hr />
-              <div className={styles.liContainer}>
-                <li>
-                  <SignUpBtn />
-                </li>
-              </div>
-            </ul>
-          )}
+            <div className={styles.liContainer}>
+              <li>
+                <DeleteAccount />
+              </li>
+            </div>
+          </ul>
         </div>
       )}
     </div>

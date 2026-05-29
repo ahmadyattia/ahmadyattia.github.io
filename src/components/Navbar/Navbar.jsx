@@ -1,21 +1,30 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "@/Styles/Navbar/Navbar.module.css";
 import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import hamburgerMenuIcon from "@/assets/images/icons/menu_16px-white.svg";
+import NavbarBtn from "./NavbarBtn";
+import { AuthContext } from "@/context/AuthContext";
+import { useLogout } from "@/hooks/useLogout";
+import useDeleteAcc from "@/hooks/useDeleteAcc";
+
+// icons
 import rightArrow from "@/assets/images/icons/right_angle_bracket_white_16px.svg";
+import loginIcon from "@/assets/images/icons/login_black.svg";
+import orderIcon from "@/assets/images/icons/order-icon.svg";
+import homeIcon from "@/assets/images/icons/home-icon-black.svg";
+import aboutIcon from "@/assets/images/icons/about-icon-black.svg";
+import shopIcon from "@/assets/images/icons/shop-icon-black.svg";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const isDesktop = !useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 850px)");
+  const isDesktop = !useMediaQuery("(max-width: 850px)");
   const [isActive, setIsActive] = useState(false);
-
-  function handleYourOrdersBtn() {
-    navigate("/orders"); // protected route
-  }
+  const { user } = useContext(AuthContext);
+  const handleLogout = useLogout();
+  const handleDeleteAccount = useDeleteAcc();
 
   function handleMenuClick() {
     if (isActive) {
@@ -55,19 +64,46 @@ const Navbar = () => {
                   <img src={rightArrow} />
                 </div>
               </Link>
-              <div
-                className={styles.mainNavLnkBoxMobile}
-                onClick={handleYourOrdersBtn}
-              >
-                <p>Your Orders</p>
-                <img src={rightArrow} />
-              </div>
+              {user && (
+                <Link to="/orders">
+                  <div className={styles.mainNavLnkBoxMobile}>
+                    <p>My Orders</p>
+                    <img src={rightArrow} />
+                  </div>
+                </Link>
+              )}
               <Link to="/about">
                 <div className={styles.mainNavLnkBoxMobile}>
                   <p>About</p>
                   <img src={rightArrow} />
                 </div>
               </Link>
+              {!user && (
+                <Link to="login">
+                  <div className={styles.mainNavLnkBoxMobile}>
+                    <p>Login</p>
+                    <img src={rightArrow} />
+                  </div>
+                </Link>
+              )}
+              {user && (
+                <div
+                  className={styles.mainNavLnkBoxMobile}
+                  onClick={handleLogout}
+                >
+                  <p>Logout</p>
+                  <img src={rightArrow} />
+                </div>
+              )}
+              {user && (
+                <div
+                  className={styles.mainNavLnkBoxMobile}
+                  onClick={handleDeleteAccount}
+                >
+                  <p>Delete Account</p>
+                  <img src={rightArrow} />
+                </div>
+              )}
             </div>
             <div className={styles.OpenMenuIconBox} onClick={handleMenuClick}>
               <img
@@ -81,7 +117,7 @@ const Navbar = () => {
         <Link to={"/home"} id={isMobile ? styles.logoMobile : styles.logo}>
           <h1>Shop Site</h1>
         </Link>
-        {isDesktop && (
+        {/* {isDesktop && (
           <div className={styles.mainNav}>
             <Link to="/shop">
               <div className={styles.mainNavLnkBox}>
@@ -99,17 +135,25 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
-        )}
+        )} */}
 
         <div className={styles.rightContainer}>
+          {isDesktop && <NavbarBtn icon={homeIcon} name="Home" path="/home" />}
+          {isDesktop && <NavbarBtn icon={shopIcon} name="Shop" path="/shop" />}
+
           {isDesktop && (
-            <button id={styles.yourOrdersBtn} onClick={handleYourOrdersBtn}>
-              Your Orders
-            </button>
+            <NavbarBtn icon={aboutIcon} name="About" path="/about" />
           )}
 
+          {user && isDesktop && (
+            <NavbarBtn icon={orderIcon} name="My Orders" path="/orders" />
+          )}
+
+          {!user && isDesktop && (
+            <NavbarBtn icon={loginIcon} name="Login" path="/login" />
+          )}
           <NavbarCart />
-          <NavbarSettings />
+          {user && isDesktop && <NavbarSettings />}
         </div>
       </div>
     </nav>
