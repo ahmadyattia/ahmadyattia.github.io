@@ -17,6 +17,13 @@ import orderIcon from "@/assets/images/icons/order-icon.svg";
 import homeIcon from "@/assets/images/icons/home-icon-black.svg";
 import aboutIcon from "@/assets/images/icons/about-icon-black.svg";
 import shopIcon from "@/assets/images/icons/shop-icon-black.svg";
+import loginIconWhite from "@/assets/images/icons/login_white.svg";
+import orderIconWhite from "@/assets/images/icons/order-icon-white.svg";
+import logoutIconWhite from "@/assets/images/icons/logout_white.svg";
+import homeIconWhite from "@/assets/images/icons/home-icon-white.svg";
+import aboutIconWhite from "@/assets/images/icons/about-icon-white.svg";
+import shopIconWhite from "@/assets/images/icons/shop-icon-white.svg";
+import deleteAccIconWhite from "@/assets/images/icons/delete-icon-white.svg";
 
 const Navbar = () => {
   const isMobile = useMediaQuery("(max-width: 850px)");
@@ -54,34 +61,49 @@ const Navbar = () => {
               </div>
               <Link to="/home">
                 <div className={styles.mainNavLnkBoxMobile}>
-                  <p>Home</p>
+                  <div className={styles.iconAndNameMenu}>
+                    <img src={homeIconWhite} />
+                    <p>Home</p>
+                  </div>
                   <img src={rightArrow} />
                 </div>
               </Link>
               <Link to="/shop">
                 <div className={styles.mainNavLnkBoxMobile}>
-                  <p>Shop</p>
+                  <div className={styles.iconAndNameMenu}>
+                    <img src={shopIconWhite} />
+                    <p>Shop</p>
+                  </div>
                   <img src={rightArrow} />
                 </div>
               </Link>
               {user && (
                 <Link to="/orders">
                   <div className={styles.mainNavLnkBoxMobile}>
-                    <p>My Orders</p>
+                    <div className={styles.iconAndNameMenu}>
+                      <img src={orderIconWhite} />
+                      <p>My Orders</p>
+                    </div>
                     <img src={rightArrow} />
                   </div>
                 </Link>
               )}
               <Link to="/about">
                 <div className={styles.mainNavLnkBoxMobile}>
-                  <p>About</p>
+                  <div className={styles.iconAndNameMenu}>
+                    <img src={aboutIconWhite} />
+                    <p>About</p>
+                  </div>
                   <img src={rightArrow} />
                 </div>
               </Link>
               {!user && (
                 <Link to="login">
                   <div className={styles.mainNavLnkBoxMobile}>
-                    <p>Login</p>
+                    <div className={styles.iconAndNameMenu}>
+                      <img src={loginIconWhite} />
+                      <p>Login</p>
+                    </div>
                     <img src={rightArrow} />
                   </div>
                 </Link>
@@ -91,7 +113,10 @@ const Navbar = () => {
                   className={styles.mainNavLnkBoxMobile}
                   onClick={handleLogout}
                 >
-                  <p>Logout</p>
+                  <div className={styles.iconAndNameMenu}>
+                    <img src={logoutIconWhite} />
+                    <p>Logout</p>
+                  </div>
                   <img src={rightArrow} />
                 </div>
               )}
@@ -100,7 +125,10 @@ const Navbar = () => {
                   className={styles.mainNavLnkBoxMobile}
                   onClick={handleDeleteAccount}
                 >
-                  <p>Delete Account</p>
+                  <div className={styles.iconAndNameMenu}>
+                    <img src={deleteAccIconWhite} />
+                    <p>Delete Account</p>
+                  </div>
                   <img src={rightArrow} />
                 </div>
               )}
