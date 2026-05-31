@@ -97,6 +97,7 @@ const Navbar = () => {
                   <img src={rightArrow} />
                 </div>
               </Link>
+              <hr />
               {!user && (
                 <Link to="login">
                   <div className={styles.mainNavLnkBoxMobile}>
