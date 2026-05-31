@@ -63,9 +63,6 @@ const Orders = () => {
 
   return (
     <div id={styles.mainBox}>
-      {/* {loading && (
-        <p className={styles.loadingMessage}>loading your orders...</p>
-      )} */}
       <div id={styles.ordersBox}>
         {loading && <p id={styles.loadingMessage}>Loading your orders...</p>}
         {error && (
