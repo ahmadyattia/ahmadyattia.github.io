@@ -4,13 +4,14 @@ import styles from "@/Styles/Navbar/Navbar.module.css";
 import NavbarCart from "../Cart/NavbarCart";
 import NavbarSettings from "./Settings/NavbarSettings";
 import useMediaQuery from "../../hooks/useMediaQuery";
-import hamburgerMenuIcon from "@/assets/images/icons/menu_16px-white.svg";
 import NavbarBtn from "./NavbarBtn";
 import { AuthContext } from "@/context/AuthContext";
 import { useLogout } from "@/hooks/useLogout";
 import useDeleteAcc from "@/hooks/useDeleteAcc";
 
 // icons
+import closeMenuIcon from "@/assets/images/icons/close-icon-white.svg";
+import hamburgerMenuIcon from "@/assets/images/icons/menu_16px-white.svg";
 import rightArrow from "@/assets/images/icons/right_angle_bracket_white_16px.svg";
 import loginIcon from "@/assets/images/icons/login_black.svg";
 import orderIcon from "@/assets/images/icons/order-icon.svg";
@@ -54,9 +55,9 @@ const Navbar = () => {
               <div className={styles.closeMenuIconBox}>
                 <img
                   className={styles.closeMenuIcon}
-                  src={hamburgerMenuIcon}
+                  src={closeMenuIcon}
                   onClick={handleMenuClick}
-                  alt="menu_icon"
+                  alt="menu_close_icon"
                 ></img>
               </div>
               <Link to="/home">
