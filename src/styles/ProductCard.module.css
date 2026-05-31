@@ -7,6 +7,8 @@
   height: auto;
   width: 100%;
   border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -18,12 +20,14 @@
   height: auto;
   border-radius: 0.5rem;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .title {
   font-size: 1.25rem;
   margin: 0;
   margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .category {
@@ -31,11 +35,13 @@
   font-weight: 600;
   margin: 0;
   margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 .description {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .descriptionPara {
@@ -53,6 +59,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .priceLabel {

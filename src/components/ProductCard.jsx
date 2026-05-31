@@ -1,9 +1,10 @@
 import styles from "../Styles/ProductCard.module.css";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import AddToCartBtn from "./Cart/AddToCartBtn";
 
 const ProductCard = ({ product }) => {
   let discountedPrice = null;
+  const navigate = useNavigate();
 
   if (product.discountPercentage > 0) {
     discountedPrice = (
@@ -12,25 +13,30 @@ const ProductCard = ({ product }) => {
     ).toFixed(2);
   }
 
+  function handleCardClick() {
+    navigate(`${product.id}/${product.slug}`);
+  }
+
   return (
     <div className={`${styles.card} ${styles.font}`}>
-      <Link to={`${product.id}/${product.slug}`}>
-        <img src={product.images[0]} alt={product.description} />
-      </Link>
+      <img
+        src={product.images[0]}
+        alt={product.description}
+        onClick={handleCardClick}
+      />
       <div className={styles.details}>
-        <p className={styles.title}>{product.title}</p>
-        <div className={styles.description}>
+        <p className={styles.title} onClick={handleCardClick}>
+          {product.title}
+        </p>
+        <div className={styles.description} onClick={handleCardClick}>
           <p className={styles.descriptionPara}>{product.description}</p>
-          <Link
-            to={`${product.id}/${product.slug}`}
-            className={styles.linkToProductPage}
-          >
-            <p className={styles.readMore}>Read More</p>
-          </Link>
+          <p className={styles.readMore}>Read More</p>
         </div>
-        <p className={styles.category}>{product.category}</p>
+        <p className={styles.category} onClick={handleCardClick}>
+          {product.category}
+        </p>
         <div className={styles.checkout}>
-          <div>
+          <div onClick={handleCardClick}>
             <p className={styles.priceLabel}>Price</p>
             {discountedPrice ? (
               <p className={styles.amount}>
@@ -44,6 +50,7 @@ const ProductCard = ({ product }) => {
           <AddToCartBtn product={product} />
         </div>
       </div>
+      {/* </Link> */}
     </div>
   );
 };
