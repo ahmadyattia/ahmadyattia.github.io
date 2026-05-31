@@ -11,32 +11,32 @@ const About = () => {
           alt="Personal Picture"
         />
       </div>
-      <h2>About Me</h2>
-      <p>
+      <h2 className={styles.title}>About Me</h2>
+      <p className={styles.paragraph}>
         Hi, I'm Ahmed, a frontend developer focused on building responsive and
         user-friendly web interfaces.
       </p>
 
-      <p>
+      <p className={styles.paragraph}>
         I enjoy turning ideas into clean, interactive experiences using HTML,
         CSS, Javascript, and React.
       </p>
-      <p>
+      <p className={styles.paragraph}>
         I'm currently deepening my frontend skills and building projects to
         strengthen both UI design and real-world development.
       </p>
-      <h2>About This Website</h2>
-      <p>
+      <h2 className={styles.title}>About This Website</h2>
+      <p className={styles.paragraph}>
         This project showcases my skills and abilities as a frontend developer.
       </p>
-      <p>
+      <p className={styles.paragraph}>
         I built it to practice resposive design, component structure, and
         deployment with{" "}
         <a href="https://docs.github.com/en/pages" target="_blank">
           pages.github.com
         </a>
       </p>
-      <p>
+      <p className={styles.paragraph}>
         The goal was to create a clean and accessible experience across desktop
         and mobile.
       </p>
