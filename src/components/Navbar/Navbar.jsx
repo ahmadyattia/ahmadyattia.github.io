@@ -145,25 +145,6 @@ const Navbar = () => {
         <Link to={"/home"} id={isMobile ? styles.logoMobile : styles.logo}>
           <h1>Shop Site</h1>
         </Link>
-        {/* {isDesktop && (
-          <div className={styles.mainNav}>
-            <Link to="/shop">
-              <div className={styles.mainNavLnkBox}>
-                <p>Shop</p>
-              </div>
-            </Link>
-            <Link to="/home">
-              <div className={styles.mainNavLnkBox}>
-                <p>Home</p>
-              </div>
-            </Link>
-            <Link to="/about">
-              <div className={styles.mainNavLnkBox}>
-                <p>About</p>
-              </div>
-            </Link>
-          </div>
-        )} */}
 
         <div className={styles.rightContainer}>
           {isDesktop && <NavbarBtn icon={homeIcon} name="Home" path="/home" />}
