@@ -60,7 +60,7 @@ hr {
   background-color: black;
   z-index: 1;
   border-radius: 0.4rem;
-  background-color: blue;
+  background: linear-gradient(180deg, #111827, #0f172a);
   transform: translateX(0);
   transition: transform 0.3s ease;
   padding: 0.5rem;
