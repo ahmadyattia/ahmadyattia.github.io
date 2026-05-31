@@ -19,3 +19,10 @@
   margin: 1rem;
   font-family: var(--primary-font);
 }
+
+.noOrdersMessage {
+  color: white;
+  font-family: var(--primary-font);
+  margin: 2rem;
+  font-size: 1.2rem;
+}

@@ -42,7 +42,8 @@ const Orders = () => {
 
             setOrders(orderList);
           } else {
-            setOrders([]); // no orders found for this user
+            // no orders found for this user
+            setOrders(null);
           }
           setLoading(false);
         },
@@ -70,9 +71,14 @@ const Orders = () => {
             Error finding your orders. Error: {error}
           </p>
         )}
-        {orders.map((order) => {
-          return <Order key={order.orderId} order={order} />;
-        })}
+
+        {orders ? (
+          orders.map((order) => {
+            return <Order key={order.orderId} order={order} />;
+          })
+        ) : (
+          <p className={styles.noOrdersMessage}>No orders to show for now!</p>
+        )}
       </div>
     </div>
   );
