@@ -15,7 +15,7 @@ import Order from "@/components/Order";
 const Orders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // fetch orders from db
@@ -63,8 +63,11 @@ const Orders = () => {
 
   return (
     <div id={styles.mainBox}>
+      {/* {loading && (
+        <p className={styles.loadingMessage}>loading your orders...</p>
+      )} */}
       <div id={styles.ordersBox}>
-        {loading && <p id={styles.loadingMessage}>Loading orders...</p>}
+        {loading && <p id={styles.loadingMessage}>Loading your orders...</p>}
         {error && (
           <p id={styles.errorMessage}>
             Error finding your orders. Error: {error}

@@ -17,4 +17,5 @@
 #errorMessage {
   color: white;
   margin: 1rem;
+  font-family: var(--primary-font);
 }
