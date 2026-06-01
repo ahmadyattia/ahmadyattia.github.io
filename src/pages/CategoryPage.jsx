@@ -14,11 +14,9 @@ const CategoryPage = () => {
 
   return (
     <div id={styles.categoryPage}>
-      <div id={styles.searchAndCategoryName}>
-        <h2>{capitalizedName}</h2>
-        <SearchEngine />
-        <div id={styles.spacer}></div> {/* just for layout */}
-      </div>
+      <SearchEngine />
+      <h2>{capitalizedName}</h2>
+      {/* </div> */}
       <CategoryProducts category={category} countSetter={setProductsCount} />
       <div className={styles.paginationContainer}>
         <ProductsPagination productsCount={productsCount} />

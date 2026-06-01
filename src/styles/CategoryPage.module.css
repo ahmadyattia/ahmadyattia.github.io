@@ -5,23 +5,10 @@
   position: relative;
 }
 
-#searchAndCategoryName {
-  display: flex;
-  align-items: center;
-}
-
 #categoryPage h2 {
-  flex: 1;
   margin: 2rem;
   color: white;
   font-family: "urbanist", sans-serif;
-  box-sizing: border-box;
-}
-
-/* just for layout */
-#spacer {
-  flex: 1;
-  padding: 2rem;
 }
 
 .paginationContainer {
