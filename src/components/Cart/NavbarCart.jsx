@@ -23,21 +23,14 @@ const NavbarCart = () => {
 
   return (
     <div className={styles.navbarCart} ref={dropdownRef}>
-      <div
-        className={styles.cartIconContainer}
+      <img
         onClick={handleIconClick}
+        id={styles.cartIcon}
+        src={cartIcon}
+        alt="Cart"
         title="Cart"
-      >
-        <img
-          id={styles.cartIcon}
-          // src="/src/assets/images/icons/shopping_cart.svg"
-          src={cartIcon}
-          alt=""
-        />
-      </div>
-
+      />
       <CartCount />
-
       <div id={styles.dropdown}>
         <CartDropdown isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>

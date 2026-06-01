@@ -8,11 +8,11 @@
   font-family: "urbanist", sans-serif;
 }
 
-a {
+#navbar a {
   text-decoration: none;
 }
 
-hr {
+#navbar hr {
   border-top: 1px solid lightgray;
   border-bottom: 0;
   width: 90%;
@@ -28,7 +28,7 @@ hr {
 
 #logo h1,
 #logoMobile h1 {
-  color: blue;
+  color: white;
   font-size: var(--fs-h1);
 }
 
@@ -41,6 +41,7 @@ hr {
   gap: 0.5rem;
   margin: 0 0.5rem;
 }
+
 /* mobile menu */
 
 .mainNavMenuMobile {

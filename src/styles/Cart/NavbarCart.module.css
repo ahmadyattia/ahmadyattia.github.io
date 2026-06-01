@@ -1,25 +1,18 @@
 .navbarCart {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-areas: "overlap";
+  justify-content: center;
   align-items: center;
-}
-
-.cartIconContainer {
-  margin-right: 0.5rem;
-  padding: 0.3rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.cartIconContainer:hover {
-  background-color: rgb(81, 79, 79);
-  border-radius: 50%;
+  align-self: center;
+  font-size: 1rem;
 }
 
 #cartIcon {
-  width: 1.5rem;
-  height: 1.5rem;
+  grid-area: overlap;
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
 }
 
 #dropdown {
