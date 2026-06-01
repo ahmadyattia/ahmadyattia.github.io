@@ -1,5 +1,9 @@
 #shop-categories {
-  max-width: 20rem;
-  align-items: center;
-  margin: 2rem;
+  max-width: 900px;
+  padding: 2rem;
+  width: calc(100vw - 4rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: auto;
 }

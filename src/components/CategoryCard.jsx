@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const CategoryCard = ({ slug, name }) => {
   const [isMounted, setIsMounted] = useState(false);
 
+  // animation
   useEffect(() => {
     // timer for the mobile browser to delay display so that the animation works
     const timer = setTimeout(() => {
