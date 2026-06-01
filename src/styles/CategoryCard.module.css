@@ -4,12 +4,22 @@
 
 .name {
   max-width: 20rem;
-  background-color: blue;
+  background-color: white;
   font-size: 1.5rem;
   font-family: "urbanist", sans-serif;
-  color: white;
-  padding: 1rem;
+  color: black;
+  padding: 2rem;
   padding-right: 3rem;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
   margin: 1.5rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1s,
+    transform 1s;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
 }
