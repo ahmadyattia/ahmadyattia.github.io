@@ -16,12 +16,12 @@ const HomeCategoryCard = ({ category }) => {
   return (
     <div className={styles.card}>
       <img className={styles.img} src={categoryImg} alt="" />
-      <div className={styles.nameAndBtn}>
-        <p className={styles.name}>{category.name}</p>
-        <button className={styles.shopNowBtn} onClick={handleClick}>
-          Shop Now
-        </button>
-      </div>
+      <p className={styles.name}>{category.name}</p>
+      <button className={styles.shopNowBtn} onClick={handleClick}>
+        Shop Now
+      </button>
+      {/* <div className={styles.nameAndBtn}>
+      </div> */}
     </div>
   );
 };

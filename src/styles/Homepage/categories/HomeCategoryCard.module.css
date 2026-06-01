@@ -8,47 +8,40 @@
 
 .img {
   width: 100%;
-  /* aspect-ratio: 4 / 3; */
   aspect-ratio: 1 / 1;
   border-radius: 3rem;
   object-fit: cover;
-}
-
-.nameAndBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  filter: brightness(60%);
 }
 
 .name {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
   font-family: var(--primary-font);
-  font-size: 1rem;
   font-weight: bold;
   color: white;
-  margin: 0.5rem 0 0 0;
-  background-color: rgba(0, 0, 139, 0.4);
-  border-radius: 3rem;
+  margin: 0;
   padding: 0.2rem 1rem;
 }
 
 .shopNowBtn {
-  margin: 0.5rem;
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
   width: max-content;
   border: 0;
   border-radius: 3rem;
-  padding: 0.2rem 1rem;
-  background: rgba(0, 0, 139, 0.4);
-  color: white;
+  background: rgba(0, 0, 0, 0.4);
   font-family: var(--primary-font);
-  cursor: pointer;
   font-size: 1rem;
-  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  padding: 0.2rem 1rem;
 }
 
 .shopNowBtn:hover {
-  background: blue;
+  background: black;
 }

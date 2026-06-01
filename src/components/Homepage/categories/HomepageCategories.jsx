@@ -2,8 +2,8 @@ import styles from "../../../Styles/Homepage/categories/HomepageCategories.modul
 import categories from "../../../data/Categories";
 import HomeCategoryCard from "./HomeCategoryCard";
 import { useState } from "react";
-import backArrow from "@/assets/images/icons/arrow_left_32px_black.svg";
-import forwardArrow from "@/assets/images/icons/arrow_right_32px_black.svg";
+import backArrow from "@/assets/images/icons/arrow_back_white_20px.svg";
+import forwardArrow from "@/assets/images/icons/arrow_forward_white_20px.svg";
 
 const HomepageCategories = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
