@@ -102,3 +102,9 @@
   margin: 0;
   margin-left: 0.5rem;
 }
+
+@media (max-width: 434px) {
+  .card {
+    width: 80%;
+  }
+}
