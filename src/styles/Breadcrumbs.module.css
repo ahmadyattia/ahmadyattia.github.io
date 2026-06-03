@@ -1,8 +1,7 @@
 #breadcrumbs {
   font-family: "urbanist", sans-serif;
   color: white;
-  margin: 0 2rem;
-  height: 4rem;
+  margin: 1rem 2rem;
   display: flex;
   align-items: center;
 }
@@ -15,6 +14,10 @@
 
 .flexContainer {
   display: inline-flex;
+}
+
+.flexContainer p {
+  margin: 0;
 }
 
 .arrowIcon {

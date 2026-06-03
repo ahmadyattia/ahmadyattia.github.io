@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import "./styles/breakpoints.css";
 import CartProvider from "./context/CartContext";
@@ -30,7 +30,10 @@ function App() {
             <CartProvider>
               <Routes>
                 <Route path="/" element={<MainLayout />}>
-                  <Route index element={<Home />}></Route>
+                  <Route
+                    index
+                    element={<Navigate to={"/home"} replace />}
+                  ></Route>
                   <Route path="home" element={<Home />}></Route>
 
                   <Route path="shop" element={<ShopByCategory />}></Route>

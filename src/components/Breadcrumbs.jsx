@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import styles from "../Styles/Breadcrumbs.module.css";
 import rightBracketIcon from "@/assets/images/icons/right_angle_bracket_white_16px.svg";
@@ -6,6 +6,7 @@ import rightBracketIcon from "@/assets/images/icons/right_angle_bracket_white_16
 const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
+  const [isHomepage, setIsHomepage] = useState(false);
 
   // define a regex pattern that matches the product id
   // for the purpose of omitting the product id from breadcrumbs
@@ -15,6 +16,9 @@ const Breadcrumbs = () => {
   const breadcrumbs = pathnames.filter((path) => {
     return !isProductId(path);
   });
+
+  // no breadcrumbs on home page
+  if (location.pathname === "/" || location.pathname === "/home") return null;
 
   console.log(location.pathname);
 
