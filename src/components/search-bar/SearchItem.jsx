@@ -1,18 +1,23 @@
 import React from "react";
 import styles from "../../Styles/search-bar/SearchItem.module.css";
 import { Link } from "react-router-dom";
+import { highlightSearchTerm } from "@/utils/highlightSearchTerm";
 
-const SearchItem = ({ item }) => {
-  const category = item.category;
-  const itemId = item.id;
-  const itemSlug = item.slug;
+const SearchItem = ({ item, searchTerm }) => {
+  const parts = highlightSearchTerm(item.title, searchTerm);
 
   return (
     <Link
       className={styles.searchItem}
-      to={`/shop/${category}/${itemId}/${itemSlug}`}
+      to={`/shop/${item.category}/${item.id}/${item.slug}`}
     >
-      {item.title}
+      {parts.map((part, index) =>
+        part.toLowerCase() === searchTerm.toLowerCase() ? (
+          <mark key={index}>{part}</mark>
+        ) : (
+          part
+        ),
+      )}
     </Link>
   );
 };

@@ -26,7 +26,7 @@ const SearchResults = ({ searchTerm }) => {
   return (
     <div>
       {results.map((item) => {
-        return <SearchItem key={item.id} item={item} />;
+        return <SearchItem key={item.id} item={item} searchTerm={searchTerm} />;
       })}
     </div>
   );
