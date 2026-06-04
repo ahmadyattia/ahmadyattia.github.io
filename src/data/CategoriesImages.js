@@ -4,9 +4,7 @@ import funrnitureImage from "@/assets/images/furniture-bg.jpg";
 import clothesImage from "@/assets/images/clothes-bg.jpg";
 import shoesImage from "@/assets/images/shoes-bg-2.jpg";
 import miscellaneousImage from "@/assets/images/miscellaneous-bg.jpg";
-import groceriesImage from "@/assets/images/groceries-bg.jpg";
 import fragranceImage from "@/assets/images/fragrance-bg.jpg";
-import beautyImage from "@/assets/images/beauty-bg.jpg";
 
 const categoriesImages = [
   { category: "all", imgURL: allImage },
@@ -18,9 +16,7 @@ const categoriesImages = [
     category: "miscellaneous",
     imgURL: miscellaneousImage,
   },
-  { category: "groceries", imgURL: groceriesImage },
   { category: "fragrances", imgURL: fragranceImage },
-  { category: "beauty", imgURL: beautyImage },
 ];
 
 export default categoriesImages;

@@ -4,13 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.2) 20%,
-    rgba(0, 0, 0, 0.85) 80%
-  );
-  background-color: purple;
-  border-radius: 3rem;
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.85) 80%),
+    url("@/assets/images/categories-wooden-bg.jpg");
+  background-size: contain;
+  border-radius: 1rem;
   margin: 2rem;
   padding: 2rem 0;
 }

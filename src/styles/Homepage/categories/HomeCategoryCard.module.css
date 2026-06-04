@@ -1,17 +1,18 @@
 .card {
   position: relative;
   min-width: calc(50% - 1rem); /* 1rem subtracted for the margin */
-  border-radius: 3rem;
+  border-radius: 1rem;
   display: flex;
   margin: 0 0.5rem;
+  border: 1px solid black;
 }
 
 .img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 3rem;
+  border-radius: 1rem;
   object-fit: cover;
-  filter: brightness(60%);
+  filter: brightness(80%);
 }
 
 .name {

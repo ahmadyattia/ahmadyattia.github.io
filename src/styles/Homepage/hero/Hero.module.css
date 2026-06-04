@@ -2,6 +2,7 @@
   position: relative;
   height: calc(100vh - (4.5rem + 4rem)); /* 4.5rem navbar - 4rem breadcrumbs */
   min-height: fit-content;
+  max-height: 1000px;
   width: calc(100% - 4rem);
   font-family: var(--primary-font);
   margin: 2rem;
@@ -13,11 +14,10 @@
   background-image: 
   /* The lighting overlay: dark edges, dim center */
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.85) 80%),
-    url("@/assets/images/shopping-hero-img.jpg");
+    url("@/assets/images/hero-bg-blue.jpg");
   background-size: cover;
-  /* display right side of image (good for mobile) */
+  border-radius: 1rem;
   background-position: right;
-  border-radius: 3rem;
 }
 
 @media (max-width: 768px) {
@@ -39,14 +39,14 @@
 .title {
   color: white;
   font-weight: 600;
-  font-size: var(--fs-h1);
+  font-size: 2rem;
   filter: brightness(1);
 }
 
 .shopNowBtn {
   width: max-content;
   max-width: 100%;
-  border: 0;
+  border: 1px solid white;
   padding: 1rem 2.5rem;
   color: white;
   background-color: black;
