@@ -17,8 +17,8 @@
   ); /* 4.5rem navbar and 4rem breadcrumbs */
 }
 
-#orderDetails {
-  justify-items: center;
+.shippingInfo {
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -36,6 +36,7 @@
 
 #main form h2 {
   color: white;
+  margin: 1.5rem 0;
 }
 
 #main form input {
@@ -56,8 +57,6 @@
 
 #main form label {
   color: white;
-  margin-top: 2rem;
-  /* margin-bottom: 0.5rem; */
 }
 
 #deliveryOptionsBox {
@@ -84,9 +83,12 @@
   margin-top: 0;
 }
 
+.personalInfo input {
+  margin-bottom: 1rem;
+}
+
 #cityStateZip {
   display: flex;
-  margin-top: 2rem;
   gap: 1rem;
 }
 
@@ -94,6 +96,6 @@
   flex: 1;
 }
 
-#addressInfo {
-  margin-top: 2rem;
+#orderDetails {
+  justify-items: center;
 }

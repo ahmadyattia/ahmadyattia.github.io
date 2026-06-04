@@ -111,104 +111,109 @@ const OrderCheckout = () => {
   return (
     <div id={styles.main}>
       <form ref={form} action="" onSubmit={handlePlaceOrder}>
-        <h2>Shipping Information</h2>
-        <div id={styles.deliveryOptionsBox}>
-          <div>
-            <input
-              type="radio"
-              id="deliveryOption"
-              name="shipping-option"
-              checked={shippingMethod === "delivery"}
-              value={"delivery"}
-              onChange={(e) => setShippingMethod(e.target.value)}
-              required
-            />
-            <label htmlFor="deliveryOption">Delivery</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="pickupOption"
-              name="shipping-option"
-              checked={shippingMethod === "pickup"}
-              value={"pickup"}
-              onChange={(e) => setShippingMethod(e.target.value)}
-              required
-            />
+        <div className={styles.shippingInfo}>
+          <h2>Shipping Information</h2>
+          <div id={styles.deliveryOptionsBox}>
+            <div>
+              <input
+                type="radio"
+                id="deliveryOption"
+                name="shipping-option"
+                checked={shippingMethod === "delivery"}
+                value={"delivery"}
+                onChange={(e) => setShippingMethod(e.target.value)}
+                required
+              />
+              <label htmlFor="deliveryOption">Delivery</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="pickupOption"
+                name="shipping-option"
+                checked={shippingMethod === "pickup"}
+                value={"pickup"}
+                onChange={(e) => setShippingMethod(e.target.value)}
+                required
+              />
 
-            <label htmlFor="pickupOption">Pickup</label>
-          </div>
-        </div>
-        <label htmlFor="fname">Full name</label>
-        <input
-          id="fname"
-          type="text"
-          defaultValue={fullName}
-          placeholder="Enter full name"
-          onChange={(e) => setFullName(e.target.value)}
-          required
-        />
-
-        <label htmlFor="email">Email address</label>
-        <input
-          id="email"
-          type="email"
-          defaultValue={email}
-          placeholder="Enter email address"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label htmlFor="phone">Phone number (Optional)</label>
-        <input
-          id="phone"
-          type="tel"
-          placeholder="Enter phone number"
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        {shippingMethod === "delivery" && (
-          <div id={styles.addressInfo}>
-            <label htmlFor="country">Country</label>
-            <input
-              id="country"
-              type="text"
-              placeholder="Enter your country"
-              required
-              onChange={(e) => setCountry(e.target.value)}
-            />
-            <div id={styles.cityStateZip}>
-              <div>
-                <label htmlFor="city">City</label>
-                <input
-                  id="city"
-                  type="text"
-                  placeholder="Enter city"
-                  required
-                  onChange={(e) => setCity(e.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="state">State</label>
-                <input
-                  id="state"
-                  type="text"
-                  placeholder="Enter state"
-                  required
-                  onChange={(e) => setState(e.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="zipcode">Zip Code</label>
-                <input
-                  id="zipcode"
-                  type="text"
-                  placeholder="Enter ZIP code"
-                  required
-                  onChange={(e) => setZipCode(e.target.value)}
-                />
-              </div>
+              <label htmlFor="pickupOption">Pickup</label>
             </div>
           </div>
-        )}
+        </div>
+        <div className={styles.personalInfo}>
+          <h2>Personal Info</h2>
+          <label htmlFor="fname">*Full name</label>
+          <input
+            id="fname"
+            type="text"
+            defaultValue={fullName}
+            placeholder="Enter full name"
+            onChange={(e) => setFullName(e.target.value)}
+            required
+          />
+
+          <label htmlFor="email">*Email address</label>
+          <input
+            id="email"
+            type="email"
+            defaultValue={email}
+            placeholder="Enter email address"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label htmlFor="phone">Phone number (Optional)</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="Enter phone number"
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          {shippingMethod === "delivery" && (
+            <div id={styles.addressInfo}>
+              <label htmlFor="country">*Country</label>
+              <input
+                id="country"
+                type="text"
+                placeholder="Enter your country"
+                required
+                onChange={(e) => setCountry(e.target.value)}
+              />
+              <div id={styles.cityStateZip}>
+                <div>
+                  <label htmlFor="city">*City</label>
+                  <input
+                    id="city"
+                    type="text"
+                    placeholder="Enter city"
+                    required
+                    onChange={(e) => setCity(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="state">*State</label>
+                  <input
+                    id="state"
+                    type="text"
+                    placeholder="Enter state"
+                    required
+                    onChange={(e) => setState(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="zipcode">*Zip Code</label>
+                  <input
+                    id="zipcode"
+                    type="text"
+                    placeholder="Enter ZIP code"
+                    required
+                    onChange={(e) => setZipCode(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </form>
       <div id={styles.orderDetails}>
         <CheckoutSection
