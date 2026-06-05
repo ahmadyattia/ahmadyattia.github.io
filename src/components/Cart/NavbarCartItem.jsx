@@ -13,7 +13,7 @@ const NavbarCartItem = ({ item }) => {
   }
 
   return (
-    <div className={styles.item}>
+    <article className={styles.item}>
       <img src={item.img} alt="" className={styles.images} />
 
       <div className={styles.details}>
@@ -34,7 +34,7 @@ const NavbarCartItem = ({ item }) => {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

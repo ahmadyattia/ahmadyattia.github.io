@@ -39,7 +39,7 @@
 
 #cartItems hr {
   width: 90%;
-  border-top: 0;
+  border-top: 1px solid lightgray;
 }
 
 #emptyCartHeader {

@@ -26,7 +26,7 @@ const CartDropdown = ({ isOpen, setIsOpen }) => {
           <h2>Your Cart is Empty!</h2>
         </div>
       ) : (
-        <div id={styles.cartItems}>
+        <section id={styles.cartItems}>
           {cart.map((item) => {
             return (
               <div>
@@ -35,7 +35,7 @@ const CartDropdown = ({ isOpen, setIsOpen }) => {
               </div>
             );
           })}
-        </div>
+        </section>
       )}
 
       {cart.length > 0 && <CartDropdownActions setIsOpen={setIsOpen} />}

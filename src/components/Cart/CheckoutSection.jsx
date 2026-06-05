@@ -57,7 +57,7 @@ const CheckoutSection = ({
   }, [subTotal, discount, shippingPrice]);
 
   return (
-    <div id={styles.checkoutSectionBox}>
+    <section id={styles.checkoutSectionBox}>
       <div id={styles.checkoutSection}>
         <div id={styles.promoCodeBox}>
           <h3>Promo code</h3>
@@ -117,7 +117,7 @@ const CheckoutSection = ({
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -7,7 +7,7 @@ const Order = ({ order }) => {
   const orderShippingMethod = order.shipping.shippingMethod;
 
   return (
-    <div className={styles.mainBox}>
+    <article className={styles.mainBox}>
       <div className={styles.idSection}>
         <img src={orderIcon} alt="Order" />
         <div className={styles.orderId}>{order.orderId}</div>
@@ -31,7 +31,7 @@ const Order = ({ order }) => {
         })}
       </div>
       <div className={styles.total}>Total: ${order.total}</div>
-    </div>
+    </article>
   );
 };
 

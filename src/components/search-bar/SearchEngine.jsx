@@ -15,7 +15,7 @@ const SearchEngine = () => {
   }
 
   return (
-    <div id={styles.searchBar} ref={containerRef}>
+    <search id={styles.searchBar} ref={containerRef}>
       <input
         id={styles.searchInput}
         type="text"
@@ -29,7 +29,7 @@ const SearchEngine = () => {
           <SearchResults searchTerm={searchTerm} />
         </div>
       )}
-    </div>
+    </search>
   );
 };
 

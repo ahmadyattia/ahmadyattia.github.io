@@ -74,7 +74,7 @@ const CategoryProducts = ({ category, countSetter }) => {
   return (
     <>
       {data ? (
-        <div className={styles.grid}>
+        <section className={styles.grid}>
           {isEmpty ? (
             <h1 className={styles.emptyListNotice}>Empty products list :/</h1>
           ) : (
@@ -86,7 +86,7 @@ const CategoryProducts = ({ category, countSetter }) => {
               })}
             </>
           )}
-        </div>
+        </section>
       ) : (
         <h1>No products</h1>
       )}

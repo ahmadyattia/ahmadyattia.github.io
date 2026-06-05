@@ -64,7 +64,7 @@ const Orders = () => {
 
   return (
     <div id={styles.mainBox}>
-      <div id={styles.ordersBox}>
+      <section id={styles.ordersBox}>
         {loading && <p id={styles.loadingMessage}>Loading your orders...</p>}
         {error && (
           <p id={styles.errorMessage}>
@@ -79,7 +79,7 @@ const Orders = () => {
         ) : (
           <p className={styles.noOrdersMessage}>No orders to show for now!</p>
         )}
-      </div>
+      </section>
     </div>
   );
 };

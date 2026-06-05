@@ -18,16 +18,16 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className={`${styles.card} ${styles.font}`}>
+    <article className={`${styles.card} ${styles.font}`}>
       <img
         src={product.images[0]}
         alt={product.description}
         onClick={handleCardClick}
       />
       <div className={styles.details}>
-        <p className={styles.title} onClick={handleCardClick}>
+        <h3 className={styles.title} onClick={handleCardClick}>
           {product.title}
-        </p>
+        </h3>
         <div className={styles.description} onClick={handleCardClick}>
           <p className={styles.descriptionPara}>{product.description}</p>
           <p className={styles.readMore}>Read More</p>
@@ -50,8 +50,7 @@ const ProductCard = ({ product }) => {
           <AddToCartBtn product={product} />
         </div>
       </div>
-      {/* </Link> */}
-    </div>
+    </article>
   );
 };
 

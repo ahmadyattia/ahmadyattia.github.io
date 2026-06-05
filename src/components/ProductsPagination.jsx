@@ -28,7 +28,7 @@ const ProductsPagination = ({ productsCount }) => {
   let countArray = countToArray();
 
   return (
-    <div className={styles.pagination}>
+    <nav className={styles.pagination}>
       {countArray.map((num) => {
         const params = new URLSearchParams(searchParams);
 
@@ -58,7 +58,7 @@ const ProductsPagination = ({ productsCount }) => {
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 };
 

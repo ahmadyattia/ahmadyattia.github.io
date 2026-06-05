@@ -7,7 +7,7 @@ const ItemsSection = () => {
   const { cart } = useContext(CartContext);
 
   return (
-    <div id={styles.itemsSectionBox}>
+    <section id={styles.itemsSectionBox}>
       <div id={styles.itemsSection}>
         <div id={styles.headDiv}>
           <h2 id={styles.cartHeader}>Cart</h2>
@@ -29,7 +29,7 @@ const ItemsSection = () => {
           return <CartItem key={item.id} item={item} />;
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -45,7 +45,7 @@ const CartItem = ({ item }) => {
   }
 
   return (
-    <div className={styles.cartItemBox}>
+    <article className={styles.cartItemBox}>
       <div className={`${styles.cartItem} ${removeTransition}`}>
         <div className={styles.imageAndTitle}>
           <img className={styles.productImg} src={item.img} alt="" />
@@ -80,7 +80,7 @@ const CartItem = ({ item }) => {
           />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
