@@ -27,6 +27,9 @@ const ProductsPagination = ({ productsCount }) => {
 
   let countArray = countToArray();
 
+  // jump to top of the page on link press
+  const jumpToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <nav className={styles.pagination}>
       {countArray.map((num) => {
@@ -53,6 +56,7 @@ const ProductsPagination = ({ productsCount }) => {
             className={styles.link}
             to={`/shop/${category}?${params}`}
             key={num}
+            onClick={jumpToTop}
           >
             {num}
           </Link>
