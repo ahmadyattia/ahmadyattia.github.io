@@ -19,12 +19,12 @@ const ProductCard = ({ product }) => {
 
   return (
     <article className={`${styles.card} ${styles.font}`}>
-      <img
-        src={product.images[0]}
-        alt={product.description}
-        onClick={handleCardClick}
-      />
       <div className={styles.details}>
+        <img
+          src={product.images[0]}
+          alt={product.description}
+          onClick={handleCardClick}
+        />
         <h3 className={styles.title} onClick={handleCardClick}>
           {product.title}
         </h3>
@@ -35,20 +35,20 @@ const ProductCard = ({ product }) => {
         <p className={styles.category} onClick={handleCardClick}>
           {product.category}
         </p>
-        <div className={styles.checkout}>
-          <div onClick={handleCardClick}>
-            <p className={styles.priceLabel}>Price</p>
-            {discountedPrice ? (
-              <p className={styles.amount}>
-                <span className={styles.oldPrice}>$ {product.price}</span>{" "}
-                <span className={styles.newPrice}>$ {discountedPrice}</span>
-              </p>
-            ) : (
-              <p className={styles.amount}>$ {product.price}</p>
-            )}
-          </div>
-          <AddToCartBtn product={product} />
+      </div>
+      <div className={styles.checkout}>
+        <div onClick={handleCardClick}>
+          <p className={styles.priceLabel}>Price</p>
+          {discountedPrice ? (
+            <p className={styles.amount}>
+              <span className={styles.oldPrice}>${product.price}</span>{" "}
+              <span className={styles.newPrice}>${discountedPrice}</span>
+            </p>
+          ) : (
+            <p className={styles.amount}>${product.price}</p>
+          )}
         </div>
+        <AddToCartBtn product={product} />
       </div>
     </article>
   );

@@ -112,7 +112,7 @@
 }
 
 .newAmount {
-  color: green;
+  color: lightgreen;
 }
 
 .backLink {
@@ -140,5 +140,5 @@
 }
 
 .backP {
-  margin: 1rem 1rem 1rem 0.5rem;
+  margin: 1rem 1rem 1rem 0;
 }
