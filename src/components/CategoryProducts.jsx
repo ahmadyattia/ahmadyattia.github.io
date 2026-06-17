@@ -1,96 +1,59 @@
-import styles from "../Styles/CategoryProducts.module.css";
+import styles from "../styles/CategoryProducts.module.css";
 import { useProductsData } from "../context/ProductsContext";
 import ProductCard from "./ProductCard";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import slugify from "../utils/slugify";
 
 const CategoryProducts = ({ category, countSetter }) => {
-  const { data } = useProductsData();
-  let productsByCategory = [];
-  let productsOfPage = [];
+  const { data, isLoading } = useProductsData();
+  const [searchParams] = useSearchParams();
 
-  let isEmpty; // if empty category products list
+  const pageNumber = parseInt(searchParams.get("page") || "1");
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  // filter products according to the category
+  const filteredProducts = useMemo(() => {
+    if (!data) return [];
 
-  useEffect(() => {
-    if (!searchParams.has("page")) {
-      searchParams.set("page", "1");
-      setSearchParams(searchParams);
-    }
-  }, []);
+    if (category === "all") return data;
 
-  const pageNumber = searchParams.get("page");
+    return data.filter(
+      (product) => slugify(product.category) === slugify(category),
+    );
+  }, [data, category]);
 
-  if (data) {
-    // filter products according to the category
-    productsByCategory = data.filter((product) => {
-      return slugify(product.category) === slugify(category);
-    });
-
-    if (category === "all") {
-      productsByCategory = data;
-    }
-
-    if (productsByCategory.length === 0) {
-      isEmpty = true;
-    }
-  }
+  const totalCount = filteredProducts.length;
 
   useEffect(() => {
-    countSetter(productsByCategory.length);
-  }, [productsByCategory]);
+    countSetter(totalCount);
+  }, [totalCount, countSetter]);
 
   // take the products of the category..
   // convert them into an array with six products per array entry
   // this is then used to display six products per page
-  function productsPerPage() {
-    const products = [...productsByCategory];
-    const sixProductsPerArr = [];
+  const productsOfCurrentPage = useMemo(() => {
+    const itemsPerPage = 6;
+    const startIndex = (pageNumber - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
 
-    while (products.length > 0) {
-      let currentArray = [];
-      let i = 0;
+    return filteredProducts.slice(startIndex, endIndex);
+  }, [filteredProducts, pageNumber]);
 
-      while (i < 6) {
-        if (products[i]) {
-          currentArray.push(products[i]);
-        }
-        i++;
-      }
-      products.splice(0, 6);
+  if (isLoading)
+    return <h1 className={styles.statusNotice}>Loading products...</h1>;
 
-      sixProductsPerArr.push(currentArray);
-    }
+  if (!data)
+    return <h1 className={styles.statusNotice}>Error fetching data...</h1>;
 
-    return sixProductsPerArr;
-  }
-
-  if (pageNumber) {
-    productsOfPage = productsPerPage()[pageNumber - 1];
-  }
+  if (productsOfCurrentPage.length === 0)
+    return <h1 className={styles.statusNotice}>Empty products list...</h1>;
 
   return (
-    <>
-      {data ? (
-        <section className={styles.grid}>
-          {isEmpty ? (
-            <h1 className={styles.emptyListNotice}>Empty products list :/</h1>
-          ) : (
-            <>
-              {productsOfPage.map((product) => {
-                return (
-                  <ProductCard key={product.id} product={product}></ProductCard>
-                );
-              })}
-            </>
-          )}
-        </section>
-      ) : (
-        <h1>No products</h1>
-      )}
-    </>
+    <section className={styles.grid}>
+      {productsOfCurrentPage.map((product) => {
+        return <ProductCard key={product.id} product={product}></ProductCard>;
+      })}
+    </section>
   );
 };
 

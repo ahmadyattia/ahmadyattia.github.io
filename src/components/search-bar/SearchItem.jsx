@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "../../Styles/search-bar/SearchItem.module.css";
 import { Link } from "react-router-dom";
 import { highlightSearchTerm } from "@/utils/highlightSearchTerm";
 
 const SearchItem = ({ item, searchTerm }) => {
-  const parts = highlightSearchTerm(item.title, searchTerm);
+  // useMemo prevents re-splitting the string unless the item or query changes
+  const parts = useMemo(() => {
+    return highlightSearchTerm(item.title, searchTerm);
+  }, [item.title, searchTerm]);
 
   return (
     <Link
       className={styles.searchItem}
       to={`/shop/${item.category}/${item.id}/${item.slug}`}
+      aria-label={`Result: ${item.title}`}
     >
-      {parts.map((part, index) =>
-        part.toLowerCase() === searchTerm.toLowerCase() ? (
-          <mark key={index}>{part}</mark>
-        ) : (
-          part
-        ),
-      )}
+      {/* aria-hidden hides the fragmented text blocks from screen readers */}
+      <span aria-hidden="true">
+        {parts.map((part, index) =>
+          part.toLowerCase() === searchTerm.toLowerCase() ? (
+            <mark key={`${part}-${index}`}>{part}</mark>
+          ) : (
+            <React.Fragment key={`${part}-${index}`}>{part}</React.Fragment>
+          ),
+        )}
+      </span>
     </Link>
   );
 };

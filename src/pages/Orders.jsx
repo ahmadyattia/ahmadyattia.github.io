@@ -1,66 +1,9 @@
-import {
-  equalTo,
-  off,
-  query,
-  ref,
-  onValue,
-  orderByChild,
-} from "firebase/database";
 import styles from "@/styles/Orders.module.css";
-import { db } from "@/server/firebase";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "@/context/AuthContext";
 import Order from "@/components/Order";
+import useFetchOrders from "@/hooks/useFetchOrders";
 
 const Orders = () => {
-  const { user } = useContext(AuthContext);
-  const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // fetch orders from db
-  useEffect(() => {
-    if (user) {
-      const ordersRef = ref(db, "/orders");
-      const userOrdersQuery = query(
-        ordersRef,
-        orderByChild("userId"),
-        equalTo(user.uid),
-      );
-
-      const unsubscribe = onValue(
-        userOrdersQuery,
-        (snapshot) => {
-          if (snapshot.exists()) {
-            const data = snapshot.val();
-            const orderList = Object.keys(data).map((key) => {
-              return { id: key, ...data[key] };
-            });
-
-            // latest order first
-            orderList.reverse();
-
-            setOrders(orderList);
-          } else {
-            // no orders found for this user
-            setOrders(null);
-          }
-          setLoading(false);
-        },
-        (err) => {
-          console.error("Error fetching useer orders:", err);
-          setError(err);
-          setLoading(false);
-        },
-      );
-
-      return () => {
-        off(userOrdersQuery, "value", unsubscribe);
-      };
-    }
-  }, [user]);
-
-  console.log("orders:", orders);
+  const [orders, loading, error] = useFetchOrders();
 
   return (
     <div id={styles.mainBox}>
@@ -68,15 +11,17 @@ const Orders = () => {
         {loading && <p id={styles.loadingMessage}>Loading your orders...</p>}
         {error && (
           <p id={styles.errorMessage}>
-            Error finding your orders. Error: {error}
+            Error finding your orders. Error: {error.message}
           </p>
         )}
 
-        {orders ? (
+        {!loading &&
+          !error &&
+          orders.length > 0 &&
           orders.map((order) => {
             return <Order key={order.orderId} order={order} />;
-          })
-        ) : (
+          })}
+        {!loading && !error && orders.length === 0 && (
           <p className={styles.noOrdersMessage}>No orders to show for now!</p>
         )}
       </section>

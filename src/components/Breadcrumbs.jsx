@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import styles from "../Styles/Breadcrumbs.module.css";
 import rightBracketIcon from "@/assets/images/icons/right_angle_bracket_white_16px.svg";
@@ -6,7 +5,6 @@ import rightBracketIcon from "@/assets/images/icons/right_angle_bracket_white_16
 const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
-  const [isHomepage, setIsHomepage] = useState(false);
 
   // define a regex pattern that matches the product id
   // for the purpose of omitting the product id from breadcrumbs
@@ -20,32 +18,31 @@ const Breadcrumbs = () => {
   // no breadcrumbs on home page
   if (location.pathname === "/" || location.pathname === "/home") return null;
 
-  console.log(location.pathname);
-
   return (
     <nav>
-      <div id={styles.breadcrumbs}>
+      <ol id={styles.breadcrumbs}>
         {breadcrumbs.map((value, index) => {
-          const last = index === breadcrumbs.length - 1;
+          const isLast = index === breadcrumbs.length - 1;
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
 
-          return last ? (
-            <span className={styles.flexContainer} key={to}>
-              <img className={styles.arrowIcon} src={rightBracketIcon} />
-              <p>{value}</p>
-            </span>
-          ) : (
-            // The breadcrumb link uses absolute path starting with "/"
-            <span className={styles.flexContainer} key={to}>
-              <img className={styles.arrowIcon} src={rightBracketIcon} />
+          return (
+            <li className={styles.flexContainer}>
+              {/* Only show arrow icons starting from the second item */}
+              {index > 0 && (
+                <img className={styles.arrowIcon} src={rightBracketIcon} />
+              )}
 
-              <Link to={to} className={styles.breadcrumbLinks}>
-                <p>{value}</p>
-              </Link>
-            </span>
+              {isLast ? (
+                <span key={to}>{value}</span>
+              ) : (
+                <Link to={to} className={styles.breadcrumbLinks}>
+                  {value}
+                </Link>
+              )}
+            </li>
           );
         })}
-      </div>
+      </ol>
     </nav>
   );
 };

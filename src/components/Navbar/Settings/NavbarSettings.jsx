@@ -3,7 +3,7 @@ import LogoutBtn from "./LogoutBtn";
 import DeleteAccount from "./DeleteAccBtn";
 import { AuthContext } from "../../../context/AuthContext";
 import styles from "../../../Styles/Navbar/Settings/NavbarSettings.module.css";
-import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
+import useClickOutside from "@/hooks/useClickOutside";
 import settingsIcon from "@/assets/images/icons/settings.svg";
 
 const NavbarSettings = () => {
@@ -13,7 +13,7 @@ const NavbarSettings = () => {
   const settingsRef = useRef(null);
 
   // close menu when clicking away from it
-  closeMenuOnClickOutside(setIsOpen, settingsRef);
+  useClickOutside(setIsOpen, settingsRef);
 
   function handleToggle() {
     if (!isOpen) {

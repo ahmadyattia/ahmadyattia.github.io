@@ -10,162 +10,130 @@ const CartProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
   const { userData } = useContext(UserDataContext);
 
-  const [error, setError] = useState(null);
-
   // initialize the cart
   const [cart, setCart] = useState([]);
 
-  // get cart data from local storage on load
-  // while logged out
   useEffect(() => {
+    // SCENARIO A: Authenticated User
+    if (user && userData) {
+      let currentDbCart = userData.cart || [];
+      let guestCartData = [];
+
+      try {
+        const localData = localStorage.getItem("guest_cart");
+        if (localData) guestCartData = JSON.parse(localData);
+      } catch (err) {
+        console.error("Failed parsing guest cart during merge phase:", err);
+      }
+
+      // Merge only if a guest cart actively exists on login
+      if (guestCartData.length > 0) {
+        const mergedMap = new Map();
+
+        [...currentDbCart, ...guestCartData].forEach((item) => {
+          if (mergedMap.has(item.id)) {
+            const match = mergedMap.get(item.id);
+            mergedMap.set(item.id, {
+              ...match,
+              quantity: match.quantity + item.quantity,
+            });
+          } else {
+            mergedMap.set(item.id, { ...item });
+          }
+        });
+
+        const finalizedMergedCart = Array.from(mergedMap.values());
+
+        // Sync merge to state and db
+
+        setCart(finalizedMergedCart);
+
+        const userRef = ref(db, `users/${user.uid}`);
+        update(userRef, { cart: finalizedMergedCart });
+
+        localStorage.removeItem("guest_cart");
+      } else {
+        // no guest items to combine, just inherit db data
+        setCart(currentDbCart);
+      }
+      return;
+    }
+
+    // SCENARIO B: Unauthenticated Guest
     if (!user) {
       try {
         const savedCart = localStorage.getItem("guest_cart");
-
-        if (savedCart) {
-          setCart(JSON.parse(savedCart));
-        }
+        if (savedCart) setCart(JSON.parse(savedCart));
       } catch (error) {
-        console.error("Error parsing json. Data corrupted:", error);
+        console.error("Corrupted guest item structure:", error);
       }
-    }
-  }, []);
-
-  // saving cart to local storage if it doesn't exist or for update
-  useEffect(() => {
-    if (!user) {
-      localStorage.setItem("guest_cart", JSON.stringify(cart));
-    }
-  }, [cart]);
-
-  // load cart from db when the user signs in
-  useEffect(() => {
-    if (user && userData) {
-      userData.cart ? setCart(userData.cart) : setCart([]);
     }
   }, [user, userData]);
 
-  // update/set cart in the db
-  useEffect(() => {
+  // Helper: Persist state updates to correct destination
+  const persistCartState = (nextCartState) => {
+    setCart(nextCartState);
+    console.log(nextCartState);
     if (user) {
-      const userId = user.uid;
-
-      // reference to the user data in firebase
-      const userRef = ref(db, `users/${userId}`);
-
-      update(userRef, {
-        cart: cart,
-      });
+      update(ref(db, `users/${user.uid}`), { cart: nextCartState });
     } else {
-      // No authenticated user
-      setError("Please log in to view your profile.");
+      localStorage.setItem("guest_cart", JSON.stringify(nextCartState));
     }
-  }, [cart]);
+  };
 
-  // merge cart on login
-  useEffect(() => {
-    if (user) {
-      const userId = user.uid;
+  // Action: Add to Cart
+  function handleAddToCart(targetProduct) {
+    const existingIndex = cart.findIndex(
+      (item) => item.id === targetProduct.id,
+    );
+    let updatedCart;
 
-      // reference to the user data in firebase
-      const userRef = ref(db, `users/${userId}`);
-
-      let guestCart = localStorage.getItem("guest_cart");
-
-      if (guestCart && userData) {
-        guestCart = JSON.parse(guestCart);
-
-        if (userData.cart) {
-          // merging for duplicate items using a Map
-          const mergedMap = new Map();
-
-          [...userData.cart, ...guestCart].forEach((item) => {
-            if (mergedMap.has(item.id)) {
-              const existing = mergedMap.get(item.id);
-              mergedMap.set(item.id, {
-                ...existing,
-                quantity: existing.quantity + item.quantity,
-              });
-            } else {
-              mergedMap.set(item.id, { ...item });
-            }
-          });
-
-          const finalCart = Array.from(mergedMap.values());
-
-          setCart(finalCart);
-
-          // update db
-          update(userRef, {
-            cart: finalCart,
-          });
-        } else {
-          setCart(guestCart);
-
-          // update db
-          update(userRef, {
-            cart: guestCart,
-          });
-        }
-
-        // reset local storage (this is after merging the data)
-        localStorage.setItem("guest_cart", []);
-      }
-    }
-  }, [user, userData]);
-
-  function handleAddToCart(item) {
-    // the item if it is already in the cart
-    const existingItem = cart.find((value) => value.id === item.id);
-
-    // if the item exists, increase the quantity
-    if (existingItem) {
-      const updatedCart = cart.map((cartItem) =>
-        cartItem.id === existingItem.id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem,
+    // if item exists already, increase quantity
+    if (existingIndex > -1) {
+      updatedCart = cart.map((item, idx) =>
+        idx === existingIndex ? { ...item, quantity: item.quantity + 1 } : item,
       );
-
-      setCart(updatedCart);
     } else {
-      // otherwise add the item to the cart
-      item.quantity += 1;
-      setCart([...cart, item]);
+      // add a new item
+      updatedCart = [...cart, { ...targetProduct, quantity: 1 }];
     }
+
+    // update cart state
+    persistCartState(updatedCart);
   }
 
-  function handleRemoveFromCart(item, removeEntirely = false) {
-    // if there's a quantity reduce it until quantity equals 1
+  // Action: Remove from Cart
+  function handleRemoveFromCart(targetProduct, removeEntirely = false) {
+    const match = cart.find((item) => item.id === targetProduct.id);
+    if (!match) return;
 
-    if (item.quantity > 1) {
-      const updatedCart = cart.map((cartItem) =>
-        cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity - 1 }
-          : cartItem,
+    let updatedCart;
+
+    if (match.quantity > 1 && !removeEntirely) {
+      updatedCart = cart.map((item) =>
+        item.id === targetProduct.id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item,
       );
+    } else {
+      updatedCart = cart.filter((item) => item.id !== targetProduct.id);
+    }
 
-      setCart(updatedCart);
-    }
-    if (item.quantity <= 1 || removeEntirely) {
-      // remove the item completely and update the cart
-      item.quantity = 0;
-      setCart([...cart.filter((value) => value.id !== item.id)]);
-    }
+    // update cart state
+    persistCartState(updatedCart);
   }
 
   return (
-    <div>
-      <CartContext.Provider
-        value={{
-          cart,
-          setCart,
-          handleAddToCart,
-          handleRemoveFromCart,
-        }}
-      >
-        {children}
-      </CartContext.Provider>
-    </div>
+    <CartContext.Provider
+      value={{
+        cart,
+        setCart,
+        handleAddToCart,
+        handleRemoveFromCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
   );
 };
 

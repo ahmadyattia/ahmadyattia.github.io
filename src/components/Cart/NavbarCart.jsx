@@ -1,24 +1,20 @@
 import { useRef, useState } from "react";
-import styles from "../../Styles/Cart/NavbarCart.module.css";
+import styles from "@/Styles/Cart/NavbarCart.module.css";
 import CartDropdown from "@/components/Cart/CartDropdown.jsx";
 import CartCount from "./CartCount";
-import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
+import useClickOutside from "@/hooks/useClickOutside";
 import cartIcon from "@/assets/images/icons/shopping_cart.svg";
 
 const NavbarCart = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // close dropdown when clicking outside the element
-  closeMenuOnClickOutside(setIsOpen, dropdownRef);
+  // close dropdown when clicking outside
+  useClickOutside(setIsOpen, dropdownRef);
 
-  // control the toggling of the dropdown
   function handleIconClick() {
-    if (!isOpen) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
+    // control the toggling of the dropdown
+    setIsOpen((prev) => !prev);
   }
 
   return (

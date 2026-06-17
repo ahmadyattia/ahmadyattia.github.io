@@ -28,7 +28,7 @@ import deleteAccIconWhite from "@/assets/images/icons/delete-icon-white.svg";
 
 const Navbar = () => {
   const isMobile = useMediaQuery("(max-width: 850px)");
-  const isDesktop = !useMediaQuery("(max-width: 850px)");
+  const isDesktop = !isMobile;
   const [isActive, setIsActive] = useState(false);
   const { user } = useContext(AuthContext);
   const handleLogout = useLogout();

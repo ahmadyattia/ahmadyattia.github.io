@@ -8,7 +8,6 @@
   width: 100%;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,6 +16,15 @@
 
 .card:hover {
   background-color: rgba(255, 255, 255, 0.158);
+}
+
+.details {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
 }
 
 .card img {
@@ -50,7 +58,7 @@
   cursor: pointer;
 }
 
-.descriptionPara {
+.descriptionText {
   width: 50%;
   font-size: 0.75rem;
   font-weight: 500;
@@ -65,7 +73,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 }
 
 .priceLabel {
@@ -86,14 +93,6 @@
 
 .newPrice {
   color: lightgreen;
-}
-
-.details {
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
 }
 
 .linkToProductPage {

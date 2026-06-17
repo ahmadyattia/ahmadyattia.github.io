@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useMemo } from "react";
 import styles from "../Styles/Categories.module.css";
 import CategoryCard from "./CategoryCard";
 import { ProductsContext } from "../context/ProductsContext";
@@ -7,41 +7,39 @@ import slugify from "../utils/slugify";
 const Categories = () => {
   const { data } = useContext(ProductsContext);
 
-  const [categories, setCategories] = useState(null);
+  const categories = useMemo(() => {
+    if (!data) return [];
 
-  useEffect(() => {
-    if (data) {
-      // retrieve category names from products
-      // a Set used to remove duplicate categories
-      // then map each product to an object with name and slug props
-      // added "All" category
-      setCategories(
-        ["All", ...new Set(data.map((product) => product.category))].map(
-          (category) => {
-            return { name: category, slug: slugify(category) };
-          },
-        ),
-      );
-    }
+    // retrieve category names from products
+    // a Set used to remove duplicate categories
+    // then map each product to an object with name and slug properties
+    // added "All" category
+
+    const uniqueCategories = [
+      "All",
+      ...new Set(data.map((product) => product.category)),
+    ];
+
+    return uniqueCategories.map((category) => {
+      return { name: category, slug: slugify(category) };
+    });
   }, [data]);
 
-  console.log(categories);
+  if (!categories.length) return null;
 
   return (
     <div>
-      {categories && (
-        <div id={styles["shop-categories"]}>
-          {categories.map((category, index) => {
-            return (
-              <CategoryCard
-                key={index}
-                slug={category.slug}
-                name={category.name}
-              ></CategoryCard>
-            );
-          })}
-        </div>
-      )}
+      <div id={styles["shop-categories"]}>
+        {categories.map((category) => {
+          return (
+            <CategoryCard
+              key={category.slug}
+              slug={category.slug}
+              name={category.name}
+            ></CategoryCard>
+          );
+        })}
+      </div>
     </div>
   );
 };

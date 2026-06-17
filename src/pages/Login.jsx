@@ -1,34 +1,30 @@
-import styles from "../styles/Login.module.css";
-import { useContext, useEffect, useState } from "react";
+import styles from "@/styles/Login.module.css";
+import { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../server/firebase";
+import { auth } from "@/server/firebase";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import ShowPassword from "../components/ShowPassword";
+import { AuthContext } from "@/context/AuthContext";
+import ShowPassword from "@/components/ShowPassword";
 
 const Login = () => {
-  const { setToken, setUser } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [passwordVisibility, setPasswordVisibility] = useState("password");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    if (showPassword) {
-      setPasswordVisibility("text");
-    } else {
-      setPasswordVisibility("password");
-    }
-  }, [showPassword]);
+  const passwordInputType = showPassword ? "text" : "password";
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     setMessage("");
+    setIsSubmitting(true);
 
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -39,10 +35,7 @@ const Login = () => {
 
       const user = userCredential.user;
 
-      const idToken = await user.getIdToken();
-
       setUser(userCredential.user);
-      setToken(idToken);
 
       setMessage(`Successfully signed in as: ${userCredential.user.email}`);
       setEmail("");
@@ -50,7 +43,6 @@ const Login = () => {
       console.log("Signed in user:", userCredential.user);
 
       // if coming from, for example, the order checkout, redirect there
-
       const redirectPath = location.state?.from?.pathname || "/home";
 
       navigate(redirectPath, { replace: true });
@@ -81,12 +73,14 @@ const Login = () => {
         default:
           setMessage(`An unexpected error occurred: ${error.message}`);
       }
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   return (
-    <div id={styles.loginForm}>
-      <h2 id={styles.loginHead}>Login</h2>
+    <div className={styles.loginForm}>
+      <h2 className={styles.loginHead}>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
@@ -95,16 +89,18 @@ const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <span id={styles.passwordSpan}>
+          <span className={styles.passwordSpan}>
             <input
               id="password"
-              type={passwordVisibility}
+              type={passwordInputType}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <ShowPassword
               showPassword={showPassword}
@@ -113,8 +109,12 @@ const Login = () => {
           </span>
         </div>
         <div>
-          <button id={styles.loginBtn} type="submit">
-            Login
+          <button
+            className={styles.loginBtn}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Logging In..." : "Login"}
           </button>
         </div>
       </form>

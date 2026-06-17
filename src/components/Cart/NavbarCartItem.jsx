@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import styles from "../../Styles/Cart/NavbarCartItem.module.css";
-import { CartContext } from "../../context/CartContext.jsx";
+import styles from "@/Styles/Cart/NavbarCartItem.module.css";
+import { CartContext } from "@/context/CartContext.jsx";
 
 const NavbarCartItem = ({ item }) => {
   const { handleAddToCart, handleRemoveFromCart } = useContext(CartContext);

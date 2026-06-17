@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import styles from "../../Styles/Cart/CartDropdownActions.module.css";
+import styles from "@/Styles/Cart/CartDropdownActions.module.css";
 import { Link } from "react-router-dom";
 
 const CartDropdownActions = ({ setIsOpen }) => {

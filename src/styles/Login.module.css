@@ -1,9 +1,9 @@
-#loginHead {
+.loginHead {
   color: blue;
   font-size: 2rem;
 }
 
-#loginForm {
+.loginForm {
   color: white;
   font-family: "urbanist", sans-serif;
   display: flex;
@@ -13,13 +13,13 @@
   margin: 2rem;
 }
 
-#loginForm form div {
+.loginForm form div {
   display: flex;
   flex-direction: column;
   margin: 1.5rem;
 }
 
-#loginForm input {
+.loginForm input {
   width: 15rem;
   padding: 1rem;
   border-radius: 0.7rem;
@@ -30,17 +30,17 @@
   font-family: "urbanist", sans-serif;
 }
 
-#loginForm input:focus {
+.loginForm input:focus {
   outline: 0.2rem solid blue;
 }
 
-#loginForm label {
+.loginForm label {
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
   color: rgb(171, 171, 171);
 }
 
-#loginBtn {
+.loginBtn {
   width: 15rem;
   padding: 1rem;
   border-radius: 0.7rem;
@@ -51,13 +51,14 @@
   font-weight: 600;
   border: 0;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
-#loginBtn:hover {
+.loginBtn:hover {
   background-color: rgb(8, 8, 176);
 }
 
-#passwordSpan {
+.passwordSpan {
   position: relative;
   margin: 0;
 }

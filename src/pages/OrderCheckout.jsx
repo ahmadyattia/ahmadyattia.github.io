@@ -1,6 +1,6 @@
 import styles from "@/styles/Cart/OrderCheckout.module.css";
 import { useContext, useEffect, useRef, useState } from "react";
-import CheckoutSection from "../components/Cart/CheckoutSection";
+import CheckoutSection from "../components/Cart/CheckoutSummary";
 import { AuthContext } from "../context/AuthContext";
 import { ulid } from "ulid"; // id generator
 import { CartContext } from "../context/CartContext";

@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 
 const NavbarBtn = ({ icon, name, path }) => {
   return (
-    <Link to={path}>
-      <button className={styles.navbarBtn}>
-        <img src={icon} alt={name} />
-        {name}
-      </button>
+    <Link to={path} className={styles.navbarBtn}>
+      <img src={icon} alt="" aria-hidden="true" />
+      <span>{name}</span>
     </Link>
   );
 };

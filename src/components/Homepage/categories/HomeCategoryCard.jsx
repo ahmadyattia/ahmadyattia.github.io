@@ -1,4 +1,4 @@
-import styles from "../../../Styles/Homepage/categories/HomeCategoryCard.module.css";
+import styles from "@/Styles/Homepage/categories/HomeCategoryCard.module.css";
 import categoriesImages from "@/data/CategoriesImages";
 import { useNavigate } from "react-router-dom";
 
@@ -14,14 +14,9 @@ const HomeCategoryCard = ({ category }) => {
   }
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleClick}>
       <img className={styles.img} src={categoryImg} alt="" />
       <p className={styles.name}>{category.name}</p>
-      <button className={styles.shopNowBtn} onClick={handleClick}>
-        Shop Now
-      </button>
-      {/* <div className={styles.nameAndBtn}>
-      </div> */}
     </div>
   );
 };

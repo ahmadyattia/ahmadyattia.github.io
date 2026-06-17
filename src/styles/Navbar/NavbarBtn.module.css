@@ -6,11 +6,11 @@
   font-family: var(--primary-font);
   color: black;
   background-color: white;
-  border: 0;
   border-radius: 5rem;
   padding: 0.625em 1.5em;
   font-size: var(--fs-nav);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .navbarBtn:hover {

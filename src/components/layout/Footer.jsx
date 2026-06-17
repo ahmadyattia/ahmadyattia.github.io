@@ -1,4 +1,4 @@
-// this component is design with a mobile-first approach
+// this component is designed with a mobile-first approach
 
 import React from "react";
 import styles from "@/styles/layout/Footer.module.css";

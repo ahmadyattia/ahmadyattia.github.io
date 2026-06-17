@@ -1,17 +1,17 @@
 import styles from "../Styles/ProductCard.module.css";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AddToCartBtn from "./Cart/AddToCartBtn";
 
 const ProductCard = ({ product }) => {
-  let discountedPrice = null;
   const navigate = useNavigate();
 
-  if (product.discountPercentage > 0) {
-    discountedPrice = (
-      product.price -
-      product.price * (product.discountPercentage / 100)
-    ).toFixed(2);
-  }
+  const discountedPrice =
+    product.discountPercentage > 0
+      ? (
+          product.price -
+          product.price * (product.discountPercentage / 100)
+        ).toFixed(2)
+      : null;
 
   function handleCardClick() {
     navigate(`${product.id}/${product.slug}`);
@@ -19,25 +19,17 @@ const ProductCard = ({ product }) => {
 
   return (
     <article className={`${styles.card} ${styles.font}`}>
-      <div className={styles.details}>
-        <img
-          src={product.images[0]}
-          alt={product.description}
-          onClick={handleCardClick}
-        />
-        <h3 className={styles.title} onClick={handleCardClick}>
-          {product.title}
-        </h3>
-        <div className={styles.description} onClick={handleCardClick}>
-          <p className={styles.descriptionPara}>{product.description}</p>
+      <div className={styles.details} onClick={handleCardClick}>
+        <img src={product.images[0]} alt={product.title} />
+        <h3 className={styles.title}>{product.title}</h3>
+        <div className={styles.description}>
+          <p className={styles.descriptionText}>{product.description}</p>
           <p className={styles.readMore}>Read More</p>
         </div>
-        <p className={styles.category} onClick={handleCardClick}>
-          {product.category}
-        </p>
+        <p className={styles.category}>{product.category}</p>
       </div>
       <div className={styles.checkout}>
-        <div onClick={handleCardClick}>
+        <div>
           <p className={styles.priceLabel}>Price</p>
           {discountedPrice ? (
             <p className={styles.amount}>

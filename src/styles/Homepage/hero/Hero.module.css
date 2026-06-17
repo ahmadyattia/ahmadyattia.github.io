@@ -1,11 +1,11 @@
 #hero {
   position: relative;
-  height: calc(100vh - (4.5rem + 4rem)); /* 4.5rem navbar - 4rem breadcrumbs */
+  height: 100vh;
   min-height: fit-content;
   max-height: 1000px;
-  width: calc(100% - 4rem);
+  width: 100%;
   font-family: var(--primary-font);
-  margin: 2rem;
+  margin: -4.5rem 0 0 0;
 }
 
 .heroCard {
@@ -16,13 +16,12 @@
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.85) 80%),
     url("@/assets/images/hero-bg-blue.jpg");
   background-size: cover;
-  border-radius: 1rem;
   background-position: right;
 }
 
 @media (max-width: 768px) {
   #hero {
-    height: calc(60vh - (4.5rem + 4rem));
+    height: 60vh;
   }
 }
 
@@ -31,7 +30,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  margin: 2rem;
+  margin-left: 2rem;
   max-width: 50%;
   margin-right: auto;
 }

@@ -16,7 +16,6 @@ const CategoryPage = () => {
     <div id={styles.categoryPage}>
       <SearchEngine />
       <h2>{capitalizedName}</h2>
-      {/* </div> */}
       <CategoryProducts category={category} countSetter={setProductsCount} />
       <div className={styles.paginationContainer}>
         <ProductsPagination productsCount={productsCount} />

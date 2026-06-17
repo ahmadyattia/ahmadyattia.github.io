@@ -11,6 +11,7 @@ const ShowPassword = ({ showPassword, setShowPassword }) => {
           src={passwordHiddenIcon}
           onClick={() => setShowPassword(false)}
           title="Hide Password"
+          alt="Hide Password"
         />
       ) : (
         <img
@@ -18,6 +19,7 @@ const ShowPassword = ({ showPassword, setShowPassword }) => {
           src={passwordShownIcon}
           onClick={() => setShowPassword(true)}
           title="Show Password"
+          alt="Show Password"
         />
       )}
     </>

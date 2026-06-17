@@ -51,7 +51,7 @@
   cursor: pointer;
 }
 
-#selectedImgOverlay {
+.selectedImgOverlay {
   position: absolute;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -139,6 +139,6 @@
   width: 1.2rem;
 }
 
-.backP {
+.backText {
   margin: 1rem 1rem 1rem 0;
 }

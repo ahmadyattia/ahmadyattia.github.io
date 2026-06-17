@@ -1,45 +1,46 @@
 .card {
   position: relative;
-  min-width: calc(50% - 1rem); /* 1rem subtracted for the margin */
-  border-radius: 1rem;
+  min-width: calc(33.3% - 1rem); /* 1rem subtracted for the margin */
+  border-radius: 2rem;
   display: flex;
   margin: 0 0.5rem;
+  cursor: pointer;
 }
 
 .img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 1rem;
+  border-radius: 2rem;
   object-fit: cover;
-  filter: brightness(80%);
+  filter: brightness(90%);
 }
 
 .name {
   position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, -50%);
+  left: 15%;
+  bottom: 15%;
   font-family: var(--primary-font);
   font-weight: bold;
   color: white;
   margin: 0;
-  padding: 0.2rem 1rem;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .shopNowBtn {
   position: absolute;
-  left: 50%;
-  top: 75%;
-  transform: translate(-50%, -50%);
+  left: 10%;
+  top: 90%;
   width: max-content;
   border: 0;
-  border-radius: 3rem;
-  background: rgba(0, 0, 0, 0.4);
   font-family: var(--primary-font);
   font-size: 1rem;
   color: white;
   cursor: pointer;
-  padding: 0.2rem 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
 }
 
 .shopNowBtn:hover {

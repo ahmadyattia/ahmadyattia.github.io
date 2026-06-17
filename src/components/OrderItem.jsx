@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 import slugify from "../utils/slugify";
 
 const OrderItem = ({ item }) => {
-  const itemLocation = `/shop/${slugify(item.category)}/${item.id}/${item.slug}`;
-  let discount = null;
+  if (!item) return null;
 
-  if (item.discountPercentage > 0) {
-    discount = (
-      item.price -
-      item.price * (item.discountPercentage / 100)
-    ).toFixed(2);
-  }
+  const itemLocation = `/shop/${slugify(item.category)}/${item.id}/${item.slug}`;
+
+  const discount =
+    item.discountPercentage > 0
+      ? (item.price - item.price * (item.discountPercentage / 100)).toFixed(2)
+      : null;
 
   return (
     <div className={styles.mainBox}>
-      <img className={styles.img} src={item.img} alt="" />
+      <img className={styles.img} src={item.img} alt={item.title} />
       <div className={styles.title}>{item.title}</div>
       {discount ? (
         <div className={styles.price}>

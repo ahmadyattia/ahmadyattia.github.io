@@ -1,16 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const location = useLocation();
   const { loading, user } = useContext(AuthContext);
 
   if (loading) {
-    return <div>Loading Authentication...</div>;
+    return <div style={{ color: "white" }}>Loading Authentication...</div>;
   }
-
-  console.log(location);
 
   if (!user) {
     return (
@@ -18,11 +16,7 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  if (user) {
-    return <div>{children}</div>;
-  }
-
-  // return <div>ProtectedRoute</div>;
+  return children;
 };
 
 export default ProtectedRoute;

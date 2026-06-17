@@ -1,16 +1,10 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext.jsx";
 import styles from "../../Styles/Cart/CartCount.module.css";
+import calculateCartCount from "@/utils/calculateCartCount";
 
 const CartCount = () => {
-  const { cart } = useContext(CartContext);
-  // let cartCount = cart.length;
+  let totalCount = calculateCartCount();
 
-  let totalQuantity = cart.reduce((total, item) => {
-    return total + item.quantity;
-  }, 0);
-
-  return <p id={styles.count}>{totalQuantity}</p>;
+  return <p id={styles.count}>{totalCount}</p>;
 };
 
 export default CartCount;

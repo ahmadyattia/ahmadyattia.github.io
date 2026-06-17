@@ -5,6 +5,7 @@ import CartItem from "./CartItem";
 
 const ItemsSection = () => {
   const { cart } = useContext(CartContext);
+  const isCartEmpty = cart.length === 0;
 
   return (
     <section id={styles.itemsSectionBox}>
@@ -14,20 +15,21 @@ const ItemsSection = () => {
           <p id={styles.countNotice}>({cart.length})</p>
         </div>
 
-        {cart.length != 0 ? (
-          <div id={styles.cartColumnTitles}>
-            <p id={styles.productsHead}>Product</p>
-            <p id={styles.quantityHead}>Quantity</p>
-            <p id={styles.priceHead}>Price</p>
-            <div id={styles.titlesPlaceholder}></div>
-          </div>
-        ) : (
+        {isCartEmpty ? (
           <h3 id={styles.emptyCartNotice}>Your Cart is Empty!</h3>
+        ) : (
+          <>
+            <div id={styles.cartColumnTitles}>
+              <p id={styles.productsHead}>Product</p>
+              <p id={styles.quantityHead}>Quantity</p>
+              <p id={styles.priceHead}>Price</p>
+              <div id={styles.titlesPlaceholder}></div>
+            </div>
+            {cart.map((item) => {
+              return <CartItem key={item.id} item={item} />;
+            })}
+          </>
         )}
-
-        {cart.map((item) => {
-          return <CartItem key={item.id} item={item} />;
-        })}
       </div>
     </section>
   );

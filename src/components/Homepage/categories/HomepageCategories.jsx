@@ -1,5 +1,5 @@
-import styles from "../../../Styles/Homepage/categories/HomepageCategories.module.css";
-import categories from "../../../data/Categories";
+import styles from "@/Styles/Homepage/categories/HomepageCategories.module.css";
+import categories from "@/data/Categories";
 import HomeCategoryCard from "./HomeCategoryCard";
 import { useState } from "react";
 import backArrow from "@/assets/images/icons/arrow_back_white_20px.svg";
@@ -8,10 +8,8 @@ import forwardArrow from "@/assets/images/icons/arrow_forward_white_20px.svg";
 const HomepageCategories = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // number of slides according to categories
-  const slidesCount = Math.ceil(categories.length / 2);
-
-  let trackVibrate = "";
+  // number of slides according to categories' count
+  const slidesCount = Math.ceil(categories.length / 3);
 
   const nextSlide = () => {
     // Loop back to start if at the end
@@ -23,11 +21,6 @@ const HomepageCategories = () => {
     setCurrentIndex((prev) => (prev === 0 ? slidesCount - 1 : prev - 1));
   };
 
-  // track vibrates only on first slide
-  if (currentIndex === 0) {
-    trackVibrate = `${styles.trackVibrate}`;
-  }
-
   return (
     <div id={styles.main}>
       <h1 id={styles.title}>Shop by Category</h1>
@@ -38,7 +31,6 @@ const HomepageCategories = () => {
         <div id={styles.trackWrapper}>
           <div
             id={styles.track}
-            className={trackVibrate}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {categories.map((category) => {

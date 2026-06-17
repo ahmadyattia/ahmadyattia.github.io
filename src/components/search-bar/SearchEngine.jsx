@@ -1,14 +1,14 @@
 import React, { useState, useRef } from "react";
-import styles from "../../Styles/search-bar/SearchEngine.module.css";
+import styles from "@/Styles/search-bar/SearchEngine.module.css";
 import SearchResults from "./SearchResults";
-import closeMenuOnClickOutside from "@/utils/closeMenuOnClickOutside";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const SearchEngine = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const containerRef = useRef(null);
 
-  closeMenuOnClickOutside(setIsOpen, containerRef);
+  useClickOutside(setIsOpen, containerRef);
 
   function handleChange(e) {
     setSearchTerm(e.target.value);
@@ -20,9 +20,12 @@ const SearchEngine = () => {
         id={styles.searchInput}
         type="text"
         placeholder="Search..."
+        aria-label="Search..."
+        role="search"
         onChange={handleChange}
-        value={searchTerm}
+        onFocus={() => setIsOpen(true)}
         onClick={() => setIsOpen(true)}
+        value={searchTerm}
       />
       {isOpen && (
         <div id={`${styles.searchDropdown}`}>

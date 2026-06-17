@@ -4,7 +4,8 @@ import OrderItem from "./OrderItem";
 import orderIcon from "@/assets/images/icons/order-icon.svg";
 
 const Order = ({ order }) => {
-  const orderShippingMethod = order.shipping.shippingMethod;
+  const orderShippingMethod = order?.shipping?.shippingMethod;
+  const shipping = order?.shipping;
 
   return (
     <article className={styles.mainBox}>
@@ -14,10 +15,10 @@ const Order = ({ order }) => {
       </div>
 
       <div className={styles.orderLogistics}>
-        {orderShippingMethod === "delivery" && (
+        {orderShippingMethod === "delivery" && shipping && (
           <div className={styles.shippingInfo}>
-            Delivery to: {order.shipping.city}, {order.shipping.state},{" "}
-            {order.shipping.country} {order.shipping.zipCode}
+            Delivery to: {shipping.city}, {shipping.state}, {shipping.country}{" "}
+            {shipping.zipCode}
           </div>
         )}
         {orderShippingMethod === "pickup" && (
@@ -26,11 +27,11 @@ const Order = ({ order }) => {
         <div className={styles.date}>Placed on: {order.date}</div>
       </div>
       <div className={styles.orderItems}>
-        {order.items.map((item) => {
-          return <OrderItem item={item} />;
+        {order?.items?.map((item) => {
+          return <OrderItem key={item.id} item={item} />;
         })}
       </div>
-      <div className={styles.total}>Total: ${order.total}</div>
+      <div className={styles.total}>Total: ${order?.total}</div>
     </article>
   );
 };

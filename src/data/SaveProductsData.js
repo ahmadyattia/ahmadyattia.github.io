@@ -3,16 +3,11 @@
 // https://dummyjson.com/products
 // this function should run only once unless the products are not in the db
 
-import { useContext, useState, useEffect } from "react";
-import { ProductsContext } from "../context/ProductsContext";
+import { useEffect } from "react";
 import { push, ref, set } from "firebase/database";
 import { db } from "../server/firebase";
 
 export const saveProductsData = () => {
-  // const { data } = useContext(ProductsContext);
-  // const [data, setData] = useState(null);
-  // let data = null;
-
   useEffect(() => {
     // fetch product from mock data
     const loadData = async () => {
@@ -21,10 +16,6 @@ export const saveProductsData = () => {
           "https://api.escuelajs.co/api/v1/products",
         );
         let data = await response.json();
-
-        // setData(data);
-
-        console.log(data);
 
         data = data.filter((product) => {
           return product.id <= 51;
@@ -51,6 +42,4 @@ export const saveProductsData = () => {
 
     loadData();
   }, []);
-
-  // console.log(data);
 };

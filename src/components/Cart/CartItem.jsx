@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../../Styles/Cart/CartItem.module.css";
+import styles from "@/Styles/Cart/CartItem.module.css";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import slugify from "@/utils/slugify";
@@ -8,10 +8,9 @@ import plusIcon from "@/assets/images/icons/plus_icon_16px_white.svg";
 import deleteIcon from "@/assets/images/icons/delete_icon_16px_red.svg";
 
 const CartItem = ({ item }) => {
-  const [removeTransition, setRemoveTransition] = useState("");
+  const [animateRemove, setAnimateRemove] = useState("");
 
-  const { cart, handleAddToCart, handleRemoveFromCart } =
-    useContext(CartContext);
+  const { handleAddToCart, handleRemoveFromCart } = useContext(CartContext);
 
   function handleIncreaseQuantity() {
     handleAddToCart(item);
@@ -19,7 +18,7 @@ const CartItem = ({ item }) => {
 
   function handleReduceQuantity() {
     if (item.quantity === 1) {
-      setRemoveTransition(`${styles.removeItemTransition}`);
+      setAnimateRemove(`${styles.animateRemoveItem}`);
       setTimeout(() => {
         handleRemoveFromCart(item);
       }, 1000);
@@ -29,7 +28,7 @@ const CartItem = ({ item }) => {
   }
 
   function handleDeleteItem() {
-    setRemoveTransition(`${styles.removeItemTransition}`);
+    setAnimateRemove(`${styles.animateRemoveItem}`);
     setTimeout(() => {
       handleRemoveFromCart(item, true);
     }, 1000);
@@ -46,7 +45,7 @@ const CartItem = ({ item }) => {
 
   return (
     <article className={styles.cartItemBox}>
-      <div className={`${styles.cartItem} ${removeTransition}`}>
+      <div className={`${styles.cartItem} ${animateRemove}`}>
         <div className={styles.imageAndTitle}>
           <img className={styles.productImg} src={item.img} alt="" />
           <div>

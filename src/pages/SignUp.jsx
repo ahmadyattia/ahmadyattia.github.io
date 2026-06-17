@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../server/firebase";
 import { ref, set } from "firebase/database";
 import styles from "../Styles/SignUp.module.css";
-import { useNavigate, Link, replace, useLocation } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import ShowPassword from "../components/ShowPassword";
 
 const SignUp = () => {
@@ -13,22 +13,20 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [passwordVisibility, setPasswordVisibility] = useState("password");
+  const [isSubmitting, setIsSubmitting] = useState(false); // throttle submit clicks
   const location = useLocation();
 
-  useEffect(() => {
-    if (showPassword) {
-      setPasswordVisibility("text");
-    } else {
-      setPasswordVisibility("password");
-    }
-  }, [showPassword]);
+  const passwordInputType = showPassword ? "text" : "password";
 
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (isSubmitting) return;
+
     setMessage("");
+    setIsSubmitting(true);
 
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -38,25 +36,26 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      console.log(user);
-
       if (user) {
+        const fullName = `${firstName.trim()} ${lastName.trim()}}`;
+
+        await updateProfile(user, {
+          displayName: `${fullName}`,
+        });
+
         const userRef = ref(db, "users/" + user.uid);
 
         // set the user data in the db for the first time.
         await set(userRef, {
-          firstName,
-          lastName,
-          email,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim().toLowerCase(),
         });
 
-        await updateProfile(user, {
-          displayName: `${firstName} ${lastName}`,
-        });
+        setMessage(
+          `Account created successfully for ${email}! Welcome, ${user.displayName}.`,
+        );
       }
-      setMessage(
-        `Account created successfully for ${email}! Welcome, ${user.displayName}.`,
-      );
 
       console.log("Data saved successfully!");
 
@@ -95,12 +94,14 @@ const SignUp = () => {
             `An unexpected error occurred during sign-up: ${error.message}`,
           );
       }
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   return (
-    <div id={styles.registerForm}>
-      <h2 id={styles.signUpHead}>Sign Up</h2>
+    <div className={styles.registerForm}>
+      <h2 className={styles.signUpHead}>Sign Up</h2>
       <form onSubmit={handleSubmit} action="">
         <div>
           <label htmlFor="fName">First Name</label>
@@ -134,10 +135,10 @@ const SignUp = () => {
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <span id={styles.passwordSpan}>
+          <span className={styles.passwordSpan}>
             <input
               id="password"
-              type={passwordVisibility}
+              type={passwordInputType}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -149,8 +150,12 @@ const SignUp = () => {
           </span>
         </div>
         <div>
-          <button id={styles.submitBtn} type="submit">
-            Sign Up
+          <button
+            className={styles.submitBtn}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Creating Account..." : "Sign Up"}
           </button>
         </div>
       </form>
@@ -164,7 +169,10 @@ const SignUp = () => {
         </p>
       )}
       <p className={styles.loginP}>
-        Already have an account? <Link to={"/login"}>Log in</Link>
+        Already have an account?{" "}
+        <Link to={"/login"} state={location.state?.from}>
+          Log in
+        </Link>
       </p>
     </div>
   );

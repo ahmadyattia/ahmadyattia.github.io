@@ -2,36 +2,23 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import styles from "../../Styles/Cart/AddToCartBtn.module.css";
+import mapToCartItem from "@/data/mappers/cartItemMapper";
 
 const AddToCartBtn = ({ product }) => {
   const { cart } = useContext(CartContext);
   const { handleAddToCart } = useContext(CartContext);
   const [isInCart, setIsInCart] = useState(false);
 
-  const itemExistsInCart = cart.some((item) => item.id == product.id);
+  // if the cart gets updated, update the UI
+  useEffect(() => {
+    setIsInCart(cart.some((item) => item.id == product.id));
+  }, [cart]);
 
   function handleBtnClick() {
     setIsInCart(true);
   }
 
-  useEffect(() => {
-    if (itemExistsInCart) {
-      setIsInCart(true);
-    } else {
-      setIsInCart(false);
-    }
-  }, [itemExistsInCart]);
-
-  const cartItem = {
-    id: product.id,
-    img: product.images[0],
-    title: product.title,
-    price: product.price,
-    description: product.description,
-    category: product.category,
-    discountPercentage: product.discountPercentage,
-    quantity: 0,
-  };
+  const cartItem = mapToCartItem(product);
 
   return (
     <div>

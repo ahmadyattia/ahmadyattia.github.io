@@ -6,41 +6,61 @@ import { db } from "../server/firebase";
 export const UserDataContext = createContext();
 
 const UserDataProvider = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user, loading: authLoading } = useContext(AuthContext);
 
   const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // load user data from db
   useEffect(() => {
+    if (authLoading) return;
+
+    // flag to prevent state updates if the user logs out mid-fetch
+    let isMounted = true;
+
     if (user) {
+      setIsLoading(true);
+      setError(null);
+
       async function readUserData() {
         const dbRef = ref(db);
 
         try {
           const snapshot = await get(child(dbRef, "users/" + user.uid));
-          if (snapshot.exists()) {
-            setUserData(snapshot.val());
-          } else {
-            console.log("No data exists for this user.");
-            setUserData(null);
+
+          if (isMounted) {
+            if (snapshot.exists()) {
+              setUserData(snapshot.val());
+            } else {
+              console.log("No data exists for this user.");
+              setUserData(null);
+            }
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
+          if (isMounted) setError(error);
+        } finally {
+          if (isMounted) setIsLoading(false);
         }
       }
 
       readUserData();
     } else {
-      console.log("There is not a signed in user.");
+      // Clean up profile states immediately if user logs out
       setUserData(null);
+      setIsLoading(false);
     }
-  }, [user]);
+
+    // Cleanup function turns flag off if user logs out mid-stream
+    return () => {
+      isMounted = false;
+    };
+  }, [user, authLoading]);
 
   return (
     <>
-      <UserDataContext.Provider value={{ userData }}>
+      <UserDataContext.Provider value={{ userData, isLoading, error }}>
         {children}
       </UserDataContext.Provider>
     </>

@@ -18,7 +18,7 @@
     border 2s;
 }
 
-.removeItemTransition {
+.animateRemoveItem {
   height: 0;
   border: 0;
   opacity: 0;
