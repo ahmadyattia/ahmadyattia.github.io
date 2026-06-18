@@ -5,23 +5,25 @@
   max-height: 1000px;
   width: 100%;
   font-family: var(--primary-font);
-  margin: -4.5rem 0 0 0;
+  margin: 0 0 10rem 0;
 }
 
 .heroCard {
+  display: flex;
+  justify-content: center;
   font-family: inherit;
   height: 100%;
   background-image: 
   /* The lighting overlay: dark edges, dim center */
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.85) 80%),
-    url("@/assets/images/hero-bg-blue.jpg");
+    url("@/assets/images/hero-bg.jpg");
   background-size: cover;
-  background-position: right;
+  background-position: left;
 }
 
 @media (max-width: 768px) {
   #hero {
-    height: 60vh;
+    height: 70vh;
   }
 }
 
@@ -29,17 +31,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
   height: 100%;
-  margin-left: 2rem;
   max-width: 50%;
-  margin-right: auto;
 }
 
-.title {
+.headline {
   color: white;
   font-weight: 600;
-  font-size: 2rem;
-  filter: brightness(1);
+  font-size: 3.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.text {
+  color: white;
+  font-size: 1.25rem;
+  margin: 0;
+  text-align: center;
 }
 
 .shopNowBtn {
@@ -54,7 +64,7 @@
   font-size: var(--fs-hero);
   font-weight: 700;
   text-transform: uppercase;
-  border-radius: 3rem;
+  border-radius: 0.5rem;
 }
 
 .shopNowBtn:hover {

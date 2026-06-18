@@ -12,9 +12,11 @@ const Hero = () => {
     <div id={styles.hero}>
       <div className={styles.heroCard}>
         <div className={styles.body}>
-          <h1 className={styles.title}>
-            From Home to Heart: Find What You’re Looking For.
-          </h1>
+          <h1 className={styles.headline}>Find Your Next Favorite</h1>
+          <p className={styles.text}>
+            Explore curated collections, exeptional quality, and products you'll
+            love from the very first use.
+          </p>
           <button className={styles.shopNowBtn} onClick={handleShopNow}>
             Shop now
           </button>

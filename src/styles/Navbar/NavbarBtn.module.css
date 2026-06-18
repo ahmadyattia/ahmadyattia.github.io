@@ -6,7 +6,7 @@
   font-family: var(--primary-font);
   color: black;
   background-color: white;
-  border-radius: 5rem;
+  border-radius: 0.5rem;
   padding: 0.625em 1.5em;
   font-size: var(--fs-nav);
   cursor: pointer;
