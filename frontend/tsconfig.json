@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "ignoreDeprecations": "6.0",
+    "target": "es2022",
+    "lib": ["es2022", "dom", "dom.iterable", "esnext"],
+    "allowJs": false /* Allows JS/TS coexistence */,
+    "skipLibCheck": true /* Skips type checking of d.ts files */,
+    "esModuleInterop": true /* Enables CommonJS/ES module compatibility */,
+    "strict": true /* Start with loose types to avoid errors */,
+    "noEmit": true /* Prevents TS from generating files */,
+    "jsx": "react-jsx" /* Supports modern React JSX */
+  },
+  "include": ["src/**/*", "**/*.ts", "**/*.tsx"]
+}
