@@ -2,6 +2,7 @@ import styles from "../Styles/ProductCard.module.css";
 import { useNavigate } from "react-router-dom";
 import AddToCartBtn from "./Cart/AddToCartBtn";
 import { MappedProduct } from "@/data/mappers/productsMapper";
+import ImageSkeleton from "./ImageSkeleton";
 
 interface ProductCardProps {
   product: MappedProduct;
@@ -25,7 +26,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <article className={`${styles.card} ${styles.font}`}>
       <div className={styles.details} onClick={handleCardClick}>
-        <img src={product.images[0]} alt={product.title} />
+        <ImageSkeleton src={product.images[0]} alt={product.title} />
         <h3 className={styles.title}>{product.title}</h3>
         <div className={styles.description}>
           <p className={styles.descriptionText}>{product.description}</p>

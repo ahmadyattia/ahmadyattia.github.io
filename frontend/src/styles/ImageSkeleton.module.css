@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  background: #e5e7eb;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loaded {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
