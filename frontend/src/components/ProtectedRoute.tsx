@@ -5,22 +5,18 @@ interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
-interface CustomizedState {
-  from: Location;
-}
-
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const location = useLocation();
   const { loading, user } = useAuth();
-
-  const state = location.state as CustomizedState | null;
 
   if (loading) {
     return <div style={{ color: "white" }}>Loading Authentication...</div>;
   }
 
   if (!user) {
-    return <Navigate to={"/login"} state={state} replace></Navigate>;
+    return (
+      <Navigate to={"/login"} state={{ from: location }} replace></Navigate>
+    );
   }
 
   return children;
